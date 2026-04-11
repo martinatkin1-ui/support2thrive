@@ -1,0 +1,225 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ur' or LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% trans "West Midlands Community Share" %}{% endblock %}</title>
+
+    <!-- Tailwind CSS via CDN (replace with build step in production) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+
+    <!-- RTL styles -->
+    {% if LANGUAGE_CODE == 'ur' or LANGUAGE_CODE == 'ar' %}
+    <style>
+        body { direction: rtl; text-align: right; }
+        .ltr-only { direction: ltr; }
+    </style>
+    {% endif %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="min-h-screen bg-gray-50 flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-primary-700 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Brand -->
+                <div class="flex items-center">
+                    <a href="{% url 'core:home' %}" class="text-xl font-bold">
+                        {% trans "WM Community Share" %}
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-4 {% if LANGUAGE_CODE == 'ur' or LANGUAGE_CODE == 'ar' %}space-x-reverse{% endif %}">
+                    <a href="{% url 'organizations:list' %}" class="hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Organizations" %}
+                    </a>
+                    <a href="#" class="hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Events" %}
+                    </a>
+                    <a href="#" class="hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "News" %}
+                    </a>
+
+                    <!-- Language Selector -->
+                    <div class="relative" x-data="{ open: false }">
+                        <form action="{% url 'set_language' %}" method="post" id="language-form">
+                            {% csrf_token %}
+                            <select name="language" onchange="this.form.submit()"
+                                    class="bg-primary-600 text-white text-sm rounded px-2 py-1 border border-primary-500 cursor-pointer">
+                                {% get_available_languages as languages %}
+                                {% for lang_code, lang_name in languages %}
+                                    <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                        {{ lang_name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                        </form>
+                    </div>
+
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'accounts:profile' %}" class="hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                            {{ user.get_short_name }}
+                        </a>
+                        <a href="{% url 'accounts:logout' %}" class="hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                            {% trans "Logout" %}
+                        </a>
+                    {% else %}
+                        <a href="{% url 'accounts:login' %}" class="bg-accent-600 hover:bg-accent-700 px-4 py-2 rounded-md text-sm font-medium">
+                            {% trans "Login" %}
+                        </a>
+                        <a href="{% url 'accounts:register' %}" class="border border-white hover:bg-primary-600 px-4 py-2 rounded-md text-sm font-medium">
+                            {% trans "Register" %}
+                        </a>
+                    {% endif %}
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                            class="p-2 rounded-md hover:bg-primary-600"
+                            aria-label="{% trans 'Toggle menu' %}">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="{% url 'organizations:list' %}" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                    {% trans "Organizations" %}
+                </a>
+                <a href="#" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                    {% trans "Events" %}
+                </a>
+                <a href="#" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                    {% trans "News" %}
+                </a>
+                <hr class="my-2 border-primary-600">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'accounts:profile' %}" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Profile" %}
+                    </a>
+                    <a href="{% url 'accounts:logout' %}" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Logout" %}
+                    </a>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Login" %}
+                    </a>
+                    <a href="{% url 'accounts:register' %}" class="block hover:bg-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                        {% trans "Register" %}
+                    </a>
+                {% endif %}
+                <hr class="my-2 border-primary-600">
+                <!-- Language selector mobile -->
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <select name="language" onchange="this.form.submit()"
+                            class="w-full bg-primary-600 text-white text-sm rounded px-3 py-2 border border-primary-500">
+                        {% for lang_code, lang_name in languages %}
+                            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ lang_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+        {% for message in messages %}
+        <div class="rounded-md p-4 mb-2 {% if message.tags == 'error' %}bg-red-50 text-red-800{% elif message.tags == 'warning' %}bg-yellow-50 text-yellow-800{% elif message.tags == 'success' %}bg-green-50 text-green-800{% else %}bg-blue-50 text-blue-800{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white font-semibold mb-3">{% trans "WM Community Share" %}</h3>
+                    <p class="text-sm">
+                        {% trans "Connecting communities across the West Midlands. Find support, services, and events from local organizations." %}
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-3">{% trans "Quick Links" %}</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="{% url 'organizations:list' %}" class="hover:text-white">{% trans "Organizations" %}</a></li>
+                        <li><a href="#" class="hover:text-white">{% trans "Events Calendar" %}</a></li>
+                        <li><a href="#" class="hover:text-white">{% trans "Prison Leavers Support" %}</a></li>
+                        <li><a href="#" class="hover:text-white">{% trans "Homelessness Support" %}</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-3">{% trans "Get Help" %}</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="#" class="hover:text-white">{% trans "AI Assistant" %}</a></li>
+                        <li><a href="{% url 'accounts:register' %}" class="hover:text-white">{% trans "Register Your Organization" %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-sm text-center">
+                {% trans "West Midlands Community Share Platform" %}
+            </div>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %} - {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-2xl font-bold text-gray-900 mb-6">{% trans "Your Profile" %}</h1>
+
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+                <span class="text-sm font-medium text-gray-500">{% trans "Name" %}</span>
+                <p class="text-gray-900">{{ user.get_full_name|default:user.username }}</p>
+            </div>
+            <div>
+                <span class="text-sm font-medium text-gray-500">{% trans "Email" %}</span>
+                <p class="text-gray-900">{{ user.email }}</p>
+            </div>
+            <div>
+                <span class="text-sm font-medium text-gray-500">{% trans "Role" %}</span>
+                <p class="text-gray-900">{{ user.get_role_display }}</p>
+            </div>
+            <div>
+                <span class="text-sm font-medium text-gray-500">{% trans "Status" %}</span>
+                <p class="{% if user.is_approved %}text-green-600{% else %}text-yellow-600{% endif %}">
+                    {% if user.is_approved %}{% trans "Approved" %}{% else %}{% trans "Pending Approval" %}{% endif %}
+                </p>
+            </div>
+            {% if user.organization %}
+            <div>
+                <span class="text-sm font-medium text-gray-500">{% trans "Organization" %}</span>
+                <p class="text-gray-900">{{ user.organization.name }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

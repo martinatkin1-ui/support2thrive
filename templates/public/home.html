@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "West Midlands Community Share - Home" %}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="bg-primary-700 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6">
+                {% trans "Connecting Communities Across the West Midlands" %}
+            </h1>
+            <p class="text-lg md:text-xl text-primary-100 mb-8 max-w-3xl mx-auto">
+                {% trans "Find support services, events, and organizations in your area. Whether you need help with housing, mental health, addiction recovery, or more — we're here to connect you." %}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'organizations:list' %}"
+                   class="bg-accent-600 hover:bg-accent-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
+                    {% trans "Find Organizations" %}
+                </a>
+                <a href="#"
+                   class="bg-white text-primary-700 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition">
+                    {% trans "View Events" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Support Streams Section -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+        {% trans "What support do you need?" %}
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {% for stream_name in support_stream_names %}
+        <a href="{% url 'organizations:list' %}?stream={{ stream_name|slugify }}"
+           class="bg-white rounded-lg shadow-sm hover:shadow-md p-4 text-center transition border border-gray-200 hover:border-primary-300">
+            <span class="text-sm font-medium text-gray-700">{{ stream_name }}</span>
+        </a>
+        {% empty %}
+        <div class="col-span-full text-center text-gray-500">
+            <a href="{% url 'organizations:list' %}" class="text-primary-600 hover:underline">
+                {% trans "Browse all organizations" %}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Special Pathways Section -->
+<div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            {% trans "Specialist Support" %}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Prison Leavers -->
+            <div class="bg-white rounded-lg shadow-sm p-6 border-l-4 border-primary-600">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                    {% trans "Leaving Prison?" %}
+                </h3>
+                <p class="text-gray-600 mb-4">
+                    {% trans "Find organizations and services specifically designed to support you as you transition back into the community. Housing, employment, and support services available." %}
+                </p>
+                <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">
+                    {% trans "Get support" %} &rarr;
+                </a>
+            </div>
+            <!-- Homelessness -->
+            <div class="bg-white rounded-lg shadow-sm p-6 border-l-4 border-accent-600">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                    {% trans "Homeless or At Risk?" %}
+                </h3>
+                <p class="text-gray-600 mb-4">
+                    {% trans "Access immediate help, food services, emergency accommodation, and long-term support from organizations across the West Midlands." %}
+                </p>
+                <a href="#" class="text-accent-600 hover:text-accent-800 font-medium">
+                    {% trans "Get support" %} &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AI Assistant CTA -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-primary-50 rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-primary-900 mb-4">
+            {% trans "Not sure where to start?" %}
+        </h2>
+        <p class="text-primary-700 mb-6 max-w-2xl mx-auto">
+            {% trans "Our AI assistant can help you find the right organization, service, or event based on your needs. Just ask a question." %}
+        </p>
+        <a href="#"
+           class="inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
+            {% trans "Chat with AI Assistant" %}
+        </a>
+    </div>
+</div>
+{% endblock %}

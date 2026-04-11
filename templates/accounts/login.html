@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Login" %} - {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-[60vh] flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <h1 class="text-2xl font-bold text-gray-900 mb-6 text-center">{% trans "Login" %}</h1>
+
+            <form method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="bg-red-50 text-red-800 rounded-md p-3 mb-4 text-sm">
+                    {% trans "Invalid username or password. Please try again." %}
+                </div>
+                {% endif %}
+
+                <div class="mb-4">
+                    <label for="id_username" class="block text-sm font-medium text-gray-700 mb-1">{% trans "Username" %}</label>
+                    <input type="text" name="username" id="id_username" required autofocus
+                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 px-3 py-2 border">
+                </div>
+                <div class="mb-6">
+                    <label for="id_password" class="block text-sm font-medium text-gray-700 mb-1">{% trans "Password" %}</label>
+                    <input type="password" name="password" id="id_password" required
+                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 px-3 py-2 border">
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-4 rounded-md transition">
+                    {% trans "Login" %}
+                </button>
+            </form>
+
+            <p class="mt-4 text-center text-sm text-gray-600">
+                {% trans "Don't have an account?" %}
+                <a href="{% url 'accounts:register' %}" class="text-primary-600 hover:underline font-medium">{% trans "Register" %}</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

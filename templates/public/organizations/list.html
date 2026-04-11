@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Organizations" %} - {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">{% trans "Organizations" %}</h1>
+
+    <!-- Support Stream Filters -->
+    <div class="mb-6 flex flex-wrap gap-2">
+        <a href="{% url 'organizations:list' %}"
+           class="px-3 py-1 rounded-full text-sm font-medium {% if not selected_stream %}bg-primary-600 text-white{% else %}bg-gray-200 text-gray-700 hover:bg-gray-300{% endif %}">
+            {% trans "All" %}
+        </a>
+        {% for stream in support_streams %}
+        <a href="{% url 'organizations:list' %}?stream={{ stream.slug }}"
+           class="px-3 py-1 rounded-full text-sm font-medium {% if selected_stream == stream.slug %}bg-primary-600 text-white{% else %}bg-gray-200 text-gray-700 hover:bg-gray-300{% endif %}">
+            {{ stream.name }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Organization Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for org in organizations %}
+        <a href="{% url 'organizations:detail' org.slug %}"
+           class="bg-white rounded-lg shadow-sm hover:shadow-md transition border border-gray-200 overflow-hidden">
+            {% if org.logo %}
+            <div class="h-32 bg-gray-100 flex items-center justify-center p-4">
+                <img src="{{ org.logo.url }}" alt="{{ org.name }}" class="max-h-full max-w-full object-contain">
+            </div>
+            {% else %}
+            <div class="h-32 bg-primary-50 flex items-center justify-center">
+                <span class="text-4xl text-primary-300 font-bold">{{ org.name|first }}</span>
+            </div>
+            {% endif %}
+            <div class="p-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-1">{{ org.name }}</h2>
+                <p class="text-sm text-gray-500 mb-2">{{ org.city }}</p>
+                <p class="text-sm text-gray-600 line-clamp-3">{{ org.short_description }}</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                    {% for stream in org.support_streams.all|slice:":3" %}
+                    <span class="inline-block bg-primary-50 text-primary-700 text-xs px-2 py-0.5 rounded-full">
+                        {{ stream.name }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <div class="col-span-full text-center py-12 text-gray-500">
+            {% trans "No organizations found matching your criteria." %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
