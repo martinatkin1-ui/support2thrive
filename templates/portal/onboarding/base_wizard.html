@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Onboarding" %} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <!-- Header -->
+  <div class="mb-8">
+    <h1 class="text-2xl font-bold text-gray-900">{% trans "Set up your organisation" %}</h1>
+    <p class="text-gray-500 text-sm mt-1">{{ org.name }}</p>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="mb-8">
+    <div class="flex items-center justify-between mb-2">
+      {% for key, label in state.STEPS %}
+      <div class="flex flex-col items-center flex-1">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold
+          {% if key in state.completed_steps %}bg-accent-600 text-white
+          {% elif key == step %}bg-primary-600 text-white ring-4 ring-primary-100
+          {% else %}bg-gray-200 text-gray-500{% endif %}">
+          {% if key in state.completed_steps %}&#10003;
+          {% else %}{{ forloop.counter }}{% endif %}
+        </div>
+        <span class="text-xs mt-1 hidden sm:block
+          {% if key == step %}text-primary-700 font-semibold{% else %}text-gray-400{% endif %}">
+          {{ label }}
+        </span>
+      </div>
+      {% if not forloop.last %}
+        <div class="flex-1 h-0.5 bg-gray-200 -mt-5">
+          <div class="h-0.5 bg-accent-400 transition-all"
+               style="width: {% if key in state.completed_steps %}100{% else %}0{% endif %}%"></div>
+        </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <p class="text-xs text-gray-400 text-right">{{ state.progress_percent }}% {% trans "complete" %}</p>
+  </div>
+
+  <!-- Step content -->
+  {% block wizard_content %}{% endblock %}
+
+  <!-- Navigation -->
+  <div class="flex gap-3 mt-6">
+    {% if prev_step %}
+      <a href="{% url 'organizations:onboarding_step' prev_step %}"
+         class="px-5 py-2 rounded-md border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 font-medium">
+        &#8592; {% trans "Back" %}
+      </a>
+    {% endif %}
+    {% block submit_button %}
+      <button type="submit" form="wizard-form"
+              class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-md font-medium text-sm">
+        {% trans "Save & continue" %} &#8594;
+      </button>
+    {% endblock %}
+  </div>
+
+</div>
+{% endblock %}

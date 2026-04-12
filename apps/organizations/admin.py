@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from .models import Organization, OrganizationService
+from .models import Organization, OrgOnboardingState, OrganizationService
 
 
 class OrganizationServiceInline(admin.TabularInline):
@@ -23,6 +23,23 @@ class OrganizationAdmin(admin.ModelAdmin):
     @admin.action(description=_("Approve selected organizations"))
     def approve_organizations(self, request, queryset):
         queryset.update(status="active")
+
+
+@admin.register(OrgOnboardingState)
+class OrgOnboardingStateAdmin(admin.ModelAdmin):
+    list_display = ["organization", "is_complete", "progress_percent_display", "started_at", "completed_at"]
+    list_filter = ["is_complete"]
+    readonly_fields = ["organization", "started_at", "completed_at", "completed_steps", "is_complete"]
+
+    def progress_percent_display(self, obj):
+        return f"{obj.progress_percent}%"
+    progress_percent_display.short_description = _("Progress")
+
+    actions = ["reset_onboarding"]
+
+    @admin.action(description=_("Reset onboarding for selected organisations"))
+    def reset_onboarding(self, request, queryset):
+        queryset.update(completed_steps=[], is_complete=False, completed_at=None)
 
 
 @admin.register(OrganizationService)

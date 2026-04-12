@@ -1,0 +1,86 @@
+{% extends "portal/onboarding/base_wizard.html" %}
+{% load i18n %}
+
+{% block wizard_content %}
+<div class="space-y-6">
+
+  {% if incomplete_steps %}
+  <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+    <p class="text-sm font-semibold text-amber-800 mb-2">{% trans "Complete these steps before publishing:" %}</p>
+    <ul class="list-disc list-inside text-sm text-amber-700 space-y-1">
+      {% for step_slug, step_label in incomplete_step_items %}
+        <li>
+          <a href="{% url 'organizations:onboarding_step' step_slug %}" class="underline hover:text-amber-900">
+            {{ step_label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% else %}
+  <div class="bg-accent-50 border border-accent-200 rounded-lg p-4">
+    <p class="text-sm font-semibold text-accent-800">&#10003; {% trans "All steps complete! Review and publish below." %}</p>
+  </div>
+  {% endif %}
+
+  <!-- About summary -->
+  <div class="bg-white rounded-xl border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-semibold text-gray-800">{% trans "About" %}</h2>
+      <a href="{% url 'organizations:onboarding_step' 'about' %}" class="text-xs text-primary-600 hover:underline">{% trans "Edit" %}</a>
+    </div>
+    <div class="flex items-start gap-4">
+      {% if org.logo %}<img src="{{ org.logo.url }}" class="w-16 h-16 rounded-lg object-cover">{% endif %}
+      <div>
+        <p class="font-semibold text-gray-900">{{ org.name }}</p>
+        <p class="text-sm text-gray-500 mt-1">{{ org.short_description }}</p>
+        {% if org.website %}<p class="text-xs text-primary-600 mt-1">{{ org.website }}</p>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Services summary -->
+  <div class="bg-white rounded-xl border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-semibold text-gray-800">{% trans "Services" %} ({{ services|length }})</h2>
+      <a href="{% url 'organizations:onboarding_step' 'services' %}" class="text-xs text-primary-600 hover:underline">{% trans "Edit" %}</a>
+    </div>
+    {% if services %}
+      <ul class="space-y-1">
+        {% for svc in services %}
+          <li class="text-sm text-gray-700">&#8226; {{ svc.name }} <span class="text-gray-400">({{ svc.get_access_model_display }})</span></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-sm text-gray-400">{% trans "No services added yet." %}</p>
+    {% endif %}
+  </div>
+
+  <!-- Referral config summary -->
+  <div class="bg-white rounded-xl border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-semibold text-gray-800">{% trans "Referral config" %}</h2>
+      <a href="{% url 'organizations:onboarding_step' 'referral_config' %}" class="text-xs text-primary-600 hover:underline">{% trans "Edit" %}</a>
+    </div>
+    <div class="space-y-2 text-sm text-gray-700">
+      <p>{% trans "Accepts referrals:" %} <strong>{% if org.accepts_referrals %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</strong></p>
+      <p>{% trans "Delivery channels:" %} <strong>{{ org.referral_delivery_channels|join:", " }}</strong></p>
+      <p>{% trans "Custom form fields:" %} <strong>{{ referral_fields|length }}</strong></p>
+    </div>
+  </div>
+
+  <!-- Publish form -->
+  {% if can_publish %}
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit"
+            class="w-full bg-accent-600 hover:bg-accent-700 text-white py-3 rounded-lg font-semibold text-base">
+      &#127881; {% trans "Publish organisation to the platform" %}
+    </button>
+  </form>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block submit_button %}{% endblock %}

@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ referral.reference_number }} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <div class="flex items-center gap-3 mb-6">
+    <a href="{% url 'referrals:portal_list' %}" class="text-gray-400 hover:text-gray-600">&#8592;</a>
+    <h1 class="text-xl font-bold text-gray-900">{{ referral.reference_number }}</h1>
+    <span class="text-xs px-2 py-0.5 rounded-full font-medium
+      {% if referral.priority == 'emergency' %}bg-red-100 text-red-700
+      {% elif referral.priority == 'urgent' %}bg-amber-100 text-amber-700
+      {% else %}bg-gray-100 text-gray-600{% endif %}">
+      {{ referral.get_priority_display }}
+    </span>
+    {% if referral.escalated %}<span class="text-xs bg-red-600 text-white px-2 py-0.5 rounded-full font-bold">{% trans "ESCALATED" %}</span>{% endif %}
+  </div>
+
+  <!-- Action bar -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    {% if not referral.acknowledged_at %}
+    <form method="post" action="{% url 'referrals:portal_acknowledge' referral.reference_number %}">
+      {% csrf_token %}
+      <button type="submit" class="bg-accent-600 hover:bg-accent-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+        &#10003; {% trans "Acknowledge receipt" %}
+      </button>
+    </form>
+    {% endif %}
+    <a href="{% url 'referrals:portal_print' referral.reference_number %}" target="_blank"
+       class="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-50 font-medium">
+      &#128438; {% trans "Print" %}
+    </a>
+  </div>
+
+  <!-- Status update -->
+  <form method="post" action="{% url 'referrals:portal_update_status' referral.reference_number %}"
+        class="flex gap-2 mb-6">
+    {% csrf_token %}
+    <select name="status" class="border border-gray-300 rounded-md px-3 py-2 text-sm">
+      {% for val, label in status_choices %}
+        <option value="{{ val }}" {% if referral.status == val %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+    <input type="text" name="note" placeholder="{% trans 'Add a note (optional)' %}"
+           class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm">
+    <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+      {% trans "Update" %}
+    </button>
+  </form>
+
+  <!-- PII fields -->
+  <div class="bg-white rounded-xl border border-gray-200 p-6 mb-4">
+    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2 mb-4 flex items-center gap-2">
+      {% trans "Client information" %}
+      <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-normal">{% trans "Encrypted at rest" %}</span>
+    </h2>
+    {% if pii %}
+      <dl class="space-y-2">
+        {% for key, value in pii.items %}
+          <div class="flex gap-3 text-sm">
+            <dt class="w-40 font-medium text-gray-500 capitalize">{{ key|cut:"_" }}</dt>
+            <dd class="text-gray-900">{{ value }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+    {% else %}
+      <p class="text-sm text-gray-400">{% trans "No PII recorded." %}</p>
+    {% endif %}
+  </div>
+
+  <!-- Non-PII form data -->
+  {% if referral.form_data %}
+  <div class="bg-white rounded-xl border border-gray-200 p-6 mb-4">
+    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2 mb-4">{% trans "Additional information" %}</h2>
+    <dl class="space-y-2">
+      {% for key, value in referral.form_data.items %}
+        <div class="flex gap-3 text-sm">
+          <dt class="w-40 font-medium text-gray-500 capitalize">{{ key|cut:"_" }}</dt>
+          <dd class="text-gray-900">{{ value }}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </div>
+  {% endif %}
+
+  <!-- Delivery status -->
+  <div class="bg-white rounded-xl border border-gray-200 p-6 mb-4">
+    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2 mb-4">{% trans "Delivery status" %}</h2>
+    <div class="space-y-2">
+      {% for d in deliveries %}
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-gray-600">{{ d.get_channel_display }}</span>
+          <span class="text-xs px-2 py-0.5 rounded-full font-medium
+            {% if d.status == 'sent' %}bg-accent-100 text-accent-700
+            {% elif d.status == 'failed' %}bg-red-100 text-red-700
+            {% elif d.status == 'acknowledged' %}bg-purple-100 text-purple-700
+            {% else %}bg-gray-100 text-gray-500{% endif %}">
+            {{ d.get_status_display }}
+            {% if d.attempts > 1 %}({{ d.attempts }} {% trans "attempts" %}){% endif %}
+          </span>
+        </div>
+      {% empty %}
+        <p class="text-sm text-gray-400">{% trans "No delivery records." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Status history -->
+  <div class="bg-white rounded-xl border border-gray-200 p-6">
+    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2 mb-4">{% trans "History" %}</h2>
+    <ol class="space-y-3">
+      {% for h in history %}
+        <li class="flex items-start gap-3 text-sm">
+          <div class="w-2 h-2 rounded-full bg-primary-400 mt-1.5 flex-shrink-0"></div>
+          <div>
+            <span class="font-medium text-gray-700">{{ h.from_status }} → {{ h.to_status }}</span>
+            {% if h.note %}<span class="text-gray-400"> — {{ h.note }}</span>{% endif %}
+            <div class="text-xs text-gray-400 mt-0.5">{{ h.changed_at|date:"j M Y H:i" }} {% if h.changed_by %}{% trans "by" %} {{ h.changed_by.get_full_name|default:h.changed_by.email }}{% endif %}</div>
+          </div>
+        </li>
+      {% empty %}
+        <p class="text-sm text-gray-400">{% trans "No status history yet." %}</p>
+      {% endfor %}
+    </ol>
+  </div>
+
+</div>
+{% endblock %}

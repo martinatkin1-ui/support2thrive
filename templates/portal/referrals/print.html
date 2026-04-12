@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% load i18n %}{% trans "Referral" %} {{ referral.reference_number }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 12pt; color: #111; margin: 2cm; }
+    h1 { font-size: 16pt; border-bottom: 2px solid #111; padding-bottom: 8px; }
+    h2 { font-size: 13pt; margin-top: 20px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    td, th { padding: 6px 8px; border: 1px solid #ddd; text-align: left; font-size: 11pt; }
+    th { background: #f5f5f5; font-weight: bold; width: 35%; }
+    .ref { font-family: monospace; font-size: 14pt; color: #555; }
+    .priority-emergency { color: #dc2626; font-weight: bold; }
+    .priority-urgent { color: #d97706; font-weight: bold; }
+    .footer { margin-top: 30px; font-size: 9pt; color: #999; border-top: 1px solid #eee; padding-top: 8px; }
+    @media print { body { margin: 1cm; } }
+  </style>
+</head>
+<body>
+  {% load i18n %}
+
+  <h1>{% trans "Referral" %} — {{ org.name }}</h1>
+  <p class="ref">{{ referral.reference_number }}</p>
+
+  <h2>{% trans "Referral details" %}</h2>
+  <table>
+    <tr><th>{% trans "Status" %}</th><td>{{ referral.get_status_display }}</td></tr>
+    <tr><th>{% trans "Priority" %}</th>
+        <td class="priority-{{ referral.priority }}">{{ referral.get_priority_display }}</td></tr>
+    <tr><th>{% trans "Submitted" %}</th><td>{{ referral.created_at|date:"j F Y H:i" }}</td></tr>
+    {% if referral.referring_user %}
+    <tr><th>{% trans "Referred by" %}</th><td>{{ referral.referring_user.get_full_name|default:referral.referring_user.email }}</td></tr>
+    {% endif %}
+    {% if referral.referring_org %}
+    <tr><th>{% trans "Referring org" %}</th><td>{{ referral.referring_org.name }}</td></tr>
+    {% endif %}
+  </table>
+
+  {% if pii %}
+  <h2>{% trans "Client information" %} <span style="font-size:9pt;color:#999;">({% trans "confidential — handle securely" %})</span></h2>
+  <table>
+    {% for key, value in pii.items %}
+      <tr><th>{{ key|cut:"_"|title }}</th><td>{{ value }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  {% if referral.form_data %}
+  <h2>{% trans "Additional information" %}</h2>
+  <table>
+    {% for key, value in referral.form_data.items %}
+      <tr><th>{{ key|cut:"_"|title }}</th><td>{{ value }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  <h2>{% trans "Consent" %}</h2>
+  <table>
+    <tr><th>{% trans "Consent given" %}</th><td>{% if referral.consent_given %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</td></tr>
+    {% if referral.consent_timestamp %}
+    <tr><th>{% trans "Consent timestamp" %}</th><td>{{ referral.consent_timestamp|date:"j F Y H:i" }}</td></tr>
+    {% endif %}
+    {% if referral.consent_statement %}
+    <tr><th>{% trans "Consent statement" %}</th><td>{{ referral.consent_statement }}</td></tr>
+    {% endif %}
+  </table>
+
+  <div class="footer">
+    {% trans "West Midlands Community Share Platform" %} — {% trans "GDPR-compliant referral record" %} —
+    {% trans "Printed" %} {% now "j F Y H:i" %} — {% trans "Handle in accordance with your data retention policy." %}
+  </div>
+</body>
+</html>

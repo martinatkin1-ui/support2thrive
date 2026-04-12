@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
-from apps.core.models import TimeStampedModel
+from apps.core.models import Region, TimeStampedModel
 
 
 class Organization(TimeStampedModel):
@@ -34,6 +34,15 @@ class Organization(TimeStampedModel):
     )
     status = models.CharField(
         _("status"), max_length=20, choices=STATUS_CHOICES, default="pending"
+    )
+    region = models.ForeignKey(
+        Region,
+        on_delete=models.PROTECT,
+        related_name="organizations",
+        verbose_name=_("region"),
+        null=True,
+        blank=True,
+        help_text=_("Geographic deployment region for this organisation"),
     )
 
     # Contact
@@ -88,6 +97,28 @@ class Organization(TimeStampedModel):
         help_text=_("Special instructions for making referrals to this org"),
     )
 
+    # Referral delivery channels (all that the org supports; comma-separated)
+    # Values from ReferralDelivery.CHANNEL_CHOICES
+    referral_delivery_channels = models.JSONField(
+        _("referral delivery channels"),
+        default=list,
+        blank=True,
+        help_text=_(
+            "Channels the org accepts referrals through: "
+            "in_platform, email, csv, print, crm_webhook"
+        ),
+    )
+
+    # CRM webhook (for orgs that want direct integration)
+    crm_webhook_url = models.URLField(
+        _("CRM webhook URL"), blank=True, default="",
+        help_text=_("POST target for outbound referral JSON payloads"),
+    )
+    crm_webhook_secret = models.CharField(
+        _("CRM webhook secret"), max_length=128, blank=True, default="",
+        help_text=_("HMAC-SHA256 secret for signing webhook payloads"),
+    )
+
     # Opening hours
     opening_hours = models.JSONField(
         _("opening hours"),
@@ -129,6 +160,97 @@ class Organization(TimeStampedModel):
             return self.description
         return self.translated_descriptions.get(lang_code, self.description)
 
+    @property
+    def onboarding_complete(self):
+        try:
+            return self.onboarding_state.is_complete
+        except OrgOnboardingState.DoesNotExist:
+            return False
+
+    @property
+    def completion_score(self):
+        """0–100 completeness score based on key field presence."""
+        weights = {
+            "description": 15,
+            "short_description": 10,
+            "logo": 10,
+            "website": 5,
+            "email": 10,
+            "phone": 5,
+            "address_line_1": 5,
+            "postcode": 5,
+            "referral_email": 10,
+            "referral_delivery_channels": 10,
+            "events_page_url": 5,
+        }
+        score = 0
+        for field, weight in weights.items():
+            val = getattr(self, field, None)
+            if val:
+                score += weight
+        # Services add up to the remaining 10%
+        if self.services.filter(is_active=True).exists():
+            score += 10
+        return min(score, 100)
+
+
+class OrgOnboardingState(models.Model):
+    """
+    Tracks completion of the multi-step onboarding wizard for each org.
+    Created automatically on first portal login by an org_manager.
+    """
+
+    STEPS = [
+        ("about", _("About your organisation")),
+        ("services", _("Services you provide")),
+        ("referral_config", _("Referral form & delivery")),
+        ("scraping", _("Website & scraping config")),
+        ("review", _("Review & publish")),
+    ]
+
+    organization = models.OneToOneField(
+        Organization,
+        on_delete=models.CASCADE,
+        related_name="onboarding_state",
+        verbose_name=_("organisation"),
+    )
+    completed_steps = models.JSONField(
+        _("completed steps"), default=list, blank=True,
+        help_text=_("List of step keys that have been saved"),
+    )
+    is_complete = models.BooleanField(_("onboarding complete"), default=False)
+    started_at = models.DateTimeField(_("started at"), auto_now_add=True)
+    completed_at = models.DateTimeField(_("completed at"), null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("Org Onboarding State")
+        verbose_name_plural = _("Org Onboarding States")
+
+    def __str__(self):
+        return f"{self.organization.name} — onboarding"
+
+    def mark_step_complete(self, step_key):
+        if step_key not in self.completed_steps:
+            self.completed_steps.append(step_key)
+        all_keys = [s[0] for s in self.STEPS]
+        if all(k in self.completed_steps for k in all_keys):
+            from django.utils import timezone
+            self.is_complete = True
+            self.completed_at = timezone.now()
+        self.save()
+
+    def next_incomplete_step(self):
+        for key, _ in self.STEPS:
+            if key not in self.completed_steps:
+                return key
+        return None
+
+    @property
+    def progress_percent(self):
+        total = len(self.STEPS)
+        done = len([s for s, _ in self.STEPS if s in self.completed_steps])
+        return int((done / total) * 100)
+
 
 class OrganizationService(TimeStampedModel):
     ACCESS_CHOICES = [
@@ -151,6 +273,15 @@ class OrganizationService(TimeStampedModel):
         "core.SupportStream",
         on_delete=models.PROTECT,
         verbose_name=_("support stream"),
+    )
+    # Links to the new hierarchical taxonomy (optional, alongside support_stream)
+    category = models.ForeignKey(
+        "services.ServiceCategory",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="org_services",
+        verbose_name=_("service category"),
     )
     access_model = models.CharField(
         _("access model"),

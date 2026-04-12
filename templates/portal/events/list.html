@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Manage Events" %} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold text-gray-900">{% trans "Manage Events" %}</h1>
+    <a href="{% url 'events:portal_event_create' %}"
+       class="bg-accent-600 hover:bg-accent-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+      + {% trans "New Event" %}
+    </a>
+  </div>
+
+  {% if events %}
+  <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+    <table class="min-w-full divide-y divide-gray-100">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase">{% trans "Title" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase hidden sm:table-cell">{% trans "Organisation" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase hidden md:table-cell">{% trans "Start" %}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase">{% trans "Status" %}</th>
+          <th class="px-4 py-3"></th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        {% for event in events %}
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-3">
+            <div class="font-medium text-gray-900">{{ event.title }}</div>
+            {% if event.is_recurring %}<span class="text-xs text-gray-400">&#128260; {% trans "Recurring" %}</span>{% endif %}
+          </td>
+          <td class="px-4 py-3 text-sm text-gray-500 hidden sm:table-cell">{{ event.organization.name }}</td>
+          <td class="px-4 py-3 text-sm text-gray-500 hidden md:table-cell">
+            {{ event.start|date:"j M Y H:i"|default:"—" }}
+          </td>
+          <td class="px-4 py-3">
+            {% if event.is_published %}
+              <span class="text-xs bg-accent-100 text-accent-700 px-2 py-0.5 rounded-full font-medium">{% trans "Published" %}</span>
+            {% else %}
+              <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-medium">{% trans "Draft" %}</span>
+            {% endif %}
+          </td>
+          <td class="px-4 py-3 text-right">
+            <div class="flex items-center justify-end gap-2">
+              <a href="{% url 'events:portal_event_edit' event.slug %}"
+                 class="text-sm text-primary-600 hover:underline">{% trans "Edit" %}</a>
+              <form method="post" action="{% url 'events:portal_event_delete' event.slug %}"
+                    onsubmit="return confirm('{% trans "Delete this event?" %}')">
+                {% csrf_token %}
+                <button type="submit" class="text-sm text-red-500 hover:underline">{% trans "Delete" %}</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <div class="text-center py-16 text-gray-400">
+      <p class="font-medium">{% trans "No events yet." %}</p>
+      <a href="{% url 'events:portal_event_create' %}" class="text-primary-600 hover:underline text-sm mt-2 inline-block">
+        {% trans "Create your first event" %}
+      </a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
