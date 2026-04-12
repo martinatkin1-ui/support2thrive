@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 
-from apps.core.models import GeographicArea, SupportStream
+from apps.core.models import GeographicArea, Region, SupportStream
 from apps.organizations.models import Organization, OrganizationService
 
 
@@ -161,6 +161,24 @@ class Command(BaseCommand):
     help = "Seed the database with initial support streams, geographic areas, and organizations"
 
     def handle(self, *args, **options):
+        self.stdout.write("Seeding West Midlands region...")
+        wm_region, _ = Region.objects.get_or_create(
+            slug="west-midlands",
+            defaults={
+                "name": "West Midlands",
+                "description": (
+                    "The West Midlands Combined Authority area, covering Wolverhampton, "
+                    "Birmingham, Coventry, Dudley, Sandwell, Solihull, and Walsall."
+                ),
+                "brand_color_primary": "#2563eb",
+                "brand_color_accent": "#16a34a",
+                "contact_email": "info@wmcommunityshare.org.uk",
+                "lat_center": 52.4862,
+                "lng_center": -1.8904,
+                "is_active": True,
+            },
+        )
+
         self.stdout.write("Seeding support streams...")
         stream_map = {}
         for name, description, order in SUPPORT_STREAMS:
@@ -197,6 +215,7 @@ class Command(BaseCommand):
                     "address_line_1": org_data.get("address_line_1", ""),
                     "postcode": org_data.get("postcode", ""),
                     "status": "active",
+                    "region": wm_region,
                 },
             )
             if created:

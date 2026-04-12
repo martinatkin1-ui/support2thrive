@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Events" %} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block extra_head %}
+<style>
+  .stream-pill { @apply inline-block text-xs font-medium px-2 py-0.5 rounded-full; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <!-- Header + view toggle -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900">{% trans "Community Events" %}</h1>
+      <p class="text-gray-500 text-sm mt-1">{% trans "Find events, groups, and activities near you" %}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="setView('agenda')" id="btn-agenda"
+              class="px-3 py-1.5 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50 font-medium">
+        {% trans "Agenda" %}
+      </button>
+      <button onclick="setView('grid')" id="btn-grid"
+              class="px-3 py-1.5 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50 font-medium">
+        {% trans "Grid" %}
+      </button>
+      <a href="{% url 'events:ical' %}"
+         class="px-3 py-1.5 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50 font-medium text-gray-600"
+         title="{% trans 'Subscribe to iCal feed' %}">
+        &#128197; {% trans "Subscribe" %}
+      </a>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <form method="get" class="flex flex-wrap gap-3 mb-6">
+    <input type="hidden" name="year" value="{{ current_year }}">
+    <input type="hidden" name="month" value="{{ current_month }}">
+    <select name="stream" onchange="this.form.submit()"
+            class="text-sm border border-gray-300 rounded-md px-3 py-1.5 bg-white">
+      <option value="">{% trans "All support streams" %}</option>
+      {% for stream in support_streams %}
+        <option value="{{ stream.slug }}" {% if selected_stream == stream.slug %}selected{% endif %}>
+          {{ stream.name }}
+        </option>
+      {% endfor %}
+    </select>
+    {% if selected_stream or selected_area or selected_org %}
+      <a href="{% url 'events:list' %}?year={{ current_year }}&month={{ current_month }}"
+         class="text-sm text-red-600 hover:underline self-center">{% trans "Clear filters" %}</a>
+    {% endif %}
+  </form>
+
+  <!-- Month navigation -->
+  <div class="flex items-center justify-between mb-4">
+    <button hx-get="{% url 'events:list' %}?year={{ prev_year }}&month={{ prev_month }}&stream={{ selected_stream }}"
+            hx-target="#occurrences-panel"
+            hx-push-url="true"
+            class="flex items-center gap-1 px-3 py-1.5 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50">
+      &#8592; {% trans "Previous" %}
+    </button>
+    <h2 class="text-lg font-semibold text-gray-800">{{ current_month_label }}</h2>
+    <button hx-get="{% url 'events:list' %}?year={{ next_year }}&month={{ next_month }}&stream={{ selected_stream }}"
+            hx-target="#occurrences-panel"
+            hx-push-url="true"
+            class="flex items-center gap-1 px-3 py-1.5 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50">
+      {% trans "Next" %} &#8594;
+    </button>
+  </div>
+
+  <!-- Occurrences panel (HTMX target) -->
+  <div id="occurrences-panel">
+    {% include "public/events/_occurrences.html" %}
+  </div>
+
+</div>
+
+<script>
+function setView(view) {
+  const panel = document.getElementById('occurrences-panel');
+  if (view === 'grid') {
+    panel.classList.add('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-3', 'gap-4');
+    panel.classList.remove('space-y-3');
+    document.getElementById('btn-grid').classList.add('bg-primary-50', 'border-primary-400', 'text-primary-700');
+    document.getElementById('btn-agenda').classList.remove('bg-primary-50', 'border-primary-400', 'text-primary-700');
+  } else {
+    panel.classList.remove('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-3', 'gap-4');
+    panel.classList.add('space-y-3');
+    document.getElementById('btn-agenda').classList.add('bg-primary-50', 'border-primary-400', 'text-primary-700');
+    document.getElementById('btn-grid').classList.remove('bg-primary-50', 'border-primary-400', 'text-primary-700');
+  }
+}
+// Default to agenda
+document.addEventListener('DOMContentLoaded', () => setView('agenda'));
+</script>
+{% endblock %}

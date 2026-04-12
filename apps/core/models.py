@@ -5,6 +5,58 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 
+class Region(models.Model):
+    """
+    Top-level geographic deployment scope.
+    Each Region is an independent instance of the platform (e.g. West Midlands,
+    Greater Manchester). All content — organisations, events, referrals — is
+    scoped to a Region, enabling white-label multi-region operation from a single
+    deployment.
+    """
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(_("name"), max_length=100)
+    slug = models.SlugField(_("slug"), unique=True)
+    description = models.TextField(_("description"), blank=True, default="")
+    logo = models.ImageField(
+        _("logo"), upload_to="regions/logos/", blank=True
+    )
+    # Brand colours (hex) — override base Tailwind config per region
+    brand_color_primary = models.CharField(
+        _("primary colour"), max_length=7, default="#2563eb",
+        help_text=_("Hex code e.g. #2563eb"),
+    )
+    brand_color_accent = models.CharField(
+        _("accent colour"), max_length=7, default="#16a34a",
+        help_text=_("Hex code e.g. #16a34a"),
+    )
+    contact_email = models.EmailField(_("contact email"), blank=True, default="")
+    website = models.URLField(_("website"), blank=True, default="")
+    # Geographic centre for map display
+    lat_center = models.DecimalField(
+        _("latitude centre"), max_digits=9, decimal_places=6, null=True, blank=True
+    )
+    lng_center = models.DecimalField(
+        _("longitude centre"), max_digits=9, decimal_places=6, null=True, blank=True
+    )
+    is_active = models.BooleanField(_("active"), default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = _("Region")
+        verbose_name_plural = _("Regions")
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+
 class TimeStampedModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(_("created at"), auto_now_add=True)

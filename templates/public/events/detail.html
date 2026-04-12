@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ event.title }} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <!-- Back -->
+  <a href="{% url 'events:list' %}" class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-6">
+    &#8592; {% trans "All events" %}
+  </a>
+
+  <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+
+    <!-- Hero image -->
+    {% if event.image %}
+      <img src="{{ event.image.url }}" alt="{{ event.title }}"
+           class="w-full h-48 sm:h-64 object-cover">
+    {% endif %}
+
+    <div class="p-6 sm:p-8">
+      <!-- Stream tag -->
+      {% if event.support_stream %}
+        <span class="inline-block text-xs bg-primary-50 text-primary-700 px-3 py-1 rounded-full font-medium mb-3">
+          {{ event.support_stream.name }}
+        </span>
+      {% endif %}
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{{ event.title }}</h1>
+      <p class="text-gray-500 text-sm mb-6">{% trans "by" %} <strong>{{ event.organization.name }}</strong></p>
+
+      <!-- Upcoming occurrences -->
+      {% if upcoming_occurrences %}
+      <div class="mb-6 space-y-2">
+        <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{% trans "Upcoming dates" %}</h2>
+        {% for occ in upcoming_occurrences %}
+          <div class="flex items-center gap-4 bg-gray-50 rounded-lg px-4 py-3">
+            <div class="text-center min-w-[3rem]">
+              <div class="text-xs text-gray-400 uppercase">{{ occ.start|date:"M" }}</div>
+              <div class="text-xl font-bold text-primary-700">{{ occ.start|date:"j" }}</div>
+            </div>
+            <div>
+              <div class="font-medium text-gray-800">{{ occ.start|date:"l" }}, {{ occ.start|time:"H:i" }} – {{ occ.end|time:"H:i" }}</div>
+              {% if occ.location_name %}<div class="text-sm text-gray-500">{{ occ.location_name }}</div>{% endif %}
+            </div>
+            {% if event.booking_url %}
+              <a href="{{ event.booking_url }}" target="_blank" rel="noopener"
+                 class="ml-auto flex-shrink-0 bg-accent-600 hover:bg-accent-700 text-white text-sm px-4 py-1.5 rounded-md font-medium">
+                {% trans "Book" %}
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      {% elif event.start %}
+      <div class="mb-6 bg-gray-50 rounded-lg px-4 py-3 flex items-center gap-4">
+        <div class="text-center min-w-[3rem]">
+          <div class="text-xs text-gray-400 uppercase">{{ event.start|date:"M" }}</div>
+          <div class="text-xl font-bold text-primary-700">{{ event.start|date:"j" }}</div>
+        </div>
+        <div>
+          <div class="font-medium text-gray-800">{{ event.start|date:"l" }}, {{ event.start|time:"H:i" }}{% if event.end %} – {{ event.end|time:"H:i" }}{% endif %}</div>
+          {% if event.location_name %}<div class="text-sm text-gray-500">{{ event.location_name }}</div>{% endif %}
+        </div>
+        {% if event.booking_url %}
+          <a href="{{ event.booking_url }}" target="_blank" rel="noopener"
+             class="ml-auto flex-shrink-0 bg-accent-600 hover:bg-accent-700 text-white text-sm px-4 py-1.5 rounded-md font-medium">
+            {% trans "Book" %}
+          </a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <!-- Location -->
+      {% if event.is_online %}
+        <div class="flex items-start gap-2 mb-4 text-sm text-gray-600">
+          <span class="text-lg">&#127760;</span>
+          <div>
+            <span class="font-medium">{% trans "Online event" %}</span>
+            {% if event.online_url %}
+              — <a href="{{ event.online_url }}" class="text-primary-600 hover:underline">{% trans "Join link" %}</a>
+            {% endif %}
+          </div>
+        </div>
+      {% elif event.location_name %}
+        <div class="flex items-start gap-2 mb-4 text-sm text-gray-600">
+          <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          </svg>
+          <div>
+            <span class="font-medium">{{ event.location_name }}</span>
+            {% if event.location_address %}<br><span class="text-gray-400">{{ event.location_address }}</span>{% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Cost -->
+      <div class="mb-6">
+        {% if event.is_free %}
+          <span class="inline-flex items-center gap-1 text-sm bg-accent-50 text-accent-700 px-3 py-1 rounded-full font-medium">
+            &#10003; {% trans "Free event" %}
+          </span>
+        {% else %}
+          <span class="text-sm text-gray-600">{{ event.cost_description }}</span>
+        {% endif %}
+      </div>
+
+      <!-- Description -->
+      <div class="prose prose-sm max-w-none text-gray-700 mb-8">
+        {{ event.description|linebreaks }}
+      </div>
+
+      <!-- iCal / org links -->
+      <div class="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+        <a href="{% url 'events:org_ical' event.organization.slug %}"
+           class="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">
+          &#128197; {% trans "Subscribe to" %} {{ event.organization.name }} {% trans "events" %}
+        </a>
+        <a href="{% url 'organizations:detail' event.organization.slug %}"
+           class="text-sm text-primary-600 hover:underline flex items-center gap-1">
+          {% trans "View organisation" %} &#8594;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
