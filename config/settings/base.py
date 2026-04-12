@@ -59,6 +59,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "apps.organizations.middleware.OnboardingRedirectMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
@@ -173,6 +174,26 @@ CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = TIME_ZONE
+
+CELERY_BEAT_SCHEDULE = {
+    # Extend occurrence window weekly
+    "generate-event-occurrences-weekly": {
+        "task": "apps.events.tasks.generate_event_occurrences",
+        "schedule": 604800,  # every 7 days
+    },
+    # Scrape org event/news pages weekly
+    "scrape-all-org-events-weekly": {
+        "task": "apps.events.tasks.scrape_all_org_events",
+        "schedule": 604800,
+    },
+    # Check unacknowledged referrals every hour
+    "escalate-unacknowledged-referrals-hourly": {
+        "task": "apps.referrals.tasks.escalate_unacknowledged_referrals",
+        "schedule": 3600,
+    },
+}
+
+SITE_URL = env("SITE_URL", default="http://localhost:8000")
 
 # Axes (brute force protection)
 AXES_FAILURE_LIMIT = 5

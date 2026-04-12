@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Referral submitted" %} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+  <div class="text-5xl mb-6">&#10003;</div>
+  <h1 class="text-2xl font-bold text-gray-900 mb-2">{% trans "Referral submitted" %}</h1>
+  <p class="text-gray-500 mb-4">
+    {% trans "Your reference number is:" %} <strong class="text-gray-900">{{ referral.reference_number }}</strong>
+  </p>
+  <p class="text-sm text-gray-400 mb-8">
+    {% trans "The organisation will acknowledge your referral. If you don't hear back within 48 hours, our team will follow up." %}
+  </p>
+  <a href="{% url 'core:home' %}" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-md font-medium text-sm">
+    {% trans "Back to home" %}
+  </a>
+</div>
+{% endblock %}

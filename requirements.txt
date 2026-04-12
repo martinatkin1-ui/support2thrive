@@ -74,3 +74,5 @@ tzlocal==5.3.1
 vine==5.1.0
 watchdog==6.0.0
 wcwidth==0.6.0
+icalendar==7.0.3
+cryptography==46.0.7

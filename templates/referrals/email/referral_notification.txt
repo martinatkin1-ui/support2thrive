@@ -1,0 +1,32 @@
+New referral received — {{ referral.reference_number }}
+================================================
+
+Organisation: {{ org.name }}
+Priority: {{ referral.get_priority_display|upper }}
+Status: {{ referral.get_status_display }}
+Submitted: {{ referral.created_at|date:"j F Y H:i" }}
+{% if referral.referring_user %}Referred by: {{ referral.referring_user.get_full_name|default:referral.referring_user.email }}{% endif %}
+
+CLIENT INFORMATION (confidential)
+----------------------------------
+{% for key, value in pii.items %}{{ key|title }}: {{ value }}
+{% endfor %}
+
+ADDITIONAL INFORMATION
+----------------------
+{% for key, value in referral.form_data.items %}{{ key|title }}: {{ value }}
+{% endfor %}
+
+CONSENT
+-------
+Consent given: {% if referral.consent_given %}Yes{% else %}No{% endif %}
+{% if referral.consent_statement %}Statement: {{ referral.consent_statement }}{% endif %}
+
+---
+To acknowledge and manage this referral, log in to the platform:
+{{ settings.SITE_URL }}/portal/referrals/{{ referral.reference_number }}/
+
+This referral must be acknowledged within 24 hours. Failure to acknowledge
+within 48 hours will escalate this referral to the platform administrator.
+
+West Midlands Community Share Platform — handle this data in accordance with GDPR.

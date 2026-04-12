@@ -13,6 +13,8 @@ urlpatterns += i18n_patterns(
     path("", include("apps.core.urls", namespace="core")),
     path("accounts/", include("apps.accounts.urls", namespace="accounts")),
     path("organizations/", include("apps.organizations.urls", namespace="organizations")),
+    path("events/", include("apps.events.urls", namespace="events")),
+    path("referrals/", include("apps.referrals.urls", namespace="referrals")),
     path("api/v1/", include("config.api")),
     prefix_default_language=True,
 )

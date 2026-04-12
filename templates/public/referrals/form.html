@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Refer to" %} {{ org.name }} — {% trans "WM Community Share" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <a href="{% url 'organizations:detail' org.slug %}" class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-6">
+    &#8592; {{ org.name }}
+  </a>
+
+  <div class="bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-sm">
+    <h1 class="text-xl font-bold text-gray-900 mb-1">{% trans "Make a referral to" %} {{ org.name }}</h1>
+
+    {% if org.referral_instructions %}
+      <div class="bg-blue-50 text-blue-700 rounded-md p-3 text-sm mb-6">{{ org.referral_instructions }}</div>
+    {% endif %}
+
+    {% if errors %}
+      <div class="bg-red-50 text-red-700 rounded-md p-3 text-sm mb-4">
+        {% trans "Please correct the errors below." %}
+      </div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="space-y-5">
+      {% csrf_token %}
+
+      <!-- Priority -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Priority" %} <span class="text-red-500">*</span></label>
+        <select name="priority" class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+          <option value="normal" {% if posted.priority == "normal" %}selected{% endif %}>{% trans "Normal" %}</option>
+          <option value="urgent" {% if posted.priority == "urgent" %}selected{% endif %}>{% trans "Urgent" %}</option>
+          <option value="emergency" {% if posted.priority == "emergency" %}selected{% endif %}>&#128680; {% trans "Emergency" %}</option>
+        </select>
+      </div>
+
+      <!-- Custom fields -->
+      {% for field in fields %}
+        {% if field.field_type != "consent" %}
+        <div>
+          <label for="field_{{ field.slug }}" class="block text-sm font-medium text-gray-700 mb-1">
+            {{ field.label }}{% if field.is_required %} <span class="text-red-500">*</span>{% endif %}
+            {% if field.is_pii %}
+              <span class="ml-1 text-xs bg-yellow-100 text-yellow-700 px-1.5 py-0.5 rounded">{% trans "Encrypted" %}</span>
+            {% endif %}
+          </label>
+          {% if field.help_text %}<p class="text-xs text-gray-400 mb-1">{{ field.help_text }}</p>{% endif %}
+
+          {% if field.field_type == "textarea" %}
+            <textarea id="field_{{ field.slug }}" name="{{ field.slug }}" rows="3"
+                      placeholder="{{ field.placeholder }}"
+                      class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">{{ posted|default_if_none:"" }}</textarea>
+          {% elif field.field_type == "select" %}
+            <select id="field_{{ field.slug }}" name="{{ field.slug }}"
+                    class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+              <option value="">— {% trans "Select" %} —</option>
+              {% for opt in field.options %}
+                <option value="{{ opt }}" {% if posted|default_if_none:"" == opt %}selected{% endif %}>{{ opt }}</option>
+              {% endfor %}
+            </select>
+          {% elif field.field_type == "boolean" %}
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2 text-sm"><input type="radio" name="{{ field.slug }}" value="yes"> {% trans "Yes" %}</label>
+              <label class="flex items-center gap-2 text-sm"><input type="radio" name="{{ field.slug }}" value="no"> {% trans "No" %}</label>
+            </div>
+          {% elif field.field_type == "date" or field.field_type == "dob" %}
+            <input type="date" id="field_{{ field.slug }}" name="{{ field.slug }}"
+                   class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {% elif field.field_type == "file" %}
+            <input type="file" id="field_{{ field.slug }}" name="{{ field.slug }}"
+                   class="block w-full text-sm text-gray-500">
+          {% else %}
+            <input type="{% if field.field_type == 'email' %}email{% elif field.field_type == 'phone' %}tel{% elif field.field_type == 'url' %}url{% elif field.field_type == 'number' %}number{% else %}text{% endif %}"
+                   id="field_{{ field.slug }}" name="{{ field.slug }}"
+                   placeholder="{{ field.placeholder }}"
+                   value="{{ posted|default_if_none:"" }}"
+                   class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {% endif %}
+
+          {% if errors|default_if_none:"" %}
+            {% for k, v in errors.items %}
+              {% if k == field.slug %}
+                <p class="text-xs text-red-500 mt-1">{{ v }}</p>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+
+      <!-- GDPR consent (always last) -->
+      <div class="border-t border-gray-100 pt-4">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" name="consent" value="1" class="mt-0.5 h-4 w-4 rounded border-gray-300"
+                 {% if posted.consent %}checked{% endif %}>
+          <span class="text-sm text-gray-600">
+            {% blocktrans with org_name=org.name %}
+              I consent to my information being shared with {{ org_name }} for the purpose of receiving support.
+              I understand this data will be stored securely and handled in accordance with GDPR.
+            {% endblocktrans %}
+            <span class="text-red-500">*</span>
+          </span>
+        </label>
+        {% if errors.consent %}
+          <p class="text-xs text-red-500 mt-1">{{ errors.consent }}</p>
+        {% endif %}
+      </div>
+
+      <button type="submit"
+              class="w-full bg-accent-600 hover:bg-accent-700 text-white py-3 rounded-lg font-semibold text-sm">
+        {% trans "Submit referral" %}
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
