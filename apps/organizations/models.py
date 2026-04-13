@@ -242,7 +242,7 @@ class OrgOnboardingState(models.Model):
         self.save()
 
     def next_incomplete_step(self):
-        for key, _ in self.STEPS:
+        for key, _label in self.STEPS:
             if key not in self.completed_steps:
                 return key
         return None

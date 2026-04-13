@@ -8,7 +8,7 @@ from apps.core.models import GeographicArea, SupportStream
 from apps.referrals.models import ReferralFormField
 from apps.services.models import ServiceCategory
 
-from .models import OrgOnboardingState, Organization, OrganizationService
+from .models import Organization, OrganizationService
 
 
 # ---------------------------------------------------------------------------

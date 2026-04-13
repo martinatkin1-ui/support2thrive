@@ -5,7 +5,9 @@
 
 {% block content %}
 <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-  <div class="text-5xl mb-6">&#10003;</div>
+  <div class="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mx-auto mb-6">
+    <svg class="w-8 h-8 text-green-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  </div>
   <h1 class="text-2xl font-bold text-gray-900 mb-2">{% trans "Referral submitted" %}</h1>
   <p class="text-gray-500 mb-4">
     {% trans "Your reference number is:" %} <strong class="text-gray-900">{{ referral.reference_number }}</strong>
@@ -13,7 +15,7 @@
   <p class="text-sm text-gray-400 mb-8">
     {% trans "The organisation will acknowledge your referral. If you don't hear back within 48 hours, our team will follow up." %}
   </p>
-  <a href="{% url 'core:home' %}" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-md font-medium text-sm">
+  <a href="{% url 'core:home' %}" class="inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 min-h-[44px] rounded-lg font-medium text-sm transition-colors duration-200">
     {% trans "Back to home" %}
   </a>
 </div>

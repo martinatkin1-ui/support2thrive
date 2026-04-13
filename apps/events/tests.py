@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 from django.test import TestCase
 from django.urls import reverse
 
-from apps.core.models import Region, SupportStream
+from apps.core.models import Region
 from apps.organizations.models import Organization
 
 from .models import Event, EventOccurrence, EventRecurrenceRule
@@ -174,7 +174,7 @@ class OccurrenceGenerationTest(TestCase):
             duration_minutes=60,
         )
         generate_occurrences_for_event(event)
-        initial_count = event.occurrences.count()
+        event.occurrences.count()  # baseline
         # Replace — should regenerate same count
         event.occurrences.filter(start__gte=now).delete()
         generate_occurrences_for_event(event, replace=False)
@@ -188,7 +188,7 @@ class OccurrenceGenerationTest(TestCase):
         next_monday = next_monday.replace(hour=10, minute=0, second=0, microsecond=0)
 
         event = make_event(org=self.org, start=None, end=None)
-        rule = EventRecurrenceRule.objects.create(
+        EventRecurrenceRule.objects.create(
             event=event,
             rrule="FREQ=WEEKLY;BYDAY=MO",
             dtstart=next_monday,

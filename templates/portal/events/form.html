@@ -7,7 +7,9 @@
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
   <div class="flex items-center gap-3 mb-6">
-    <a href="{% url 'events:portal_event_list' %}" class="text-gray-400 hover:text-gray-600">&#8592;</a>
+    <a href="{% url 'events:portal_event_list' %}" class="text-gray-400 hover:text-gray-600" aria-label="{% trans 'Back to events' %}">
+      <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+    </a>
     <h1 class="text-2xl font-bold text-gray-900">{{ action }}</h1>
   </div>
 
@@ -73,11 +75,11 @@
     <!-- Submit -->
     <div class="flex gap-3">
       <button type="submit"
-              class="bg-accent-600 hover:bg-accent-700 text-white px-6 py-2 rounded-md font-medium text-sm">
+              class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 min-h-[44px] rounded-lg font-medium text-sm transition-colors duration-200 cursor-pointer">
         {% trans "Save event" %}
       </button>
       <a href="{% url 'events:portal_event_list' %}"
-         class="px-6 py-2 rounded-md border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 font-medium">
+         class="px-6 py-2.5 min-h-[44px] rounded-lg border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors duration-200">
         {% trans "Cancel" %}
       </a>
     </div>

@@ -13,7 +13,7 @@
     </nav>
 
     <!-- Organization Header -->
-    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-8">
         {% if organization.hero_image %}
         <div class="h-48 md:h-64">
             <img src="{{ organization.hero_image.url }}" alt="{{ organization.name }}"
@@ -81,7 +81,7 @@
     <h2 class="text-xl font-bold text-gray-900 mb-4">{% trans "Services Offered" %}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {% for service in services %}
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 cursor-pointer transition-colors duration-200 hover:border-primary-200">
             <h3 class="font-semibold text-gray-900 mb-1">{{ service.name }}</h3>
             <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded mb-2">
                 {{ service.get_access_model_display }}
@@ -109,7 +109,7 @@
         <p class="text-sm text-accent-700">{{ organization.referral_instructions }}</p>
         {% endif %}
         {% if user.is_authenticated and user.can_make_referrals %}
-        <a href="#" class="mt-4 inline-block bg-accent-600 hover:bg-accent-700 text-white px-6 py-2 rounded-md text-sm font-medium transition">
+        <a href="#" class="mt-4 inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 min-h-[44px] rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
             {% trans "Create Referral" %}
         </a>
         {% endif %}

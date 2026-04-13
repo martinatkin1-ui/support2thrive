@@ -1,102 +1,156 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "West Midlands Community Share - Home" %}{% endblock %}
+{% block title %}{% trans "West Midlands Community Share — Home" %}{% endblock %}
 
 {% block content %}
+
 <!-- Hero Section -->
-<div class="bg-primary-700 text-white">
+<section class="bg-primary-800 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="text-center">
-            <h1 class="text-3xl md:text-5xl font-bold mb-6">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="font-heading text-3xl md:text-5xl font-bold mb-6 leading-tight">
                 {% trans "Connecting Communities Across the West Midlands" %}
             </h1>
-            <p class="text-lg md:text-xl text-primary-100 mb-8 max-w-3xl mx-auto">
-                {% trans "Find support services, events, and organizations in your area. Whether you need help with housing, mental health, addiction recovery, or more — we're here to connect you." %}
+            <p class="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
+                {% trans "Find support services, events, and organisations in your area. Whether you need help with housing, mental health, addiction recovery, or more — we're here to connect you." %}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{% url 'organizations:list' %}"
-                   class="bg-accent-600 hover:bg-accent-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
-                    {% trans "Find Organizations" %}
+                   class="inline-flex items-center justify-center min-h-[48px] rounded-lg bg-amber-500 hover:bg-amber-600 px-8 py-3 text-base font-semibold text-white transition-colors duration-200 cursor-pointer">
+                    {% trans "Find Organisations" %}
                 </a>
-                <a href="#"
-                   class="bg-white text-primary-700 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition">
+                <a href="{% url 'events:list' %}"
+                   class="inline-flex items-center justify-center min-h-[48px] rounded-lg bg-white text-primary-800 hover:bg-blue-50 px-8 py-3 text-base font-semibold transition-colors duration-200 cursor-pointer">
                     {% trans "View Events" %}
                 </a>
             </div>
         </div>
     </div>
-</div>
+    <div class="h-1 bg-amber-500"></div>
+</section>
 
 <!-- Support Streams Section -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-        {% trans "What support do you need?" %}
-    </h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {% for stream_name in support_stream_names %}
-        <a href="{% url 'organizations:list' %}?stream={{ stream_name|slugify }}"
-           class="bg-white rounded-lg shadow-sm hover:shadow-md p-4 text-center transition border border-gray-200 hover:border-primary-300">
-            <span class="text-sm font-medium text-gray-700">{{ stream_name }}</span>
-        </a>
-        {% empty %}
-        <div class="col-span-full text-center text-gray-500">
-            <a href="{% url 'organizations:list' %}" class="text-primary-600 hover:underline">
-                {% trans "Browse all organizations" %}
+<section class="bg-[#FAFAF8] py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-heading text-2xl font-semibold text-primary-800 mb-8 text-center">
+            {% trans "What support do you need?" %}
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {% for stream_name in support_stream_names %}
+            <a href="{% url 'organizations:list' %}?stream={{ stream_name|slugify }}"
+               class="rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary-300 hover:shadow-md p-4 text-center transition-all duration-200 cursor-pointer">
+                <span class="text-sm font-medium text-slate-700">{{ stream_name }}</span>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center text-slate-500">
+                <a href="{% url 'organizations:list' %}" class="text-primary-700 hover:text-amber-600 transition-colors duration-200">
+                    {% trans "Browse all organisations" %}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Specialist Pathways Section -->
+<section class="bg-white py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl font-semibold text-primary-800 mb-3">
+                {% trans "Specialist Support" %}
+            </h2>
+            <p class="text-slate-600 max-w-xl mx-auto text-sm leading-relaxed">
+                {% trans "Dedicated step-by-step guides written for people in specific situations." %}
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <!-- Prison Leavers -->
+            <a href="{% url 'pathways:detail' slug='prison-leavers' %}"
+               class="group block rounded-xl bg-[#FAFAF8] border border-slate-200 shadow-sm hover:border-primary-300 hover:shadow-md p-7 transition-all duration-200 cursor-pointer border-l-4 border-l-primary-800">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary-100 text-primary-800 group-hover:bg-amber-100 group-hover:text-amber-700 transition-colors duration-200">
+                        <!-- Heroicon: shield-check -->
+                        <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-lg font-semibold text-primary-800 group-hover:text-amber-700 transition-colors duration-200">
+                        {% trans "Leaving Prison?" %}
+                    </h3>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    {% trans "Find organisations and services specifically designed to support you as you transition back into the community. Housing, employment, and support services available." %}
+                </p>
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 group-hover:text-amber-600 transition-colors duration-200">
+                    {% trans "Get support" %}
+                    <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- Homelessness -->
+            <a href="{% url 'pathways:detail' slug='homelessness-support' %}"
+               class="group block rounded-xl bg-[#FAFAF8] border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow-md p-7 transition-all duration-200 cursor-pointer border-l-4 border-l-amber-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-amber-100 text-amber-700 group-hover:bg-amber-200 transition-colors duration-200">
+                        <!-- Heroicon: home -->
+                        <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-lg font-semibold text-primary-800 group-hover:text-amber-700 transition-colors duration-200">
+                        {% trans "Homeless or At Risk?" %}
+                    </h3>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    {% trans "Access immediate help, food services, emergency accommodation, and long-term support from organisations across the West Midlands." %}
+                </p>
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 group-hover:text-amber-700 transition-colors duration-200">
+                    {% trans "Get support" %}
+                    <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </span>
             </a>
         </div>
-        {% endfor %}
-    </div>
-</div>
 
-<!-- Special Pathways Section -->
-<div class="bg-gray-100 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-            {% trans "Specialist Support" %}
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Prison Leavers -->
-            <div class="bg-white rounded-lg shadow-sm p-6 border-l-4 border-primary-600">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                    {% trans "Leaving Prison?" %}
-                </h3>
-                <p class="text-gray-600 mb-4">
-                    {% trans "Find organizations and services specifically designed to support you as you transition back into the community. Housing, employment, and support services available." %}
-                </p>
-                <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">
-                    {% trans "Get support" %} &rarr;
-                </a>
-            </div>
-            <!-- Homelessness -->
-            <div class="bg-white rounded-lg shadow-sm p-6 border-l-4 border-accent-600">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                    {% trans "Homeless or At Risk?" %}
-                </h3>
-                <p class="text-gray-600 mb-4">
-                    {% trans "Access immediate help, food services, emergency accommodation, and long-term support from organizations across the West Midlands." %}
-                </p>
-                <a href="#" class="text-accent-600 hover:text-accent-800 font-medium">
-                    {% trans "Get support" %} &rarr;
-                </a>
-            </div>
+        <div class="text-center mt-8">
+            <a href="{% url 'pathways:list' %}"
+               class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-amber-600 transition-colors duration-200">
+                {% trans "View all support pathways" %}
+                <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+            </a>
         </div>
     </div>
-</div>
+</section>
 
 <!-- AI Assistant CTA -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="bg-primary-50 rounded-2xl p-8 text-center">
-        <h2 class="text-2xl font-bold text-primary-900 mb-4">
-            {% trans "Not sure where to start?" %}
-        </h2>
-        <p class="text-primary-700 mb-6 max-w-2xl mx-auto">
-            {% trans "Our AI assistant can help you find the right organization, service, or event based on your needs. Just ask a question." %}
-        </p>
-        <a href="#"
-           class="inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
-            {% trans "Chat with AI Assistant" %}
-        </a>
+<section class="bg-[#FAFAF8] py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl bg-primary-800 text-white p-10 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-500 text-white mb-5 mx-auto">
+                <!-- Heroicon: sparkles -->
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+                </svg>
+            </div>
+            <h2 class="font-heading text-2xl font-bold mb-4">
+                {% trans "Not sure where to start?" %}
+            </h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+                {% trans "Our AI assistant can help you find the right organisation, service, or event based on your needs. Just ask a question in plain language." %}
+            </p>
+            <a href="#"
+               class="inline-flex items-center justify-center min-h-[48px] rounded-lg bg-amber-500 hover:bg-amber-600 px-8 py-3 text-base font-semibold text-white transition-colors duration-200 cursor-pointer">
+                {% trans "Chat with AI Assistant" %}
+            </a>
+            <p class="mt-4 text-blue-200 text-xs">{% trans "Coming soon — Phase 6" %}</p>
+        </div>
     </div>
-</div>
+</section>
+
 {% endblock %}

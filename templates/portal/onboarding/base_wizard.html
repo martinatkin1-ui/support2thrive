@@ -18,10 +18,11 @@
       {% for key, label in state.STEPS %}
       <div class="flex flex-col items-center flex-1">
         <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold
-          {% if key in state.completed_steps %}bg-accent-600 text-white
+          {% if key in state.completed_steps %}bg-amber-500 text-white
           {% elif key == step %}bg-primary-600 text-white ring-4 ring-primary-100
           {% else %}bg-gray-200 text-gray-500{% endif %}">
-          {% if key in state.completed_steps %}&#10003;
+          {% if key in state.completed_steps %}
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
           {% else %}{{ forloop.counter }}{% endif %}
         </div>
         <span class="text-xs mt-1 hidden sm:block
@@ -47,14 +48,16 @@
   <div class="flex gap-3 mt-6">
     {% if prev_step %}
       <a href="{% url 'organizations:onboarding_step' prev_step %}"
-         class="px-5 py-2 rounded-md border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 font-medium">
-        &#8592; {% trans "Back" %}
+         class="inline-flex items-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-lg border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors duration-200">
+        <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        {% trans "Back" %}
       </a>
     {% endif %}
     {% block submit_button %}
       <button type="submit" form="wizard-form"
-              class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-md font-medium text-sm">
-        {% trans "Save & continue" %} &#8594;
+              class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 min-h-[44px] rounded-lg font-medium text-sm transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5">
+        {% trans "Save & continue" %}
+        <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
       </button>
     {% endblock %}
   </div>

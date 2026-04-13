@@ -8,7 +8,8 @@
 
   <!-- Back -->
   <a href="{% url 'events:list' %}" class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-6">
-    &#8592; {% trans "All events" %}
+    <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+    {% trans "All events" %}
   </a>
 
   <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
@@ -46,7 +47,7 @@
             </div>
             {% if event.booking_url %}
               <a href="{{ event.booking_url }}" target="_blank" rel="noopener"
-                 class="ml-auto flex-shrink-0 bg-accent-600 hover:bg-accent-700 text-white text-sm px-4 py-1.5 rounded-md font-medium">
+                 class="ml-auto flex-shrink-0 bg-amber-500 hover:bg-amber-600 text-white text-sm px-4 py-2.5 min-h-[44px] rounded-lg font-medium transition-colors duration-200">
                 {% trans "Book" %}
               </a>
             {% endif %}
@@ -65,7 +66,7 @@
         </div>
         {% if event.booking_url %}
           <a href="{{ event.booking_url }}" target="_blank" rel="noopener"
-             class="ml-auto flex-shrink-0 bg-accent-600 hover:bg-accent-700 text-white text-sm px-4 py-1.5 rounded-md font-medium">
+             class="ml-auto flex-shrink-0 bg-amber-500 hover:bg-amber-600 text-white text-sm px-4 py-2.5 min-h-[44px] rounded-lg font-medium transition-colors duration-200">
             {% trans "Book" %}
           </a>
         {% endif %}
@@ -75,7 +76,7 @@
       <!-- Location -->
       {% if event.is_online %}
         <div class="flex items-start gap-2 mb-4 text-sm text-gray-600">
-          <span class="text-lg">&#127760;</span>
+          <svg class="w-5 h-5 shrink-0 text-primary-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
           <div>
             <span class="font-medium">{% trans "Online event" %}</span>
             {% if event.online_url %}
@@ -100,7 +101,8 @@
       <div class="mb-6">
         {% if event.is_free %}
           <span class="inline-flex items-center gap-1 text-sm bg-accent-50 text-accent-700 px-3 py-1 rounded-full font-medium">
-            &#10003; {% trans "Free event" %}
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            {% trans "Free event" %}
           </span>
         {% else %}
           <span class="text-sm text-gray-600">{{ event.cost_description }}</span>
@@ -116,11 +118,13 @@
       <div class="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
         <a href="{% url 'events:org_ical' event.organization.slug %}"
            class="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">
-          &#128197; {% trans "Subscribe to" %} {{ event.organization.name }} {% trans "events" %}
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          {% trans "Subscribe to" %} {{ event.organization.name }} {% trans "events" %}
         </a>
         <a href="{% url 'organizations:detail' event.organization.slug %}"
            class="text-sm text-primary-600 hover:underline flex items-center gap-1">
-          {% trans "View organisation" %} &#8594;
+          {% trans "View organisation" %}
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
       </div>
     </div>

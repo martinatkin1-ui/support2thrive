@@ -28,8 +28,7 @@ from django.utils import timezone
 
 from apps.audit.models import AuditEntry
 
-from .encryption import encrypt_pii
-from .models import Referral, ReferralDelivery, ReferralFormField
+from .models import Referral, ReferralDelivery
 
 logger = logging.getLogger(__name__)
 

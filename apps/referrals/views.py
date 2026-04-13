@@ -17,7 +17,7 @@ from django.views.decorators.http import require_POST
 from apps.audit.models import AuditEntry
 from apps.organizations.models import Organization
 
-from .models import Referral, ReferralDelivery, ReferralFormField
+from .models import Referral, ReferralFormField
 from .services import create_referral, queue_deliveries
 
 

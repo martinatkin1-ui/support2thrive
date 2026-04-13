@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from apps.core.models import Region, SupportStream
+from apps.core.models import Region
 from apps.organizations.models import OrgOnboardingState, Organization
 from apps.services.models import ServiceCategory
 
