@@ -67,6 +67,25 @@ Settings auto-import from `config/settings/local.py` which imports `dev.py`. Pro
 
 ---
 
+## Commit Policy (CodeRabbit Tier Limit)
+
+**Commit before 120 files are modified in a single session.** CodeRabbit's review tier caps at 150 files per PR — staying at 120 leaves headroom and ensures every commit is reviewable.
+
+Rules:
+- After every logical unit of work (model, view, template, test), check the staged file count
+- If approaching 100 modified files, commit immediately — do not batch further
+- Every commit must pass: `python manage.py test --settings=config.settings.test` and `ruff check apps/ -q`
+- Commit message format: `feat|fix|refactor|chore|docs: description`
+- Never commit `.env`, `db.sqlite3`, `Community brain/` or media files
+
+**Check file count before committing:**
+```bash
+git diff --name-only HEAD | wc -l        # unstaged
+git diff --cached --name-only | wc -l    # staged
+```
+
+---
+
 ## Dev Tools
 
 Five tools extend Claude Code for this project. Each operates at a distinct layer of the workflow — see **Agentic Hierarchy** below for how they interlock.
