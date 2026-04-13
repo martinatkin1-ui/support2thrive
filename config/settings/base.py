@@ -33,6 +33,7 @@ THIRD_PARTY_APPS = [
     "django_filters",
     "django_htmx",
     "axes",
+    "anymail",
 ]
 
 LOCAL_APPS = [
@@ -194,6 +195,38 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 SITE_URL = env("SITE_URL", default="http://localhost:8000")
+
+# Regional hero imagery (Flickr public feed — no API key; see Real Python Picha).
+# Comma-separated list: each segment is its own feed query (results merged).
+# (A single Flickr request ANDs comma-separated tags, so one long list returns almost nothing.)
+COMMUNITY_PHOTO_FLICKR_TAGS = env(
+    "COMMUNITY_PHOTO_FLICKR_TAGS",
+    default=(
+        "wolverhampton,westmidlands,blackcountry,staffordshire,"
+        "worcestershire,shropshire,birmingham,community"
+    ),
+)
+COMMUNITY_PHOTO_SYNC_LIMIT = env.int("COMMUNITY_PHOTO_SYNC_LIMIT", default=24)
+COMMUNITY_PHOTO_HERO_DISPLAY = env.int("COMMUNITY_PHOTO_HERO_DISPLAY", default=6)
+
+# Curated hero imagery (preferred over Flickr for public home)
+SITE_IMAGE_HERO_MAX = env.int("SITE_IMAGE_HERO_MAX", default=3)
+HERO_USE_FLICKR_COMMUNITY_PHOTOS = env.bool("HERO_USE_FLICKR_COMMUNITY_PHOTOS", default=False)
+
+# Email — SendGrid via django-anymail
+# Set EMAIL_BACKEND in .env:
+#   console: django.core.mail.backends.console.EmailBackend  (dev default)
+#   live:    anymail.backends.sendgrid.EmailBackend
+EMAIL_BACKEND = env(
+    "EMAIL_BACKEND",
+    default="django.core.mail.backends.console.EmailBackend",
+)
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="noreply@localhost")
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+ANYMAIL = {
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY", default=""),
+}
 
 # Axes (brute force protection)
 AXES_FAILURE_LIMIT = 5

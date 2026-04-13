@@ -12,8 +12,8 @@ DATABASES = {
 # CORS - allow all in dev
 CORS_ALLOW_ALL_ORIGINS = True
 
-# Email - console backend for dev
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# Email — reads EMAIL_BACKEND from .env (console by default, anymail when key is set)
+# No override here — base.py handles it via env()
 
 # Disable axes in dev for convenience
 AXES_ENABLED = False
