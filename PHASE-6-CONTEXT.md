@@ -50,7 +50,27 @@ New capabilities (notifications, newsfeed completion, search) are **out of scope
 **Out of scope for Phase 6:**
 - Events (time-sensitive, stale data risk)
 - Newsfeed (app is stubbed, not implemented)
-- Obsidian vault (`OBSIDIAN_VAULT_PATH` in .env) — deferred to future phase
+
+### 6. Obsidian Vault — Knowledge Base
+**Decision:** `./Community brain/` (project-relative path, already exists)
+
+- `OBSIDIAN_VAULT_PATH=./Community brain` set in `.env`
+- Vault is gitignored (dynamic scraped/extracted content)
+- Auto-created subdirectories by the platform:
+  - `organisations/` — scraped from org websites (weekly Celery task)
+  - `documents/{org-slug}/` — extracted from org-uploaded PDFs via RAG-Anything
+  - `services/` — auto-generated from platform ServiceCategory data
+- `knowledge/` — user manually drops documents here; file watcher picks them up
+- No manual folder setup needed now — PDFs uploaded through admin auto-populate the vault
+
+### 7. Email Delivery — SendGrid
+**Decision:** SendGrid (django-anymail) for transactional email
+
+- Package: `django-anymail[sendgrid]`
+- Backend: `anymail.backends.sendgrid.EmailBackend` (set in `.env` when key is ready)
+- Dev fallback: `django.core.mail.backends.console.EmailBackend` (current `.env` default)
+- Referrals always stored in DB first (no-loss guarantee) — portal inbox works without email
+- `.env` has `SENDGRID_API_KEY=` placeholder; switch `EMAIL_BACKEND` after key is obtained
 
 ### 4. Chat Interaction Model
 **Decision:**

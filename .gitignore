@@ -49,3 +49,6 @@ celerybeat.pid
 # Coverage
 .coverage
 htmlcov/
+
+# Obsidian vault (dynamic content — scraped data, PDF extractions)
+Community brain/
