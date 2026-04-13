@@ -287,5 +287,5 @@ def portal_event_delete(request, slug):
         raise Http404
     title = event.title
     event.delete()
-    messages.success(request, _(f"Event \"{title}\" deleted."))
+    messages.success(request, _('Event "%(title)s" deleted.') % {"title": title})
     return redirect("events:portal_event_list")

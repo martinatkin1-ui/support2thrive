@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{% load i18n %}{% trans "Referral" %} {{ referral.reference_number }}</title>
+  <title>{% load i18n referral_tags %}{% trans "Referral" %} {{ referral.reference_number }}</title>
   <style>
     body { font-family: Arial, sans-serif; font-size: 12pt; color: #111; margin: 2cm; }
     h1 { font-size: 16pt; border-bottom: 2px solid #111; padding-bottom: 8px; }
@@ -41,7 +41,7 @@
   <h2>{% trans "Client information" %} <span style="font-size:9pt;color:#999;">({% trans "confidential — handle securely" %})</span></h2>
   <table>
     {% for key, value in pii.items %}
-      <tr><th>{{ key|cut:"_"|title }}</th><td>{{ value }}</td></tr>
+      <tr><th>{{ key|readable_key }}</th><td>{{ value }}</td></tr>
     {% endfor %}
   </table>
   {% endif %}
@@ -50,7 +50,7 @@
   <h2>{% trans "Additional information" %}</h2>
   <table>
     {% for key, value in referral.form_data.items %}
-      <tr><th>{{ key|cut:"_"|title }}</th><td>{{ value }}</td></tr>
+      <tr><th>{{ key|readable_key }}</th><td>{{ value }}</td></tr>
     {% endfor %}
   </table>
   {% endif %}

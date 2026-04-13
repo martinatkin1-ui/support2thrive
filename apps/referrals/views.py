@@ -103,7 +103,7 @@ def _require_org_manager(request):
     """Return the org for which this user is a manager, or None."""
     if not request.user.is_authenticated:
         return None
-    return Organization.objects.filter(managers=request.user).first()
+    return getattr(request.user, "organization", None)
 
 
 @login_required
@@ -113,7 +113,13 @@ def portal_referral_list(request):
         messages.error(request, _("Access denied."))
         return redirect("core:home")
 
-    qs = Referral.objects.filter(organization=org).order_by("-created_at")
+    base_qs = Referral.objects.filter(organization=org)
+    # Unacknowledged count is always over the full org inbox, not the filtered view
+    unacknowledged_count = base_qs.filter(
+        acknowledged_at__isnull=True, status="submitted"
+    ).count()
+
+    qs = base_qs.order_by("-created_at")
 
     # Filters
     status = request.GET.get("status")
@@ -130,7 +136,7 @@ def portal_referral_list(request):
         "priority_choices": Referral.PRIORITY_CHOICES,
         "selected_status": status,
         "selected_priority": priority,
-        "unacknowledged_count": qs.filter(acknowledged_at__isnull=True, status="submitted").count(),
+        "unacknowledged_count": unacknowledged_count,
     })
 
 

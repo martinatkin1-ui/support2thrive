@@ -97,6 +97,13 @@ class ReferralFormField(TimeStampedModel):
         ordering = ["organization", "display_order"]
         verbose_name = _("Referral Form Field")
         verbose_name_plural = _("Referral Form Fields")
+        constraints = [
+            # Prevent duplicate labels per org — slug collision in form_data JSON
+            models.UniqueConstraint(
+                fields=["organization", "label"],
+                name="unique_referral_form_field_label_per_org",
+            )
+        ]
 
     def __str__(self):
         return f"{self.organization.name} — {self.label}"
@@ -117,9 +124,10 @@ class ReferralFormField(TimeStampedModel):
 # ---------------------------------------------------------------------------
 
 def _referral_ref():
-    """Generate a human-readable reference: WM-YYYY-NNNNNN."""
+    """Generate a human-readable reference: WM-YYYY-XXXXXXXX (8 hex chars)."""
     from datetime import date
-    suffix = str(uuid.uuid4().int)[:6]
+    # uuid4().hex[:8] gives ~4 billion possibilities per year — low collision risk
+    suffix = uuid.uuid4().hex[:8].upper()
     return f"WM-{date.today().year}-{suffix}"
 
 
@@ -255,21 +263,24 @@ class Referral(TimeStampedModel):
     def transition_status(self, new_status, actor, note=""):
         """
         Move referral to new_status, record in history, write audit entry.
+        Both the status save and history record are committed atomically.
         """
+        from django.db import transaction
         from django.utils import timezone
         old_status = self.status
         self.status = new_status
         if new_status == "acknowledged" and not self.acknowledged_at:
             self.acknowledged_at = timezone.now()
             self.acknowledged_by = actor
-        self.save(update_fields=["status", "acknowledged_at", "acknowledged_by"])
-        ReferralStatusHistory.objects.create(
-            referral=self,
-            from_status=old_status,
-            to_status=new_status,
-            changed_by=actor,
-            note=note,
-        )
+        with transaction.atomic():
+            self.save(update_fields=["status", "acknowledged_at", "acknowledged_by"])
+            ReferralStatusHistory.objects.create(
+                referral=self,
+                from_status=old_status,
+                to_status=new_status,
+                changed_by=actor,
+                note=note,
+            )
 
 
 # ---------------------------------------------------------------------------

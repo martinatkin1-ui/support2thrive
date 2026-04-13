@@ -232,7 +232,14 @@ def send_webhook_delivery(delivery_id: str):
         # PII not included in webhook by default — org must request via secure channel
     }, ensure_ascii=False).encode("utf-8")
 
-    # HMAC signature
+    # HMAC signature — warn if no secret configured (unsigned webhook)
+    if not org.crm_webhook_secret:
+        logger.warning(
+            "Sending unsigned webhook for referral %s to org %s — "
+            "set crm_webhook_secret to enable HMAC verification",
+            referral.reference_number,
+            org.slug,
+        )
     secret = org.crm_webhook_secret.encode() if org.crm_webhook_secret else b""
     sig = hmac.new(secret, payload, hashlib.sha256).hexdigest() if secret else ""
 
@@ -306,12 +313,12 @@ def check_unacknowledged_referrals():
     cutoff_48h = now - timedelta(hours=48)
 
     # 48h escalation
-    to_escalate = Referral.objects.filter(
+    to_escalate = list(Referral.objects.filter(
         status="submitted",
         acknowledged_at__isnull=True,
         escalated=False,
         created_at__lte=cutoff_48h,
-    )
+    ))
     for referral in to_escalate:
         referral.escalated = True
         referral.save(update_fields=["escalated"])
@@ -324,17 +331,17 @@ def check_unacknowledged_referrals():
         logger.warning("Referral %s escalated (48h unacknowledged)", referral.reference_number)
 
     # 24h reminder (not yet escalated, not yet acknowledged)
-    to_remind = Referral.objects.filter(
+    to_remind = list(Referral.objects.filter(
         status="submitted",
         acknowledged_at__isnull=True,
         escalated=False,
         created_at__lte=cutoff_24h,
         created_at__gt=cutoff_48h,
-    )
+    ))
     for referral in to_remind:
         _send_acknowledgment_reminder(referral)
 
-    return to_escalate.count(), to_remind.count()
+    return len(to_escalate), len(to_remind)
 
 
 def _send_acknowledgment_reminder(referral: Referral):

@@ -10,11 +10,12 @@ The chain can be verified by replaying all entries in order and recomputing hash
 import hashlib
 import json
 import uuid
+from datetime import timezone as dt_timezone
 
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.db import models
+from django.db import models, transaction
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -103,7 +104,7 @@ class AuditEntry(models.Model):
         help_text=_("SHA-256 of the previous AuditEntry, or empty for first entry"),
     )
     entry_hash = models.CharField(
-        _("entry hash"), max_length=64,
+        _("entry hash"), max_length=64, unique=True,
         help_text=_("SHA-256 of (prev_hash + action + object_id + timestamp_iso)"),
     )
 
@@ -155,39 +156,43 @@ class AuditEntry(models.Model):
         delta = delta or {}
         metadata = metadata or {}
 
-        # Find previous hash
-        last = cls.objects.order_by("-timestamp").first()
-        prev_hash = last.entry_hash if last else ""
-
-        now = timezone.now()
-        timestamp_iso = now.isoformat()
-
         object_id = ""
         content_type = None
         if target is not None:
             content_type = ContentType.objects.get_for_model(target)
             object_id = str(target.pk)
 
-        entry_hash = cls.compute_hash(
-            prev_hash, action, object_id, timestamp_iso, delta
-        )
-
         actor_email = ""
         if actor and hasattr(actor, "email"):
             actor_email = actor.email
 
-        return cls.objects.create(
-            actor=actor,
-            actor_email=actor_email,
-            action=action,
-            content_type=content_type,
-            object_id=object_id,
-            delta=delta,
-            metadata=metadata,
-            timestamp=now,
-            prev_hash=prev_hash,
-            entry_hash=entry_hash,
-        )
+        now = timezone.now()
+        # Normalise to UTC so verify_chain produces the same string after a
+        # DB round-trip regardless of the local timezone representation.
+        timestamp_iso = now.astimezone(dt_timezone.utc).isoformat()
+
+        with transaction.atomic():
+            # select_for_update() serialises concurrent log() calls in
+            # PostgreSQL so the prev_hash is always the latest entry's hash.
+            last = cls.objects.select_for_update().order_by("-timestamp").first()
+            prev_hash = last.entry_hash if last else ""
+
+            entry_hash = cls.compute_hash(
+                prev_hash, action, object_id, timestamp_iso, delta
+            )
+
+            return cls.objects.create(
+                actor=actor,
+                actor_email=actor_email,
+                action=action,
+                content_type=content_type,
+                object_id=object_id,
+                delta=delta,
+                metadata=metadata,
+                timestamp=now,
+                prev_hash=prev_hash,
+                entry_hash=entry_hash,
+            )
 
     @classmethod
     def verify_chain(cls):
@@ -198,11 +203,14 @@ class AuditEntry(models.Model):
         broken = []
         prev_hash = ""
         for entry in cls.objects.order_by("timestamp"):
+            # Normalise to UTC with the same isoformat() representation used
+            # during log() so the hash can be reproduced after a DB round-trip.
+            ts_iso = entry.timestamp.astimezone(dt_timezone.utc).isoformat()
             expected = cls.compute_hash(
                 prev_hash,
                 entry.action,
                 entry.object_id,
-                entry.timestamp.isoformat(),
+                ts_iso,
                 entry.delta,
             )
             if entry.entry_hash != expected:

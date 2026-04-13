@@ -1,6 +1,15 @@
+from django.core.exceptions import ImproperlyConfigured
+
 from .base import *  # noqa: F401, F403
 
 DEBUG = False
+
+# Reject deployments that forgot to set a real SECRET_KEY
+if SECRET_KEY.startswith("django-insecure-"):
+    raise ImproperlyConfigured(
+        "SECRET_KEY uses the development placeholder. "
+        "Generate a real key and set it via the SECRET_KEY environment variable."
+    )
 
 # Security settings
 SECURE_BROWSER_XSS_FILTER = True

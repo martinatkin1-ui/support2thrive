@@ -231,7 +231,9 @@ class OrgOnboardingState(models.Model):
 
     def mark_step_complete(self, step_key):
         if step_key not in self.completed_steps:
-            self.completed_steps.append(step_key)
+            # Assign a new list — never mutate the JSONField in place, as
+            # Django may not detect in-place mutations for dirty-tracking.
+            self.completed_steps = self.completed_steps + [step_key]
         all_keys = [s[0] for s in self.STEPS]
         if all(k in self.completed_steps for k in all_keys):
             from django.utils import timezone

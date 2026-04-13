@@ -5,11 +5,14 @@ Uses dateutil.rrule (RFC 5545 compatible) to expand recurrence rules into
 concrete EventOccurrence rows. A rolling 12-month window is maintained by
 the Celery task ``generate_event_occurrences``.
 """
+import logging
 from datetime import datetime, timedelta, timezone
 
 from dateutil.rrule import rrulestr
 
 from .models import Event, EventOccurrence
+
+logger = logging.getLogger(__name__)
 
 
 WINDOW_MONTHS = 12  # generate occurrences up to this many months ahead
@@ -76,7 +79,8 @@ def generate_occurrences_for_event(event: Event, replace: bool = False) -> int:
 
     try:
         rule_iter = rrulestr(full_rule, ignoretz=False)
-    except Exception:
+    except (ValueError, TypeError) as exc:
+        logger.warning("generate_occurrences_for_event: invalid rrule for event %s: %s", event.pk, exc)
         return 0
 
     duration = timedelta(minutes=rule.duration_minutes)
