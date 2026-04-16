@@ -60,8 +60,8 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "apps.organizations.middleware.OnboardingRedirectMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "apps.organizations.middleware.OnboardingRedirectMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
     "axes.middleware.AxesMiddleware",
@@ -95,6 +95,8 @@ DATABASES = {
 
 # Auth
 AUTH_USER_MODEL = "accounts.User"
+LOGIN_URL = "accounts:login"
+LOGOUT_REDIRECT_URL = "core:home"
 
 AUTHENTICATION_BACKENDS = [
     "axes.backends.AxesStandaloneBackend",
@@ -244,5 +246,10 @@ FIELD_ENCRYPTION_KEY = env("FIELD_ENCRYPTION_KEY", default="")
 
 # Gemini API
 GEMINI_API_KEY = env("GEMINI_API_KEY", default="")
+
+# AI Assistant (Phase 6)
+LIGHTRAG_WORKING_DIR = env("LIGHTRAG_WORKING_DIR", default=str(BASE_DIR / "rag_storage"))
+ASSISTANT_RATE_LIMIT_SESSION = env.int("ASSISTANT_RATE_LIMIT_SESSION", default=20)
+ASSISTANT_RATE_LIMIT_MINUTE = env.int("ASSISTANT_RATE_LIMIT_MINUTE", default=5)
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
