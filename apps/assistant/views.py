@@ -25,6 +25,7 @@ import time
 
 from django.http import HttpResponse, StreamingHttpResponse
 from django.shortcuts import render
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_http_methods
 
@@ -112,22 +113,25 @@ def chat_view(request):
     except Exception:
         logger.exception("Failed to save ConversationMessage to DB (non-fatal)")
 
-    # Return user message bubble + SSE trigger div
-    # The SSE div connects to assistant_stream and streams response into #response-area
+    # Return user message bubble + typing indicator
+    # JS in chat.html detects data-start-stream and opens a native EventSource
     safe_message = html.escape(user_message)
+    stream_path = html.escape(reverse("assistant:stream"))
     return HttpResponse(
         f'<div class="flex justify-end mb-3">'
         f'  <div class="max-w-[80%] bg-blue-800 text-white rounded-2xl rounded-br-sm px-4 py-2.5 font-body text-sm leading-relaxed">'
         f'    {safe_message}'
         f'  </div>'
         f'</div>'
-        f'<div id="response-area-trigger" '
-        f'     hx-ext="sse" '
-        f'     sse-connect="/en/assistant/stream/" '
-        f'     sse-swap="message" '
-        f'     sse-close="done" '
-        f'     hx-target="#response-area" '
-        f'     hx-swap="innerHTML">'
+        f'<div id="assistant-typing" data-start-stream="1" data-stream-url="{stream_path}"'
+        f'     class="flex justify-start mb-3">'
+        f'  <div class="bg-slate-50 border border-slate-200 rounded-2xl rounded-bl-sm px-4 py-3">'
+        f'    <span class="flex gap-1 items-center" aria-label="Assistant is typing">'
+        f'      <span class="inline-block w-2 h-2 bg-slate-400 rounded-full typing-dot"></span>'
+        f'      <span class="inline-block w-2 h-2 bg-slate-400 rounded-full typing-dot" style="animation-delay:.2s"></span>'
+        f'      <span class="inline-block w-2 h-2 bg-slate-400 rounded-full typing-dot" style="animation-delay:.4s"></span>'
+        f'    </span>'
+        f'  </div>'
         f'</div>',
         status=200,
         content_type="text/html",
@@ -232,7 +236,12 @@ def assistant_stream(request):
                         "You are a helpful, warm community assistant for West Midlands Community Share. "
                         "Help users find local services: housing, benefits, food banks, mental health "
                         "support, substance recovery, and community resources across the West Midlands. "
-                        "Use plain, clear English. Always cite organisation names. "
+                        "FORMATTING RULES — follow these exactly: "
+                        "Write in plain English only. No markdown. No asterisks, hashes, underscores, or backticks. "
+                        "Do not bold, italicise, or use any special formatting characters. "
+                        "For lists, write each item on its own line starting with a number and full stop (1. 2. 3.) or a bullet point (•). "
+                        "Keep responses concise: 2 to 4 sentences or a short numbered list. "
+                        "Always name the organisation and include a phone number or website. "
                         "Tell users to verify details directly with organisations before acting. "
                         "If someone is in crisis or danger, always mention Samaritans (116 123) and 999."
                     ),
