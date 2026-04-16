@@ -1,9 +1,12 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n site_imagery %}
 
 {% block title %}{% trans "Support Pathways" %} — {% trans "West Midlands Community Share" %}{% endblock %}
 
 {% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    {% ambient_banner "pathways_list_ambient" %}
+</div>
 <!-- Hero -->
 <section class="bg-primary-800 text-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -63,11 +66,11 @@
                 {% with section_count=pathway.sections.count %}
                 {% if section_count %}
                 <p class="text-xs text-slate-400 mb-5">
-                    {% blocktrans count count=section_count %}
-                    {{ count }} section
-                    {% plural %}
-                    {{ count }} sections
-                    {% endblocktrans %}
+                    {% if section_count == 1 %}
+                        {% trans "1 section" %}
+                    {% else %}
+                        {% blocktrans with count=section_count %}{{ count }} sections{% endblocktrans %}
+                    {% endif %}
                 </p>
                 {% endif %}
                 {% endwith %}

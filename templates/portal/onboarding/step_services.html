@@ -7,22 +7,24 @@
 
   <!-- Support streams + areas -->
   <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
-    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2">{% trans "Which support streams do you cover?" %}</h2>
+    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2">{% trans "Which support streams do you cover?"
+      %}</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
       {% for checkbox in streams_form.support_streams %}
-        <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-          {{ checkbox.tag }} {{ checkbox.choice_label }}
-        </label>
+      <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+        {{ checkbox.tag }} {{ checkbox.choice_label }}
+      </label>
       {% endfor %}
     </div>
     {% for error in streams_form.support_streams.errors %}<p class="text-xs text-red-500">{{ error }}</p>{% endfor %}
 
-    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2 mt-4">{% trans "Which areas do you serve?" %}</h2>
+    <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2 mt-4">{% trans "Which areas do you serve?" %}
+    </h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
       {% for checkbox in streams_form.areas_served %}
-        <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-          {{ checkbox.tag }} {{ checkbox.choice_label }}
-        </label>
+      <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+        {{ checkbox.tag }} {{ checkbox.choice_label }}
+      </label>
       {% endfor %}
     </div>
   </div>
@@ -30,44 +32,52 @@
   <!-- Individual services formset -->
   <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
     <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-2">{% trans "Specific services you offer" %}</h2>
-    <p class="text-xs text-gray-400">{% trans "Add each distinct service with access requirements, age range, and eligibility." %}</p>
+    <p class="text-xs text-gray-400">{% trans "Add each distinct service with access requirements, age range, and
+      eligibility." %}</p>
 
     {{ formset.management_form }}
     {% for service_form in formset %}
-      <div class="border border-gray-100 rounded-lg p-4 space-y-3 relative">
-        {% if service_form.instance.pk %}
-          <input type="hidden" name="{{ service_form.DELETE.html_name }}" value="" id="{{ service_form.DELETE.id_for_label }}">
-          <button type="button" onclick="markDelete(this)"
-                  class="absolute top-3 right-3 text-xs text-red-400 hover:text-red-600">{% trans "Remove" %}</button>
-        {% endif %}
-        {% for hidden in service_form.hidden_fields %}{{ hidden }}{% endfor %}
-        {% for field in service_form.visible_fields %}
-          {% if field.name != "DELETE" %}
-          <div>
-            <label for="{{ field.id_for_label }}" class="block text-xs font-medium text-gray-600 mb-0.5">{{ field.label }}</label>
-            {{ field }}
-            {% for error in field.errors %}<p class="text-xs text-red-500">{{ error }}</p>{% endfor %}
-          </div>
-          {% endif %}
-        {% endfor %}
+    <div class="border border-gray-100 rounded-lg p-4 space-y-3 relative">
+      {% if service_form.instance.pk %}
+      <input type="hidden" name="{{ service_form.DELETE.html_name }}" value=""
+        id="{{ service_form.DELETE.id_for_label }}">
+      <button type="button" onclick="markDelete(this)"
+        class="absolute top-3 right-3 text-xs text-red-400 hover:text-red-600">{% trans "Remove" %}</button>
+      {% endif %}
+      {% for hidden in service_form.hidden_fields %}{{ hidden }}{% endfor %}
+      {% for field in service_form.visible_fields %}
+      {% if field.name != "DELETE" %}
+      <div>
+        <label for="{{ field.id_for_label }}" class="block text-xs font-medium text-gray-600 mb-0.5">{{ field.label
+          }}</label>
+        {{ field }}
+        {% for error in field.errors %}<p class="text-xs text-red-500">{{ error }}</p>{% endfor %}
       </div>
+      {% endif %}
+      {% endfor %}
+    </div>
     {% endfor %}
   </div>
 </form>
 
 <style>
-  input[type=text], input[type=number], textarea, select {
-    @apply block w-full border border-gray-300 rounded-md px-3 py-2 text-sm
-           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  input[type=text],
+  input[type=number],
+  textarea,
+  select {
+    @apply block w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
   }
-  input[type=checkbox] { @apply h-4 w-4 rounded border-gray-300; }
+
+  input[type=checkbox] {
+    @apply h-4 w-4 rounded border-gray-300;
+  }
 </style>
 <script>
-function markDelete(btn) {
-  const row = btn.closest('.border');
-  row.querySelectorAll('input[name$="-DELETE"]').forEach(el => el.value = 'on');
-  row.classList.add('opacity-30');
-  btn.textContent = '{% trans "Marked for removal" %}';
-}
+  function markDelete(btn) {
+    const row = btn.closest('.border');
+    row.querySelectorAll('input[name$="-DELETE"]').forEach(el => el.value = 'on');
+    row.classList.add('opacity-30');
+    btn.textContent = '{% trans "Marked for removal" %}';
+  }
 </script>
 {% endblock %}

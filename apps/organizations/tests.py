@@ -23,12 +23,16 @@ def _onboarding_org(name="Onboarding Org", status="pending"):
 
 
 def _org_manager(org, username="testmanager"):
-    return User.objects.create_user(
+    user = User.objects.create_user(
         username=username,
         password="testpass",
         role="org_manager",
         organization=org,
     )
+    # Tests model approved managers using the portal; registration leaves managers pending.
+    user.approval_status = User.APPROVAL_APPROVED
+    user.save(update_fields=["approval_status"])
+    return user
 
 
 def _complete_all_steps(state):

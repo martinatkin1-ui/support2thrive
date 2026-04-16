@@ -1,50 +1,186 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% trans "West Midlands Community Share — Home" %}{% endblock %}
 
 {% block content %}
 
-<!-- Hero Section -->
-<section class="bg-primary-800 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="text-center max-w-3xl mx-auto">
-            <h1 class="font-heading text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                {% trans "Connecting Communities Across the West Midlands" %}
-            </h1>
-            <p class="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
-                {% trans "Find support services, events, and organisations in your area. Whether you need help with housing, mental health, addiction recovery, or more — we're here to connect you." %}
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{% url 'organizations:list' %}"
-                   class="inline-flex items-center justify-center min-h-[48px] rounded-lg bg-amber-500 hover:bg-amber-600 px-8 py-3 text-base font-semibold text-white transition-colors duration-200 cursor-pointer">
-                    {% trans "Find Organisations" %}
-                </a>
-                <a href="{% url 'events:list' %}"
-                   class="inline-flex items-center justify-center min-h-[48px] rounded-lg bg-white text-primary-800 hover:bg-blue-50 px-8 py-3 text-base font-semibold transition-colors duration-200 cursor-pointer">
-                    {% trans "View Events" %}
-                </a>
-            </div>
+<!-- Hero — full-bleed: curated SiteImage, then bundled static fallback, then light layout; optional Flickr mosaic -->
+<section class="relative overflow-hidden {% if not hero_has_immersive_bg %}bg-gradient-to-b from-warm-50 via-white to-sage-50/50 text-sage-900{% else %}text-white{% endif %}"
+         aria-labelledby="home-hero-heading">
+    {% if site_hero_images %}
+    <div class="absolute inset-0 z-0" aria-hidden="true">
+        {% for img in site_hero_images %}
+        <div class="absolute inset-0 overflow-hidden hero-kb-layer-{{ forloop.counter0 }} {% if forloop.counter0 == 0 %}opacity-[0.52]{% elif forloop.counter0 == 1 %}opacity-[0.38]{% else %}opacity-[0.28]{% endif %}">
+            <img src="{{ img.image.url }}"
+                 alt="{{ img.alt_text }}"
+                 width="1920"
+                 height="1080"
+                 loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                 decoding="async"
+                 class="hero-kenburns-img h-[118%] w-full min-h-full object-cover object-center">
+        </div>
+        {% endfor %}
+    </div>
+    <div class="absolute inset-0 z-[1] bg-gradient-to-br from-sage-950/90 via-sage-900/75 to-sage-800/55 pointer-events-none" aria-hidden="true"></div>
+    {% if hero_credits %}
+    <p class="absolute bottom-5 left-4 right-4 z-[2] text-[0.7rem] sm:text-xs leading-snug text-white/85 max-w-3xl lg:left-8 lg:bottom-8">
+        {{ hero_credits }}
+    </p>
+    {% endif %}
+    {% elif fallback_static_hero %}
+    <div class="absolute inset-0 z-0" aria-hidden="true">
+        <div class="absolute inset-0 overflow-hidden hero-kb-layer-0 opacity-[0.52]">
+            <img src="{% static fallback_static_hero %}"
+                 alt="{% trans 'Queen Square and Wolverhampton city centre on a bright day: people in the square, historic timber-framed and stone buildings, and clear sky.' %}"
+                 width="1920"
+                 height="1080"
+                 loading="eager"
+                 decoding="async"
+                 class="hero-kenburns-img h-[118%] w-full min-h-full object-cover object-center">
         </div>
     </div>
-    <div class="h-1 bg-amber-500"></div>
+    <div class="absolute inset-0 z-[1] bg-gradient-to-br from-sage-950/90 via-sage-900/75 to-sage-800/55 pointer-events-none" aria-hidden="true"></div>
+    <p class="absolute bottom-5 left-4 right-4 z-[2] text-[0.7rem] sm:text-xs leading-snug text-white/85 max-w-3xl lg:left-8 lg:bottom-8">
+        {% trans "Queen Square, Wolverhampton — pre-approved library photo for the platform." %}
+    </p>
+    {% else %}
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute -right-20 top-10 h-96 w-96 rounded-full bg-sage-200/35 blur-3xl motion-reduce:opacity-80"></div>
+        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-amber-200/25 blur-3xl motion-reduce:opacity-80"></div>
+    </div>
+    {% endif %}
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 {% if hero_has_immersive_bg %}min-h-[min(88vh,56rem)] flex flex-col justify-center py-16 md:py-24
+                {% else %}pt-14 pb-10 md:pt-20 md:pb-16{% endif %}">
+        <div class="grid grid-cols-1 {% if community_photos and not hero_has_immersive_bg %}lg:grid-cols-12{% endif %} gap-12 lg:gap-10 items-center">
+            <div class="{% if hero_has_immersive_bg %}max-w-xl {% elif community_photos %}lg:col-span-6 xl:col-span-5
+                        {% else %}max-w-3xl mx-auto text-center lg:text-left{% endif %}">
+                <p class="text-xs font-semibold tracking-[0.2em] uppercase mb-5 {% if hero_has_immersive_bg %}text-amber-200/95{% else %}text-sage-600{% endif %}">
+                    {% trans "Connect with your area" %}
+                </p>
+                <h1 id="home-hero-heading" class="font-display font-medium leading-[1.06] tracking-tight {% if not hero_has_immersive_bg %}text-sage-900{% endif %}">
+                    <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] {% if hero_has_immersive_bg %}text-white drop-shadow-sm{% endif %}">{% trans "Neighbours." %}</span>
+                    <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] {% if hero_has_immersive_bg %}text-sage-100{% else %}text-sage-700{% endif %}">{% trans "Support." %}</span>
+                    <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] {% if hero_has_immersive_bg %}text-amber-200{% else %}text-amber-800/90{% endif %}">{% trans "A community connected." %}</span>
+                </h1>
+                <p class="mt-8 text-lg md:text-xl max-w-xl leading-relaxed {% if hero_has_immersive_bg %}text-sage-100{% else %}text-sage-700{% endif %}">
+                    {% trans "Find trusted organisations, events, and pathways across the West Midlands — in one calm, welcoming place." %}
+                </p>
+                <p class="mt-2 text-sm max-w-xl {% if hero_has_immersive_bg %}text-sage-200/90{% else %}text-sage-600{% endif %}">
+                    {% trans "West Midlands Community Share brings local help closer to the people who need it." %}
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 {% if not hero_has_immersive_bg and not community_photos %}justify-center lg:justify-start{% endif %}">
+                    <a href="{% url 'organizations:list' %}"
+                       class="inline-flex items-center justify-center min-h-[48px] rounded-full px-8 py-3 text-base font-semibold shadow-md transition-colors duration-200 cursor-pointer
+                              {% if hero_has_immersive_bg %}bg-white text-sage-900 hover:bg-warm-50{% else %}bg-sage-800 text-white hover:bg-sage-900{% endif %}">
+                        {% trans "Explore organisations" %}
+                    </a>
+                    <a href="{% url 'events:list' %}"
+                       class="inline-flex items-center justify-center min-h-[48px] rounded-full border-2 px-8 py-3 text-base font-semibold transition-colors duration-200 cursor-pointer
+                              {% if hero_has_immersive_bg %}border-white/55 bg-white/10 text-white hover:bg-white/15{% else %}border-sage-300 bg-white/80 text-sage-800 hover:border-sage-500 hover:bg-white{% endif %}">
+                        {% trans "See what’s on" %}
+                    </a>
+                </div>
+                <a href="#welcome-section"
+                   class="mt-12 inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 motion-safe:scroll-smooth {% if hero_has_immersive_bg %}text-white/85 hover:text-amber-200{% else %}text-sage-600 hover:text-amber-800{% endif %}">
+                    <span>{% trans "Scroll to explore" %}</span>
+                    <svg class="h-4 w-4 motion-safe:animate-bounce" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </a>
+            </div>
+
+            {% if community_photos and not hero_has_immersive_bg %}
+            <div class="lg:col-span-6 xl:col-span-7 relative">
+                <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-sage-100/80 to-amber-50/60 blur-sm motion-reduce:opacity-0" aria-hidden="true"></div>
+                <div class="relative rounded-[1.75rem] bg-white/70 p-4 sm:p-5 shadow-xl ring-1 ring-sage-200/60 backdrop-blur-sm">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4" role="list">
+                        {% for photo in community_photos %}
+                        <a href="{{ photo.source_link }}"
+                           role="listitem"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="group relative overflow-hidden rounded-2xl ring-1 ring-sage-200/80 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-lg">
+                            <img src="{{ photo.image_url }}"
+                                 alt="{{ photo.title }}"
+                                 width="400"
+                                 height="300"
+                                 loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                                 decoding="async"
+                                 class="h-full w-full aspect-[4/3] object-cover motion-safe:transition motion-safe:duration-500 group-hover:scale-[1.03] motion-reduce:group-hover:scale-100">
+                            <span class="sr-only">{% trans "Opens the photo page on Flickr in a new tab." %}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <p class="mt-4 text-xs leading-relaxed text-sage-600">
+                        {% blocktrans trimmed %}
+                        Regional moments from public Flickr feeds — each tile links to the photographer’s page.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% if not hero_has_immersive_bg and not community_photos %}
+        <p class="mt-6 text-center text-sm text-sage-600 max-w-xl mx-auto lg:text-left lg:mx-0 lg:max-w-none">
+            {% trans "Curated regional photos can be added by staff in the admin (Site images) after review." %}
+        </p>
+        {% endif %}
+    </div>
 </section>
 
-<!-- Support Streams Section -->
-<section class="bg-[#FAFAF8] py-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-heading text-2xl font-semibold text-primary-800 mb-8 text-center">
-            {% trans "What support do you need?" %}
+<!-- Repeating ribbon — neighbourhood energy without noisy emoji -->
+<div class="relative overflow-hidden bg-sage-800 py-3 text-white" aria-hidden="true">
+    <div class="marquee-track gap-12 sm:gap-16 text-sm font-medium tracking-wide text-sage-100">
+        {% for _ in "123456789012" %}
+        <span class="inline-flex items-center gap-3 whitespace-nowrap">
+            <span>{% trans "Community" %}</span><span class="text-amber-300/90">&#9656;</span>
+            <span>{% trans "Care" %}</span><span class="text-amber-300/90">&#9656;</span>
+            <span>{% trans "Local events" %}</span><span class="text-amber-300/90">&#9656;</span>
+            <span>{% trans "Practical help" %}</span><span class="text-amber-300/90">&#9656;</span>
+        </span>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Welcome narrative -->
+<section id="welcome-section" class="bg-white py-16 md:py-24 scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-medium text-sage-900 mb-6 leading-tight">
+            {% trans "Welcome to the West Midlands." %}
         </h2>
+        <p class="text-lg text-sage-700 leading-relaxed">
+            {% blocktrans trimmed %}
+            Like a well-planned neighbourhood, this platform is designed around how people actually live — quick routes to food support, housing advice, recovery services, activities, and the organisations that make our towns and cities kinder.
+            {% endblocktrans %}
+        </p>
+        <p class="mt-6 text-sage-600 leading-relaxed">
+            {% trans "Start with what you need today. Every listing is here to help you take the next step." %}
+        </p>
+    </div>
+</section>
+
+<!-- Support Streams -->
+<section class="bg-warm-50 py-16 border-y border-sage-100/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="font-display text-2xl md:text-3xl font-medium text-sage-900 mb-3">
+                {% trans "What support do you need?" %}
+            </h2>
+            <p class="text-sage-600 text-sm md:text-base leading-relaxed">
+                {% trans "Choose a theme to filter organisations — or browse the full directory at your own pace." %}
+            </p>
+        </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {% for stream_name in support_stream_names %}
             <a href="{% url 'organizations:list' %}?stream={{ stream_name|slugify }}"
-               class="rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary-300 hover:shadow-md p-4 text-center transition-all duration-200 cursor-pointer">
-                <span class="text-sm font-medium text-slate-700">{{ stream_name }}</span>
+               class="rounded-2xl bg-white border border-sage-200/90 shadow-sm hover:border-sage-400 hover:shadow-md p-4 text-center transition-all duration-200 cursor-pointer group">
+                <span class="text-sm font-medium text-sage-800 group-hover:text-sage-950">{{ stream_name }}</span>
             </a>
             {% empty %}
-            <div class="col-span-full text-center text-slate-500">
-                <a href="{% url 'organizations:list' %}" class="text-primary-700 hover:text-amber-600 transition-colors duration-200">
+            <div class="col-span-full text-center text-sage-600">
+                <a href="{% url 'organizations:list' %}" class="font-medium text-sage-800 underline decoration-sage-300 hover:decoration-amber-600 transition-colors duration-200">
                     {% trans "Browse all organisations" %}
                 </a>
             </div>
@@ -53,62 +189,58 @@
     </div>
 </section>
 
-<!-- Specialist Pathways Section -->
-<section class="bg-white py-14">
+<!-- Specialist Pathways -->
+<section class="bg-white py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10">
-            <h2 class="font-heading text-2xl font-semibold text-primary-800 mb-3">
-                {% trans "Specialist Support" %}
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+            <h2 class="font-display text-2xl md:text-3xl font-medium text-sage-900 mb-3">
+                {% trans "Pathways with you in mind" %}
             </h2>
-            <p class="text-slate-600 max-w-xl mx-auto text-sm leading-relaxed">
-                {% trans "Dedicated step-by-step guides written for people in specific situations." %}
+            <p class="text-sage-600 text-sm md:text-base leading-relaxed">
+                {% trans "Clear guides for situations that need extra care — written to be respectful and practical." %}
             </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <!-- Prison Leavers -->
             <a href="{% url 'pathways:detail' slug='prison-leavers' %}"
-               class="group block rounded-xl bg-[#FAFAF8] border border-slate-200 shadow-sm hover:border-primary-300 hover:shadow-md p-7 transition-all duration-200 cursor-pointer border-l-4 border-l-primary-800">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary-100 text-primary-800 group-hover:bg-amber-100 group-hover:text-amber-700 transition-colors duration-200">
-                        <!-- Heroicon: shield-check -->
+               class="group block rounded-2xl bg-warm-50 border border-sage-200/90 shadow-sm hover:border-sage-400 hover:shadow-md p-8 transition-all duration-200 cursor-pointer border-l-[5px] border-l-sage-700">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-sage-200/60 text-sage-900 group-hover:bg-amber-100 group-hover:text-amber-900 transition-colors duration-200">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
                         </svg>
                     </div>
-                    <h3 class="font-heading text-lg font-semibold text-primary-800 group-hover:text-amber-700 transition-colors duration-200">
-                        {% trans "Leaving Prison?" %}
+                    <h3 class="font-heading text-lg font-semibold text-sage-900 group-hover:text-amber-900 transition-colors duration-200">
+                        {% trans "Leaving prison?" %}
                     </h3>
                 </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                    {% trans "Find organisations and services specifically designed to support you as you transition back into the community. Housing, employment, and support services available." %}
+                <p class="text-sage-700 text-sm leading-relaxed mb-5">
+                    {% trans "Housing, benefits, health, and community links — step by step, without judgement." %}
                 </p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 group-hover:text-amber-600 transition-colors duration-200">
-                    {% trans "Get support" %}
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-sage-800 group-hover:text-amber-800 transition-colors duration-200">
+                    {% trans "Open pathway" %}
                     <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                     </svg>
                 </span>
             </a>
 
-            <!-- Homelessness -->
             <a href="{% url 'pathways:detail' slug='homelessness-support' %}"
-               class="group block rounded-xl bg-[#FAFAF8] border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow-md p-7 transition-all duration-200 cursor-pointer border-l-4 border-l-amber-500">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-amber-100 text-amber-700 group-hover:bg-amber-200 transition-colors duration-200">
-                        <!-- Heroicon: home -->
+               class="group block rounded-2xl bg-warm-50 border border-sage-200/90 shadow-sm hover:border-amber-400/80 hover:shadow-md p-8 transition-all duration-200 cursor-pointer border-l-[5px] border-l-amber-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-amber-100 text-amber-900 group-hover:bg-amber-200 transition-colors duration-200">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
                         </svg>
                     </div>
-                    <h3 class="font-heading text-lg font-semibold text-primary-800 group-hover:text-amber-700 transition-colors duration-200">
-                        {% trans "Homeless or At Risk?" %}
+                    <h3 class="font-heading text-lg font-semibold text-sage-900 group-hover:text-amber-900 transition-colors duration-200">
+                        {% trans "Homeless or at risk?" %}
                     </h3>
                 </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                    {% trans "Access immediate help, food services, emergency accommodation, and long-term support from organisations across the West Midlands." %}
+                <p class="text-sage-700 text-sm leading-relaxed mb-5">
+                    {% trans "Warm meals, shelter, advocacy, and longer-term housing help — find what’s available near you." %}
                 </p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 group-hover:text-amber-700 transition-colors duration-200">
-                    {% trans "Get support" %}
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-800 group-hover:text-amber-900 transition-colors duration-200">
+                    {% trans "Open pathway" %}
                     <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                     </svg>
@@ -116,10 +248,10 @@
             </a>
         </div>
 
-        <div class="text-center mt-8">
+        <div class="text-center mt-10">
             <a href="{% url 'pathways:list' %}"
-               class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-amber-600 transition-colors duration-200">
-                {% trans "View all support pathways" %}
+               class="inline-flex items-center gap-2 text-sm font-semibold text-sage-800 hover:text-amber-800 transition-colors duration-200">
+                {% trans "View all pathways" %}
                 <svg class="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                 </svg>
@@ -129,26 +261,25 @@
 </section>
 
 <!-- AI Assistant CTA -->
-<section class="bg-[#FAFAF8] py-14">
+<section class="bg-gradient-to-b from-sage-50 to-warm-50 py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="rounded-2xl bg-primary-800 text-white p-10 text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-500 text-white mb-5 mx-auto">
-                <!-- Heroicon: sparkles -->
-                <svg class="w-6 h-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="rounded-[1.75rem] bg-sage-900 text-white p-10 md:p-14 text-center shadow-xl ring-1 ring-sage-700/50">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-500 text-white mb-6 mx-auto shadow-lg">
+                <svg class="w-7 h-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
                 </svg>
             </div>
-            <h2 class="font-heading text-2xl font-bold mb-4">
+            <h2 class="font-display text-2xl md:text-3xl font-medium mb-4 text-white">
                 {% trans "Not sure where to start?" %}
             </h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-                {% trans "Our AI assistant can help you find the right organisation, service, or event based on your needs. Just ask a question in plain language." %}
+            <p class="text-sage-200 mb-8 max-w-2xl mx-auto leading-relaxed text-base">
+                {% trans "Soon you’ll be able to chat with our assistant in plain language — the same warmth as asking a neighbour, with clear next steps." %}
             </p>
             <a href="#"
-               class="inline-flex items-center justify-center min-h-[48px] rounded-lg bg-amber-500 hover:bg-amber-600 px-8 py-3 text-base font-semibold text-white transition-colors duration-200 cursor-pointer">
-                {% trans "Chat with AI Assistant" %}
+               class="inline-flex items-center justify-center min-h-[48px] rounded-full bg-amber-500 hover:bg-amber-600 px-8 py-3 text-base font-semibold text-white transition-colors duration-200 cursor-pointer shadow-md">
+                {% trans "Chat with assistant" %}
             </a>
-            <p class="mt-4 text-blue-200 text-xs">{% trans "Coming soon — Phase 6" %}</p>
+            <p class="mt-4 text-sage-400 text-xs">{% trans "Coming soon — Phase 6" %}</p>
         </div>
     </div>
 </section>

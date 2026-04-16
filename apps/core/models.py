@@ -1,8 +1,15 @@
+import os
 import uuid
 
+from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+
+
+def site_image_upload_to(_instance, filename: str) -> str:
+    ext = os.path.splitext(filename)[1].lower()[:10] or ".jpg"
+    return f"approved_site/{uuid.uuid4().hex}{ext}"
 
 
 class Region(models.Model):
@@ -145,3 +152,97 @@ class SupportStream(TimeStampedModel):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+
+class CommunityPhoto(TimeStampedModel):
+    """
+    Regional imagery cached from public Flickr feeds (see Real Python Picha pattern).
+    Stored locally in the database; image bytes are served by Flickr/CDN.
+    """
+
+    title = models.CharField(_("title"), max_length=255)
+    source_link = models.URLField(
+        _("photo page URL"),
+        max_length=512,
+        unique=True,
+        help_text=_("Link to the Flickr photo page for attribution."),
+    )
+    image_url = models.URLField(_("image URL"), max_length=512)
+    description = models.TextField(_("description"), blank=True, default="")
+    attribution = models.CharField(_("attribution"), max_length=255, blank=True, default="")
+    is_active = models.BooleanField(_("active"), default=True)
+
+    class Meta:
+        ordering = ["-created_at", "title"]
+        verbose_name = _("Community photo")
+        verbose_name_plural = _("Community photos")
+
+    def __str__(self):
+        return self.title
+
+
+class SiteImage(TimeStampedModel):
+    """
+    Staff-curated imagery for platform chrome (hero, banners — not org uploads).
+    Only rows with reviewed_at set should appear on public pages.
+    """
+
+    class Placement(models.TextChoices):
+        HOME_HERO = "home_hero", _("Home hero (full-bleed stack)")
+        PATHWAYS_BANNER = "pathways_banner", _("Pathways banner (legacy / future)")
+        ORGS_LIST_AMBIENT = "orgs_list_ambient", _("Organisations list — ambient banner")
+        ORG_DETAIL_AMBIENT = "org_detail_ambient", _("Organisation detail — ambient banner")
+        EVENTS_LIST_AMBIENT = "events_list_ambient", _("Events list — ambient banner")
+        EVENT_DETAIL_AMBIENT = "event_detail_ambient", _("Event detail — ambient banner")
+        PATHWAYS_LIST_AMBIENT = "pathways_list_ambient", _("Pathways list — ambient banner")
+        PATHWAYS_DETAIL_AMBIENT = "pathways_detail_ambient", _("Pathway detail — ambient banner")
+        REFERRALS_FORM_AMBIENT = "referrals_form_ambient", _("Referral form — ambient banner")
+        REFERRALS_SUBMITTED_AMBIENT = (
+            "referrals_submitted_ambient",
+            _("Referral submitted — ambient banner"),
+        )
+        AUTH_SCREENS_AMBIENT = (
+            "auth_screens_ambient",
+            _("Login / register / profile — ambient banner"),
+        )
+
+    placement = models.CharField(
+        _("placement"),
+        max_length=32,
+        choices=Placement.choices,
+        default=Placement.HOME_HERO,
+        db_index=True,
+    )
+    image = models.ImageField(_("image"), upload_to=site_image_upload_to)
+    alt_text = models.CharField(
+        _("alternative text"),
+        max_length=255,
+        help_text=_("Short description for screen readers (required for accessibility)."),
+    )
+    caption = models.TextField(_("caption"), blank=True, default="")
+    credit = models.CharField(
+        _("credit / attribution"),
+        max_length=255,
+        blank=True,
+        default="",
+        help_text=_("e.g. Photographer name or licence line, shown on the public site."),
+    )
+    display_order = models.PositiveSmallIntegerField(_("display order"), default=0)
+    is_active = models.BooleanField(_("active"), default=False)
+    reviewed_at = models.DateTimeField(_("reviewed at"), null=True, blank=True)
+    reviewed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="site_images_reviewed",
+        verbose_name=_("reviewed by"),
+    )
+
+    class Meta:
+        ordering = ["placement", "display_order", "created_at"]
+        verbose_name = _("Site image")
+        verbose_name_plural = _("Site images")
+
+    def __str__(self):
+        return f"{self.get_placement_display()}: {self.alt_text[:50]}"

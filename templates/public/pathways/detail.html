@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n site_imagery %}
 
 {% block title %}{{ pathway.title }} — {% trans "West Midlands Community Share" %}{% endblock %}
 
@@ -10,7 +10,9 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    {% ambient_banner "pathways_detail_ambient" %}
+</div>
 <!-- Hero -->
 <section class="bg-primary-800 text-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">

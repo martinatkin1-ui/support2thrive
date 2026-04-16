@@ -177,6 +177,7 @@ def assistant_stream(request):
         # Bridge async LightRAG query into sync generator
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
+        rag_succeeded = False
         try:
             from lightrag import QueryParam
 
@@ -208,12 +209,63 @@ def assistant_stream(request):
                     # Escape newlines in SSE data field
                     safe_chunk = str(chunk).replace("\n", "\\n").replace("\r", "")
                     yield f"data: {safe_chunk}\n\n"
+            rag_succeeded = True
 
         except Exception:
-            logger.exception("assistant_stream: LightRAG query failed for session")
-            yield "data: I'm sorry, I wasn't able to retrieve information right now. Please try again in a moment.\\n\n\n"
-        finally:
-            loop.close()
+            logger.warning("assistant_stream: LightRAG unavailable, falling back to Gemini direct")
+
+        # Gemini direct fallback — used when LightRAG is not initialised (e.g. no Docker/pgvector in dev).
+        # Provides real AI responses without requiring the full RAG stack.
+        if not rag_succeeded:
+            try:
+                import google.generativeai as genai
+                from django.conf import settings as django_settings
+
+                api_key = django_settings.GEMINI_API_KEY
+                if not api_key:
+                    raise ValueError("GEMINI_API_KEY not configured")
+
+                genai.configure(api_key=api_key)
+                gemini_model = genai.GenerativeModel(
+                    model_name="gemini-2.5-flash",
+                    system_instruction=(
+                        "You are a helpful, warm community assistant for West Midlands Community Share. "
+                        "Help users find local services: housing, benefits, food banks, mental health "
+                        "support, substance recovery, and community resources across the West Midlands. "
+                        "Use plain, clear English. Always cite organisation names. "
+                        "Tell users to verify details directly with organisations before acting. "
+                        "If someone is in crisis or danger, always mention Samaritans (116 123) and 999."
+                    ),
+                )
+                gemini_history = [
+                    {
+                        "role": "user" if m.get("role") == "user" else "model",
+                        "parts": [m.get("content", "")],
+                    }
+                    for m in convo_history
+                ]
+
+                async def _gemini_query():
+                    chat = gemini_model.start_chat(history=gemini_history)
+                    return await chat.send_message_async(message)
+
+                gemini_resp = loop.run_until_complete(_gemini_query())
+                answer = gemini_resp.text
+                full_response.append(answer)
+                safe_answer = answer.replace("\n", "\\n").replace("\r", "")
+                yield f"data: {safe_answer}\n\n"
+
+            except ValueError as exc:
+                logger.warning("Gemini direct: %s", exc)
+                yield (
+                    "data: The AI assistant needs a GEMINI_API_KEY — "
+                    "add it to your .env file and restart the server.\\n\n\n"
+                )
+            except Exception:
+                logger.exception("assistant_stream: Gemini direct fallback failed")
+                yield "data: I wasn't able to get a response right now. Please try again in a moment.\\n\n\n"
+
+        loop.close()
 
         # Send done sentinel
         yield "event: done\ndata: \n\n"

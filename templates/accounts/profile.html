@@ -1,11 +1,25 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n site_imagery %}
 
 {% block title %}{% trans "Profile" %} - {% trans "WM Community Share" %}{% endblock %}
 
 {% block content %}
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {% ambient_banner "auth_screens_ambient" %}
     <h1 class="text-2xl font-bold text-gray-900 mb-6">{% trans "Your Profile" %}</h1>
+
+    {% if user.role == 'org_manager' and user.is_approved and user.organization %}
+        {% if not user.organization.onboarding_complete %}
+        <div class="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+            <p class="font-medium mb-2">{% trans "Finish setting up your organisation" %}</p>
+            <p class="mb-3 text-amber-900/90">{% trans "Complete the setup wizard to publish your organisation profile, services, and referral options." %}</p>
+            <a href="{% url 'organizations:onboarding' %}"
+               class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-700 transition-colors">
+                {% trans "Continue organisation setup" %}
+            </a>
+        </div>
+        {% endif %}
+    {% endif %}
 
     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -35,5 +49,9 @@
             {% endif %}
         </div>
     </div>
+
+    <p class="mt-8 text-center text-sm text-gray-600">
+        <a href="{% url 'accounts:logout' %}" class="text-primary-600 hover:underline font-medium">{% trans "Sign out" %}</a>
+    </p>
 </div>
 {% endblock %}

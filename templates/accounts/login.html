@@ -1,9 +1,12 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n site_imagery %}
 
 {% block title %}{% trans "Login" %} - {% trans "WM Community Share" %}{% endblock %}
 
 {% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+  {% ambient_banner "auth_screens_ambient" %}
+</div>
 <div class="min-h-[60vh] flex items-center justify-center px-4 py-12">
     <div class="w-full max-w-md">
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
@@ -11,6 +14,9 @@
 
             <form method="post">
                 {% csrf_token %}
+                {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
                 {% if form.errors %}
                 <div class="bg-red-50 text-red-800 rounded-md p-3 mb-4 text-sm">
                     {% trans "Invalid username or password. Please try again." %}

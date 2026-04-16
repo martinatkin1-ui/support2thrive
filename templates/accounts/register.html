@@ -1,51 +1,130 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n site_imagery %}
 
 {% block title %}{% trans "Register" %} - {% trans "WM Community Share" %}{% endblock %}
 
 {% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+  {% ambient_banner "auth_screens_ambient" %}
+</div>
 <div class="min-h-[60vh] flex items-center justify-center px-4 py-12">
     <div class="w-full max-w-lg">
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-            <h1 class="text-2xl font-bold text-gray-900 mb-6 text-center">{% trans "Create Account" %}</h1>
+            <h1 class="text-2xl font-bold text-gray-900 mb-2 text-center">{% trans "Create account" %}</h1>
+            <p class="text-sm text-gray-600 text-center mb-6">{% trans "Choose how you will use the platform, then complete the sections that apply to you." %}</p>
 
-            <form method="post">
+            <form method="post" id="registration-form">
                 {% csrf_token %}
 
-                {% if form.errors %}
-                <div class="bg-red-50 text-red-800 rounded-md p-3 mb-4 text-sm">
-                    {% for field, errors in form.errors.items %}
-                        {% for error in errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
+                {% if form.non_field_errors %}
+                <div class="bg-red-50 text-red-800 rounded-md p-3 mb-4 text-sm" role="alert">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
                     {% endfor %}
                 </div>
                 {% endif %}
 
-                {% for field in form %}
-                <div class="mb-4">
-                    <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
-                        {{ field.label }}
-                    </label>
-                    <input type="{{ field.field.widget.input_type|default:'text' }}"
-                           name="{{ field.html_name }}"
-                           id="{{ field.id_for_label }}"
-                           value="{{ field.value|default:'' }}"
-                           {% if field.field.required %}required{% endif %}
-                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 px-3 py-2 border">
-                    {% if field.help_text %}
-                    <p class="mt-1 text-xs text-gray-500">{{ field.help_text }}</p>
-                    {% endif %}
+                <fieldset class="mb-6">
+                    <legend class="text-sm font-semibold text-gray-900 mb-3">{% trans "Account details" %}</legend>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.username.label }}</label>
+                            {{ form.username }}
+                            {% if form.username.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.username.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.email.label }}</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.email.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.password1.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.password1.label }}</label>
+                            {{ form.password1 }}
+                            {% if form.password1.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.password1.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.password2.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.password2.label }}</label>
+                            {{ form.password2 }}
+                            {% if form.password2.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.password2.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-6">
+                    <legend class="text-sm font-semibold text-gray-900 mb-3">{% trans "Your profile" %}</legend>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.first_name.label }}</label>
+                            {{ form.first_name }}
+                            {% if form.first_name.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.first_name.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.last_name.label }}</label>
+                            {{ form.last_name }}
+                            {% if form.last_name.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.last_name.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.phone.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.phone.label }}</label>
+                            {{ form.phone }}
+                            {% if form.phone.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.phone.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.preferred_language.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.preferred_language.label }}</label>
+                            {{ form.preferred_language }}
+                            {% if form.preferred_language.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.preferred_language.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-6">
+                    <legend class="text-sm font-semibold text-gray-900 mb-3">{% trans "How will you use this platform?" %}</legend>
+                    <div>
+                        <label for="{{ form.role.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.role.label }}</label>
+                        {{ form.role }}
+                        {% if form.role.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.role.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                    </div>
+                </fieldset>
+
+                <div id="section-volunteer" class="mb-6 hidden" data-registration-section="volunteer">
+                    <h2 class="text-sm font-semibold text-gray-900 mb-3">{% trans "Volunteer details" %}</h2>
+                    <div>
+                        <label for="{{ form.volunteer_organization.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.volunteer_organization.label }}</label>
+                        {{ form.volunteer_organization }}
+                        {% if form.volunteer_organization.help_text %}<p class="mt-1 text-xs text-gray-500">{{ form.volunteer_organization.help_text }}</p>{% endif %}
+                        {% if form.volunteer_organization.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.volunteer_organization.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                    </div>
                 </div>
-                {% endfor %}
+
+                <div id="section-organization" class="mb-6 hidden" data-registration-section="organization">
+                    <h2 class="text-sm font-semibold text-gray-900 mb-3">{% trans "Organisation details" %}</h2>
+                    <p class="text-xs text-gray-600 mb-3">{% trans "We will notify platform administrators to verify your organisation. After approval, your first login opens the setup wizard to build your organisation’s public profile and referral settings." %}</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="{{ form.organization_name.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.organization_name.label }}</label>
+                            {{ form.organization_name }}
+                            {% if form.organization_name.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.organization_name.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.organization_work_email.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.organization_work_email.label }}</label>
+                            {{ form.organization_work_email }}
+                            {% if form.organization_work_email.help_text %}<p class="mt-1 text-xs text-gray-500">{{ form.organization_work_email.help_text }}</p>{% endif %}
+                            {% if form.organization_work_email.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.organization_work_email.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                        <div>
+                            <label for="{{ form.organization_website.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.organization_website.label }}</label>
+                            {{ form.organization_website }}
+                            {% if form.organization_website.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.organization_website.errors %}{{ e }}{% endfor %}</p>{% endif %}
+                        </div>
+                    </div>
+                </div>
 
                 <div class="bg-blue-50 rounded-md p-3 mb-4 text-sm text-blue-800">
-                    {% trans "Volunteer and Organization Manager accounts require approval before you can access the portal." %}
+                    {% trans "Volunteers need approval from their organisation’s managers. Organisation accounts need approval from the platform team before the onboarding wizard is available." %}
                 </div>
 
                 <button type="submit"
                         class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2.5 px-4 min-h-[44px] rounded-lg transition-colors duration-200 cursor-pointer">
-                    {% trans "Register" %}
+                    {% trans "Create account" %}
                 </button>
             </form>
 
@@ -56,4 +135,20 @@
         </div>
     </div>
 </div>
+
+<script>
+(function () {
+  var role = document.querySelector(".registration-role-select");
+  if (!role) return;
+  var vol = document.getElementById("section-volunteer");
+  var org = document.getElementById("section-organization");
+  function sync() {
+    var v = role.value;
+    vol.classList.toggle("hidden", v !== "volunteer");
+    org.classList.toggle("hidden", v !== "org_manager");
+  }
+  role.addEventListener("change", sync);
+  sync();
+})();
+</script>
 {% endblock %}
