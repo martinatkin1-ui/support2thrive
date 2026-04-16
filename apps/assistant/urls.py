@@ -1,14 +1,12 @@
-"""
-apps/assistant/urls.py
-Phase 6 — AI Assistant URL configuration.
-
-Stub routes for Wave 0. Full routes (SSE stream, etc.) added in Plan 06-03.
-"""
+"""URL configuration for the AI assistant app."""
 from django.urls import path
-from . import views
+
+from apps.assistant import views
 
 app_name = "assistant"
 
 urlpatterns = [
-    path("", views.assistant_page, name="chat"),
+    path("", views.assistant_page, name="page"),
+    path("chat/", views.chat_view, name="chat"),
+    path("stream/", views.assistant_stream, name="stream"),
 ]
