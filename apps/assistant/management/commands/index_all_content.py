@@ -12,7 +12,6 @@ Usage:
 This dispatches Celery tasks — Celery worker must be running.
 """
 from django.core.management.base import BaseCommand
-from django.utils.translation import gettext_lazy as _
 
 
 class Command(BaseCommand):

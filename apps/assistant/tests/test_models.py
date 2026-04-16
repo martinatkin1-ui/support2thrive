@@ -1,5 +1,4 @@
 """Tests for apps/assistant models — OrgDocument validation."""
-from io import BytesIO
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 
