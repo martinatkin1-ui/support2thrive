@@ -4,8 +4,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from apps.core.views import root_language_redirect
+
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
+    path("", root_language_redirect),
 ]
 
 urlpatterns += i18n_patterns(
@@ -16,6 +19,7 @@ urlpatterns += i18n_patterns(
     path("events/", include("apps.events.urls", namespace="events")),
     path("referrals/", include("apps.referrals.urls", namespace="referrals")),
     path("pathways/", include("apps.pathways.urls", namespace="pathways")),
+    path("assistant/", include("apps.assistant.urls", namespace="assistant")),
     path("api/v1/", include("config.api")),
     prefix_default_language=True,
 )
