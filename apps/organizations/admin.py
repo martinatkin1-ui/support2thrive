@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
+from apps.assistant.admin import OrgDocumentInline
 from .models import Organization, OrgOnboardingState, OrganizationService
 
 
@@ -16,7 +17,7 @@ class OrganizationAdmin(admin.ModelAdmin):
     search_fields = ("name", "description", "city")
     prepopulated_fields = {"slug": ("name",)}
     filter_horizontal = ("areas_served", "tags", "support_streams")
-    inlines = [OrganizationServiceInline]
+    inlines = [OrganizationServiceInline, OrgDocumentInline]
 
     actions = ["approve_organizations"]
 
