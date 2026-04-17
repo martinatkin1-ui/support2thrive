@@ -161,7 +161,7 @@ def event_ical(request):
         .select_related("event", "event__organization")
         .order_by("start")
     )
-    cal_bytes = build_ical_feed(occurrences, title="WM Community Share — All Events")
+    cal_bytes = build_ical_feed(occurrences, title="Support2Thrive — All Events")
     return HttpResponse(cal_bytes, content_type="text/calendar; charset=utf-8")
 
 

@@ -13,7 +13,7 @@ def build_ical_feed(occurrences, title: str = "Events") -> bytes:
     Returns UTF-8 encoded bytes ready to serve as text/calendar.
     """
     cal = Calendar()
-    cal.add("prodid", "-//WM Community Share//wmcommunityshare.org.uk//EN")
+    cal.add("prodid", "-//Support2Thrive//support2thrive.org.uk//EN")
     cal.add("version", "2.0")
     cal.add("calscale", "GREGORIAN")
     cal.add("method", "PUBLISH")
@@ -23,7 +23,7 @@ def build_ical_feed(occurrences, title: str = "Events") -> bytes:
     for occ in occurrences:
         event = occ.event
         ical_event = ICalEvent()
-        ical_event.add("uid", f"{occ.pk}@wmcommunityshare.org.uk")
+        ical_event.add("uid", f"{occ.pk}@support2thrive.org.uk")
         ical_event.add("summary", occ.title)
         ical_event.add("description", event.description)
         ical_event.add("dtstart", occ.start.astimezone(timezone.utc))

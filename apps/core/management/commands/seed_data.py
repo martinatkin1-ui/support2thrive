@@ -172,7 +172,7 @@ class Command(BaseCommand):
                 ),
                 "brand_color_primary": "#2563eb",
                 "brand_color_accent": "#16a34a",
-                "contact_email": "info@wmcommunityshare.org.uk",
+                "contact_email": "info@support2thrive.org.uk",
                 "lat_center": 52.4862,
                 "lng_center": -1.8904,
                 "is_active": True,

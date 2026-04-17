@@ -164,7 +164,7 @@ def send_email_delivery(delivery_id: str):
 
     try:
         pii = referral.get_pii()
-        subject = f"[WMCS] New referral {referral.reference_number} — {referral.priority.upper()}"
+        subject = f"[S2T] New referral {referral.reference_number} — {referral.priority.upper()}"
         body = render_to_string("referrals/email/referral_notification.txt", {
             "referral": referral,
             "org": org,
@@ -248,8 +248,8 @@ def send_webhook_delivery(delivery_id: str):
             data=payload,
             headers={
                 "Content-Type": "application/json",
-                "X-WMCS-Signature": sig,
-                "X-WMCS-Reference": referral.reference_number,
+                "X-S2T-Signature": sig,
+                "X-S2T-Reference": referral.reference_number,
             },
             method="POST",
         )
@@ -350,7 +350,7 @@ def _send_acknowledgment_reminder(referral: Referral):
         return
     try:
         send_mail(
-            subject=f"[WMCS] Reminder: referral {referral.reference_number} needs acknowledgment",
+            subject=f"[S2T] Reminder: referral {referral.reference_number} needs acknowledgment",
             message=(
                 f"Referral {referral.reference_number} was submitted "
                 f"{referral.created_at:%Y-%m-%d %H:%M} and has not been acknowledged.\n\n"

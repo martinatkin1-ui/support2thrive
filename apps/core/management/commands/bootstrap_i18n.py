@@ -207,7 +207,7 @@ class Command(BaseCommand):
 
             po = polib.POFile()
             po.metadata = {
-                "Project-Id-Version": "WMCSP 1.0",
+                "Project-Id-Version": "Support2Thrive 1.0",
                 "Report-Msgid-Bugs-To": "",
                 "POT-Creation-Date": "",
                 "PO-Revision-Date": "",

@@ -2,9 +2,9 @@ services:
   db:
     image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_DB: wmcsp
-      POSTGRES_USER: wmcsp
-      POSTGRES_PASSWORD: wmcsp_dev_password
+      POSTGRES_DB: support2thrive
+      POSTGRES_USER: support2thrive
+      POSTGRES_PASSWORD: support2thrive_dev_password
     ports:
       - "5432:5432"
     volumes:

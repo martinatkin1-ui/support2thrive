@@ -242,7 +242,7 @@ def assistant_stream(request):
                 gemini_model = genai.GenerativeModel(
                     model_name="gemini-2.5-flash",
                     system_instruction=(
-                        "You are a helpful, warm community assistant for West Midlands Community Share. "
+                        "You are a helpful, warm community assistant for Support2Thrive. "
                         "Help users find local services: housing, benefits, food banks, mental health "
                         "support, substance recovery, and community resources across the West Midlands. "
                         "FORMATTING RULES — follow these exactly: "
