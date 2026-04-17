@@ -1,0 +1,182 @@
+<style>
+  body { font-family: 'Figtree', 'Inter', system-ui, sans-serif; }
+  .approach-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 24px; }
+  .approach-card { border: 2px solid #e2e8f0; border-radius: 16px; padding: 0; overflow: hidden; cursor: pointer; transition: all 0.2s; background: white; }
+  .approach-card:hover { border-color: #1E40AF; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,64,175,0.12); }
+  .approach-card.selected { border-color: #F59E0B; box-shadow: 0 0 0 3px rgba(245,158,11,0.2); }
+  .card-header { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+  .card-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-amber { background: #fef3c7; color: #92400e; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .card-title { font-size: 17px; font-weight: 700; color: #1e293b; margin: 0 0 6px; }
+  .card-subtitle { font-size: 13px; color: #64748b; margin: 0; line-height: 1.5; }
+  .mockup-area { padding: 16px; background: #faf8f5; }
+  .mock-step-nav { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; }
+  .mock-step { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .step-done { background: #1E40AF; color: white; }
+  .step-active { background: #F59E0B; color: white; }
+  .step-todo { background: #e2e8f0; color: #94a3b8; }
+  .step-line { flex: 1; height: 2px; background: #e2e8f0; }
+  .mock-url-bar { background: white; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .mock-scrape-btn { background: #1E40AF; color: white; border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .mock-field-group { margin-bottom: 8px; }
+  .mock-label { font-size: 10px; font-weight: 600; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
+  .mock-input { background: white; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px; font-size: 11px; color: #334155; }
+  .mock-input.prefilled { border-color: #F59E0B; background: #fffbeb; }
+  .mock-scrape-result { background: #fffbeb; border: 1.5px solid #F59E0B; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; font-size: 11px; color: #78350f; }
+  .mock-service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  .mock-service-chip { background: white; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 5px 8px; font-size: 10px; color: #334155; display: flex; align-items: center; gap: 5px; }
+  .mock-service-chip.selected { border-color: #1E40AF; background: #eff6ff; color: #1e40af; }
+  .chip-dot { width: 8px; height: 8px; border-radius: 50%; background: #1E40AF; flex-shrink: 0; }
+  .mock-section-header { font-size: 12px; font-weight: 700; color: #1e293b; padding: 6px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 8px; }
+  .mock-event-row { background: white; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 7px 10px; font-size: 10px; color: #334155; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .event-check { width: 14px; height: 14px; border-radius: 3px; background: #22C55E; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .mock-sidebar { width: 120px; flex-shrink: 0; }
+  .sidebar-item { padding: 6px 10px; font-size: 11px; color: #64748b; border-radius: 6px; margin-bottom: 3px; }
+  .sidebar-item.active { background: #eff6ff; color: #1E40AF; font-weight: 600; }
+  .sidebar-item.done { color: #22C55E; }
+  .mock-scroll-body { flex: 1; }
+  .scroll-section { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; background: white; }
+  .scroll-section-title { font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 6px; }
+  .progress-bar-outer { background: #e2e8f0; border-radius: 4px; height: 6px; margin-bottom: 12px; }
+  .progress-bar-inner { background: linear-gradient(90deg, #1E40AF, #F59E0B); border-radius: 4px; height: 6px; width: 35%; }
+  .feat-list { margin: 10px 0 0; padding: 0; list-style: none; }
+  .feat-item { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: #475569; padding: 4px 0; }
+  .feat-icon { width: 16px; height: 16px; border-radius: 50%; background: #dbeafe; color: #1e40af; display: flex; align-items: center; justify-content: center; font-size: 9px; flex-shrink: 0; margin-top: 1px; }
+  .feat-icon.amber { background: #fef3c7; color: #92400e; }
+  .feat-icon.green { background: #d1fae5; color: #065f46; }
+  .rec-badge { display: inline-flex; align-items: center; gap: 4px; background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 700; margin-top: 8px; }
+</style>
+
+<h2>How should the new onboarding feel?</h2>
+<p class="subtitle">Three different structural approaches — same branding and features, different flow. Pick the one that fits best.</p>
+
+<div class="approach-grid">
+
+  <!-- OPTION A -->
+  <div class="option approach-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter" style="display:none">A</div>
+    <div class="card-header">
+      <div class="card-tag tag-amber">A — Smart Start</div>
+      <div class="card-title">Scrape-first, then fill</div>
+      <p class="card-subtitle">URL + "Populate from website" is the first thing they see. AI fills the form, user reviews &amp; edits.</p>
+      <div class="rec-badge">⭐ Recommended</div>
+    </div>
+    <div class="mockup-area">
+      <div class="mock-step-nav">
+        <div class="mock-step step-active">1</div>
+        <div class="step-line"></div>
+        <div class="mock-step step-todo">2</div>
+        <div class="step-line"></div>
+        <div class="mock-step step-todo">3</div>
+        <div class="step-line"></div>
+        <div class="mock-step step-todo">4</div>
+      </div>
+      <div class="mock-scrape-result">
+        🔍 Found your website — ready to import org info, 4 services, and 2 upcoming events
+      </div>
+      <div class="mock-field-group">
+        <div class="mock-label">Organisation name</div>
+        <div class="mock-input prefilled">Wolverhampton Mind</div>
+      </div>
+      <div class="mock-field-group">
+        <div class="mock-label">Short description</div>
+        <div class="mock-input prefilled" style="height:28px">Mental health support &amp; counselling across West...</div>
+      </div>
+      <div style="font-size:10px; color:#78350f; margin-top:4px;">✏️ Fields imported — edit anything before continuing</div>
+    </div>
+    <div style="padding:12px 16px; border-top:1px solid #f1f5f9;">
+      <ul class="feat-list">
+        <li class="feat-item"><div class="feat-icon amber">✓</div> Fastest setup — most fields pre-filled</li>
+        <li class="feat-item"><div class="feat-icon amber">✓</div> Services auto-suggested from site content</li>
+        <li class="feat-item"><div class="feat-icon amber">✓</div> Events extracted &amp; queued for review</li>
+        <li class="feat-item"><div class="feat-icon" style="background:#fee2e2;color:#991b1b">!</div> Requires working website URL upfront</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div class="option approach-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter" style="display:none">B</div>
+    <div class="card-header">
+      <div class="card-tag tag-blue">B — Guided Cards</div>
+      <div class="card-title">Visual step-by-step</div>
+      <p class="card-subtitle">Keep the 5-step wizard, redesign each step as a polished card. Scraping is a helper button within steps.</p>
+    </div>
+    <div class="mockup-area">
+      <div class="mock-step-nav">
+        <div class="mock-step step-done">✓</div>
+        <div class="step-line" style="background:#1E40AF"></div>
+        <div class="mock-step step-active">2</div>
+        <div class="step-line"></div>
+        <div class="mock-step step-todo">3</div>
+        <div class="step-line"></div>
+        <div class="mock-step step-todo">4</div>
+      </div>
+      <div class="mock-section-header">Services you offer</div>
+      <div class="mock-service-grid">
+        <div class="mock-service-chip selected"><div class="chip-dot"></div>Mental Health</div>
+        <div class="mock-service-chip selected"><div class="chip-dot"></div>Counselling</div>
+        <div class="mock-service-chip">Housing Support</div>
+        <div class="mock-service-chip">Food &amp; Essentials</div>
+        <div class="mock-service-chip">Employment</div>
+        <div class="mock-service-chip selected"><div class="chip-dot"></div>Crisis Support</div>
+      </div>
+      <div style="margin-top:8px; display:flex; align-items:center; gap:6px;">
+        <div style="background:#1E40AF; color:white; border-radius:6px; padding:4px 10px; font-size:10px; font-weight:600;">+ Add service detail</div>
+        <div style="font-size:10px; color:#64748b;">or suggest from my website →</div>
+      </div>
+    </div>
+    <div style="padding:12px 16px; border-top:1px solid #f1f5f9;">
+      <ul class="feat-list">
+        <li class="feat-item"><div class="feat-icon">✓</div> Familiar step-by-step pattern</li>
+        <li class="feat-item"><div class="feat-icon">✓</div> Service picker is visual &amp; searchable</li>
+        <li class="feat-item"><div class="feat-icon">✓</div> Scraping as optional helper per step</li>
+        <li class="feat-item"><div class="feat-icon" style="background:#fee2e2;color:#991b1b">!</div> Most work for orgs without a website</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OPTION C -->
+  <div class="option approach-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter" style="display:none">C</div>
+    <div class="card-header">
+      <div class="card-tag tag-green">C — Long Scroll</div>
+      <div class="card-title">Single page, side nav</div>
+      <p class="card-subtitle">Everything on one scrollable page with a sticky sidebar showing progress. No "next" between steps.</p>
+    </div>
+    <div class="mockup-area">
+      <div class="progress-bar-outer"><div class="progress-bar-inner"></div></div>
+      <div style="display:flex; gap:8px;">
+        <div class="mock-sidebar">
+          <div class="sidebar-item done">✓ About</div>
+          <div class="sidebar-item done">✓ Contact</div>
+          <div class="sidebar-item active">→ Services</div>
+          <div class="sidebar-item">Referrals</div>
+          <div class="sidebar-item">Publish</div>
+        </div>
+        <div class="mock-scroll-body">
+          <div class="scroll-section">
+            <div class="scroll-section-title">Services you provide</div>
+            <div class="mock-service-chip selected" style="margin-bottom:4px;"><div class="chip-dot"></div>Mental Health</div>
+            <div style="font-size:10px; color:#64748b; margin-top:4px;">+ 6 more categories</div>
+          </div>
+          <div class="scroll-section" style="opacity:0.5;">
+            <div class="scroll-section-title">Referral setup</div>
+            <div style="font-size:10px; color:#94a3b8;">Complete services first</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:12px 16px; border-top:1px solid #f1f5f9;">
+      <ul class="feat-list">
+        <li class="feat-item"><div class="feat-icon green">✓</div> Feel of progress without page reloads</li>
+        <li class="feat-item"><div class="feat-icon green">✓</div> Jump to any section to edit</li>
+        <li class="feat-item"><div class="feat-icon" style="background:#fee2e2;color:#991b1b">!</div> Overwhelming on mobile</li>
+        <li class="feat-item"><div class="feat-icon" style="background:#fee2e2;color:#991b1b">!</div> Harder to gate steps by completion</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

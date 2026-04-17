@@ -56,3 +56,7 @@ Community_brain/
 
 # Git worktrees
 .worktrees/
+
+# Local-only tooling
+.claude/settings.local.json
+.superpowers/**/state/

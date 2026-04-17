@@ -1,0 +1,265 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap');
+
+  body { background: #f5f3ef; font-family: 'Figtree', system-ui, sans-serif; margin: 0; padding: 20px; }
+
+  /* Wizard shell */
+  .wizard-shell { max-width: 780px; margin: 0 auto; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
+
+  /* Top nav bar */
+  .wizard-topbar { background: #faf8f5; border-bottom: 1px solid #e8e2d9; padding: 14px 28px; display: flex; align-items: center; gap: 16px; }
+  .site-logo { font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 15px; color: #27362f; }
+  .logo-dot { color: #F59E0B; }
+  .topbar-divider { width: 1px; height: 20px; background: #e2ddd6; }
+  .wizard-title-small { font-size: 12px; color: #64748b; font-weight: 500; }
+
+  /* Step progress */
+  .step-progress { padding: 24px 28px 0; }
+  .step-progress-title { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600; color: #1e293b; margin: 0 0 20px; }
+  .step-track { display: flex; align-items: center; gap: 0; }
+  .step-node { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
+  .step-circle { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; transition: all 0.2s; }
+  .sc-active { background: #1E40AF; color: white; box-shadow: 0 0 0 4px #dbeafe; }
+  .sc-todo { background: #f1f5f9; color: #94a3b8; border: 2px solid #e2e8f0; }
+  .step-label { font-size: 10px; font-weight: 600; color: #64748b; text-align: center; white-space: nowrap; }
+  .step-label.active { color: #1E40AF; }
+  .step-connector { flex: 1; height: 2px; background: #e2e8f0; max-width: 60px; }
+
+  /* Body */
+  .wizard-body { padding: 28px; }
+
+  /* State A: Initial URL entry */
+  .state-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .url-input-wrap { position: relative; margin-bottom: 8px; }
+  .url-input { display: block; width: 100%; box-sizing: border-box; border: 2px solid #e2e8f0; border-radius: 10px; padding: 13px 160px 13px 16px; font-size: 14px; color: #334155; font-family: 'Noto Sans', sans-serif; background: white; outline: none; }
+  .url-input:focus { border-color: #1E40AF; box-shadow: 0 0 0 3px rgba(30,64,175,0.1); }
+  .scrape-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #1E40AF; color: white; border: none; border-radius: 7px; padding: 8px 18px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Figtree', sans-serif; white-space: nowrap; }
+  .url-hint { font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+
+  .divider { border: none; border-top: 1px solid #f1f5f9; margin: 20px 0; }
+
+  .no-website-link { font-size: 12px; color: #64748b; text-align: center; }
+  .no-website-link a { color: #1E40AF; font-weight: 600; text-decoration: none; }
+
+  /* State B: Loading / scanning */
+  .scanning-banner { background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 12px; padding: 20px 24px; text-align: center; margin-bottom: 20px; }
+  .scanning-spinner { display: inline-block; width: 28px; height: 28px; border: 3px solid #bfdbfe; border-top-color: #1E40AF; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 10px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .scanning-text { font-size: 14px; font-weight: 600; color: #1e40af; margin: 0 0 4px; }
+  .scanning-sub { font-size: 12px; color: #3b82f6; margin: 0; }
+
+  /* State C: Results */
+  .results-banner { background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 12px; padding: 12px 18px; display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .results-icon { width: 36px; height: 36px; background: #22C55E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; flex-shrink: 0; }
+  .results-text { flex: 1; }
+  .results-title { font-size: 13px; font-weight: 700; color: #15803d; margin: 0 0 2px; }
+  .results-sub { font-size: 11px; color: #16a34a; margin: 0; }
+  .results-edit-note { font-size: 11px; color: #64748b; background: #fef9c3; border: 1px solid #fde047; border-radius: 6px; padding: 6px 12px; }
+
+  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .field-group { display: flex; flex-direction: column; gap: 5px; }
+  .field-group.full { grid-column: 1 / -1; }
+  .field-label { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; }
+  .imported-badge { background: #fef3c7; color: #92400e; border-radius: 4px; font-size: 9px; padding: 1px 5px; font-weight: 700; text-transform: uppercase; }
+  .field-input { border: 2px solid #fcd34d; border-radius: 8px; padding: 9px 12px; font-size: 13px; color: #334155; background: #fffbeb; font-family: 'Noto Sans', sans-serif; }
+  .field-input.manual { border-color: #e2e8f0; background: white; }
+  .field-textarea { border: 2px solid #fcd34d; border-radius: 8px; padding: 9px 12px; font-size: 12px; color: #334155; background: #fffbeb; font-family: 'Noto Sans', sans-serif; resize: vertical; }
+
+  .logo-upload-area { border: 2px dashed #e2e8f0; border-radius: 10px; padding: 16px; text-align: center; background: white; }
+  .logo-preview { width: 56px; height: 56px; background: #1E40AF; border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px; }
+  .logo-text { font-size: 11px; color: #64748b; }
+
+  .found-extras { display: flex; gap: 8px; margin-top: 10px; }
+  .extra-pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1.5px solid; }
+  .pill-services { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+  .pill-events { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+
+  /* Navigation */
+  .wizard-nav { padding: 20px 28px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; background: #faf8f5; }
+  .btn-back { background: white; color: #475569; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 10px 20px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Figtree', sans-serif; }
+  .btn-next { background: #1E40AF; color: white; border: none; border-radius: 8px; padding: 10px 24px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Figtree', sans-serif; display: flex; align-items: center; gap: 6px; }
+  .btn-next:hover { background: #1e3a8a; }
+  .step-counter { font-size: 12px; color: #94a3b8; }
+
+  /* Toggle between states */
+  .state { }
+  .tab-row { display: flex; gap: 8px; margin-bottom: 24px; }
+  .tab { padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1.5px solid #e2e8f0; color: #64748b; background: white; }
+  .tab.active { background: #1E40AF; color: white; border-color: #1E40AF; }
+</style>
+
+<div style="margin-bottom:16px;">
+  <h2 style="margin:0 0 6px;">Step 1 — Smart Import</h2>
+  <p class="subtitle" style="margin:0 0 16px;">Three states: before scraping, while scanning, and after results arrive. Use the tabs to preview each.</p>
+  <div class="tab-row">
+    <div class="tab active" onclick="showState('empty', this)">① Before scan</div>
+    <div class="tab" onclick="showState('scanning', this)">② Scanning…</div>
+    <div class="tab" onclick="showState('results', this)">③ Results ready</div>
+  </div>
+</div>
+
+<div class="wizard-shell">
+  <div class="wizard-topbar">
+    <div class="site-logo">Support2Thrive</div>
+    <div class="topbar-divider"></div>
+    <div class="wizard-title-small">Setting up your organisation</div>
+  </div>
+
+  <div class="step-progress">
+    <div class="step-progress-title">Let's set up your organisation</div>
+    <div class="step-track">
+      <div class="step-node">
+        <div class="step-circle sc-active">1</div>
+        <div class="step-label active">Import</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-node">
+        <div class="step-circle sc-todo">2</div>
+        <div class="step-label">Services</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-node">
+        <div class="step-circle sc-todo">3</div>
+        <div class="step-label">Referrals</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-node">
+        <div class="step-circle sc-todo">4</div>
+        <div class="step-label">Website</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-node">
+        <div class="step-circle sc-todo">5</div>
+        <div class="step-label">Publish</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wizard-body">
+
+    <!-- STATE: EMPTY -->
+    <div class="state" id="state-empty">
+      <div class="state-label">Your organisation website</div>
+      <div class="url-input-wrap">
+        <input class="url-input" type="url" placeholder="https://your-organisation.org.uk" value="">
+        <button class="scrape-btn">⚡ Populate from website</button>
+      </div>
+      <div class="url-hint">We'll use AI to pre-fill your profile — name, description, services, and upcoming events.</div>
+
+      <hr class="divider">
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; opacity: 0.4;">
+        <div class="field-group">
+          <div class="field-label">Organisation name</div>
+          <div class="field-input manual" style="color:#94a3b8;font-size:13px;padding:9px 12px;">Will be filled automatically</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Phone</div>
+          <div class="field-input manual" style="color:#94a3b8;font-size:13px;padding:9px 12px;">Will be filled automatically</div>
+        </div>
+        <div class="field-group full">
+          <div class="field-label">Short description</div>
+          <div class="field-input manual" style="color:#94a3b8;font-size:13px;padding:9px 12px;height:32px;">Will be filled automatically</div>
+        </div>
+      </div>
+
+      <div class="no-website-link">No website? <a href="#">Fill in manually instead →</a></div>
+    </div>
+
+    <!-- STATE: SCANNING -->
+    <div class="state" id="state-scanning" style="display:none;">
+      <div class="url-input-wrap" style="margin-bottom:20px;">
+        <input class="url-input" type="url" value="https://wolverhamptonmind.org.uk" readonly style="background:#f8fafc;color:#64748b;">
+        <button class="scrape-btn" style="background:#94a3b8;cursor:not-allowed;">Scanning…</button>
+      </div>
+      <div class="scanning-banner">
+        <div class="scanning-spinner"></div>
+        <div class="scanning-text">Scanning your website with AI…</div>
+        <div class="scanning-sub">Reading your pages and extracting organisation details — usually takes 5–10 seconds</div>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px; opacity: 0.35; pointer-events:none;">
+        <div class="field-group">
+          <div class="field-label">Organisation name</div>
+          <div class="field-input manual" style="color:#94a3b8;font-size:13px;padding:9px 12px;">Scanning…</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Phone</div>
+          <div class="field-input manual" style="color:#94a3b8;font-size:13px;padding:9px 12px;">Scanning…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE: RESULTS -->
+    <div class="state" id="state-results" style="display:none;">
+      <div class="results-banner">
+        <div class="results-icon">✓</div>
+        <div class="results-text">
+          <div class="results-title">AI scan complete — review and edit anything below</div>
+          <div class="results-sub">Found: org info · 3 services suggested · 2 upcoming events queued as drafts</div>
+        </div>
+      </div>
+
+      <div class="field-grid">
+        <div class="field-group">
+          <div class="field-label">Organisation name <span class="imported-badge">Imported</span></div>
+          <div class="field-input">Wolverhampton Mind</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Phone <span class="imported-badge">Imported</span></div>
+          <div class="field-input">01902 426 262</div>
+        </div>
+        <div class="field-group full">
+          <div class="field-label">Short description <span class="imported-badge">Imported</span></div>
+          <div class="field-input">Mental health support, counselling and crisis services across Wolverhampton and the Black Country.</div>
+        </div>
+        <div class="field-group full">
+          <div class="field-label">Full description <span class="imported-badge">Imported</span></div>
+          <div class="field-textarea" style="height:52px;">We provide a range of mental health services including one-to-one counselling, group support, peer mentoring and crisis intervention for adults aged 18 and over across the West Midlands region.</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Email <span class="imported-badge">Imported</span></div>
+          <div class="field-input">info@wolverhamptonmind.org.uk</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Website</div>
+          <div class="field-input manual">https://wolverhamptonmind.org.uk</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Logo</div>
+          <div class="logo-upload-area">
+            <div class="logo-preview">WM</div>
+            <div class="logo-text">Upload logo or drag &amp; drop</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Address</div>
+          <div class="field-input manual" style="margin-bottom:6px;">12 Darlington Street</div>
+          <div class="field-input manual">Wolverhampton, WV1 4HW</div>
+        </div>
+      </div>
+
+      <div style="background:#fffbeb;border:1.5px solid #fcd34d;border-radius:10px;padding:12px 16px;">
+        <div style="font-size:12px;font-weight:700;color:#92400e;margin-bottom:6px;">Also found on your website:</div>
+        <div class="found-extras">
+          <div class="extra-pill pill-services">🏷 3 services to confirm on next step</div>
+          <div class="extra-pill pill-events">📅 2 upcoming events saved as drafts</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wizard-nav">
+    <div class="step-counter">Step 1 of 5</div>
+    <button class="btn-next">Save &amp; continue →</button>
+  </div>
+</div>
+
+<script>
+function showState(name, tabEl) {
+  document.querySelectorAll('.state').forEach(s => s.style.display = 'none');
+  document.getElementById('state-' + name).style.display = '';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tabEl.classList.add('active');
+}
+</script>

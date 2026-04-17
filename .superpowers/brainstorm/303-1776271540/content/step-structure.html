@@ -1,0 +1,142 @@
+<style>
+  body { font-family: 'Figtree', 'Inter', system-ui, sans-serif; }
+  .flow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .flow-card { border: 2px solid #e2e8f0; border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.2s; background: white; }
+  .flow-card:hover { border-color: #1E40AF; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,64,175,0.1); }
+  .flow-card.selected { border-color: #F59E0B; box-shadow: 0 0 0 3px rgba(245,158,11,0.2); }
+  .card-header { padding: 18px 20px 14px; border-bottom: 1px solid #f1f5f9; }
+  .card-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .tag-amber { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .card-title { font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 5px; }
+  .card-sub { font-size: 12px; color: #64748b; line-height: 1.5; margin: 0; }
+  .rec-badge { display: inline-flex; align-items: center; gap: 4px; background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700; margin-top: 8px; }
+  .steps-area { padding: 16px 20px; background: #faf8f5; }
+  .step-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; position: relative; }
+  .step-row:not(:last-child)::after { content: ''; position: absolute; left: 13px; top: 30px; width: 2px; height: calc(100% - 8px); background: #e2e8f0; }
+  .step-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; z-index: 1; }
+  .s-scrape { background: #1E40AF; color: white; }
+  .s-amber { background: #F59E0B; color: white; }
+  .s-green { background: #22C55E; color: white; }
+  .s-purple { background: #8b5cf6; color: white; }
+  .s-slate { background: #64748b; color: white; }
+  .s-teal { background: #0d9488; color: white; }
+  .step-body { flex: 1; padding-top: 3px; }
+  .step-name { font-size: 13px; font-weight: 700; color: #1e293b; }
+  .step-desc { font-size: 11px; color: #64748b; margin-top: 2px; line-height: 1.4; }
+  .step-new-badge { display: inline-block; background: #d1fae5; color: #065f46; border-radius: 4px; font-size: 9px; font-weight: 700; padding: 1px 5px; margin-left: 5px; text-transform: uppercase; vertical-align: middle; }
+  .step-changed-badge { display: inline-block; background: #fef3c7; color: #92400e; border-radius: 4px; font-size: 9px; font-weight: 700; padding: 1px 5px; margin-left: 5px; text-transform: uppercase; vertical-align: middle; }
+</style>
+
+<h2>How many steps should the new wizard have?</h2>
+<p class="subtitle">Both start with scraping. The difference is whether events get their own review step during onboarding.</p>
+
+<div class="flow-grid">
+
+  <!-- OPTION A: 5 steps (combined) -->
+  <div class="option flow-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter" style="display:none">A</div>
+    <div class="card-header">
+      <div class="card-tag tag-amber">Option A — 5 steps</div>
+      <div class="card-title">Lean wizard</div>
+      <p class="card-sub">Events from the scrape go straight into draft events for later review. Onboarding stays focused.</p>
+      <div class="rec-badge">⭐ Recommended</div>
+    </div>
+    <div class="steps-area">
+      <div class="step-row">
+        <div class="step-circle s-scrape">⚡</div>
+        <div class="step-body">
+          <div class="step-name">1 · Smart Import <span class="step-changed-badge">Redesigned</span></div>
+          <div class="step-desc">Enter website URL → one-click scrape → review pre-filled org info (name, description, contact, logo)</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-amber">🏷</div>
+        <div class="step-body">
+          <div class="step-name">2 · Services <span class="step-changed-badge">Redesigned</span></div>
+          <div class="step-desc">Visual category picker — auto-suggestions highlighted from scrape. Add service details inline.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-purple">📋</div>
+        <div class="step-body">
+          <div class="step-name">3 · Referral Setup</div>
+          <div class="step-desc">Delivery channels + custom form fields. Simplified card-based builder.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-teal">🌐</div>
+        <div class="step-body">
+          <div class="step-name">4 · Website Config</div>
+          <div class="step-desc">Confirm events &amp; news page URLs. Scraped events auto-queued as drafts — they'll appear in your events dashboard.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-green">✓</div>
+        <div class="step-body">
+          <div class="step-name">5 · Review &amp; Publish</div>
+          <div class="step-desc">Clean summary of everything. One button to go live.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B: 6 steps (with events review) -->
+  <div class="option flow-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter" style="display:none">B</div>
+    <div class="card-header">
+      <div class="card-tag tag-blue">Option B — 6 steps</div>
+      <div class="card-title">With inline event review</div>
+      <p class="card-sub">Scraped events get their own step so org managers confirm what gets imported before going live.</p>
+    </div>
+    <div class="steps-area">
+      <div class="step-row">
+        <div class="step-circle s-scrape">⚡</div>
+        <div class="step-body">
+          <div class="step-name">1 · Smart Import <span class="step-changed-badge">Redesigned</span></div>
+          <div class="step-desc">Enter website URL → scrape → review pre-filled org info</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-amber">🏷</div>
+        <div class="step-body">
+          <div class="step-name">2 · Services <span class="step-changed-badge">Redesigned</span></div>
+          <div class="step-desc">Visual category picker with auto-suggestions from scrape</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-green">📅</div>
+        <div class="step-body">
+          <div class="step-name">3 · Events <span class="step-new-badge">New</span></div>
+          <div class="step-desc">Scraped events shown as cards — tick to import, untick to skip. Dates, titles editable before import.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-purple">📋</div>
+        <div class="step-body">
+          <div class="step-name">4 · Referral Setup</div>
+          <div class="step-desc">Delivery channels + custom form fields</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-teal">🌐</div>
+        <div class="step-body">
+          <div class="step-name">5 · Website Config</div>
+          <div class="step-desc">Confirm scraping URLs for ongoing weekly sync</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle s-slate">✓</div>
+        <div class="step-body">
+          <div class="step-name">6 · Review &amp; Publish</div>
+          <div class="step-desc">Summary + go live</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:20px; padding:14px 18px; background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:10px; font-size:12px; color:#1e40af; line-height:1.6;">
+  <strong>Note:</strong> Either way, scraped events are saved as unpublished drafts — the org manager reviews them in their Events dashboard before they go live. Option B just shows this inline during onboarding.
+</div>
