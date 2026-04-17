@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n site_imagery %}
+
+{% block title %}{% trans "Sign out" %} - {% trans "Support2Thrive" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+  {% ambient_banner "auth_screens_ambient" %}
+</div>
+<div class="min-h-[60vh] flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2 text-center">{% trans "Sign out" %}</h1>
+            <p class="text-sm text-gray-600 text-center mb-6">
+                {% blocktrans with name=user.get_short_name|default:user.username %}Are you sure you want to sign out, {{ name }}?{% endblocktrans %}
+            </p>
+
+            <form method="post" action="{% url 'accounts:logout' %}">
+                {% csrf_token %}
+                {% if next_url %}
+                <input type="hidden" name="next" value="{{ next_url }}">
+                {% endif %}
+                <div class="flex flex-col sm:flex-row gap-3 sm:justify-center">
+                    <button type="submit"
+                            class="w-full sm:w-auto min-h-[44px] rounded-lg bg-primary-600 hover:bg-primary-700 px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-200 cursor-pointer">
+                        {% trans "Yes, sign out" %}
+                    </button>
+                    <a href="{% url 'core:home' %}"
+                       class="w-full sm:w-auto inline-flex min-h-[44px] items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors">
+                        {% trans "Cancel" %}
+                    </a>
+                </div>
+            </form>
+
+            <p class="mt-6 text-center text-xs text-gray-500">
+                {% trans "You will need to sign in again to access your profile or organisation portal." %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

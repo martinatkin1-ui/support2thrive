@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
-{% block title %}{% trans "West Midlands Community Share — Home" %}{% endblock %}
+{% block title %}{% trans "Support2Thrive — Home" %}{% endblock %}
 
 {% block content %}
 
@@ -68,7 +68,7 @@
                     {% trans "Find trusted organisations, events, and pathways across the West Midlands — in one calm, welcoming place." %}
                 </p>
                 <p class="mt-2 text-sm max-w-xl {% if hero_has_immersive_bg %}text-sage-200/90{% else %}text-sage-600{% endif %}">
-                    {% trans "West Midlands Community Share brings local help closer to the people who need it." %}
+                    {% trans "Support2Thrive brings local help closer to the people who need it." %}
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 {% if not hero_has_immersive_bg and not community_photos %}justify-center lg:justify-start{% endif %}">
                     <a href="{% url 'organizations:list' %}"

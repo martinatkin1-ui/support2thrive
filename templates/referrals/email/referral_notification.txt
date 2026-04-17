@@ -29,4 +29,4 @@ To acknowledge and manage this referral, log in to the platform:
 This referral must be acknowledged within 24 hours. Failure to acknowledge
 within 48 hours will escalate this referral to the platform administrator.
 
-West Midlands Community Share Platform — handle this data in accordance with GDPR.
+Support2Thrive platform — handle this data in accordance with GDPR.
