@@ -281,19 +281,32 @@
     };
   }
 
-  /* Detect stream trigger after HTMX swaps new content into #chat-messages */
-  document.addEventListener('htmx:afterSwap', function (e) {
-    if (e.detail.target && e.detail.target.id === 'chat-messages') {
-      var trigger = document.getElementById('assistant-typing');
-      if (trigger && trigger.dataset.startStream) {
-        startAssistantStream(trigger);
+  /* Detect stream trigger via MutationObserver — works with any HTMX version */
+  function watchForStreamTrigger() {
+    var chatMessages = document.getElementById('chat-messages');
+    if (!chatMessages) return;
+    var observer = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var nodes = mutations[i].addedNodes;
+        for (var j = 0; j < nodes.length; j++) {
+          var node = nodes[j];
+          if (node.nodeType !== 1) continue;
+          /* The trigger may be the added node itself or a child */
+          var trigger = (node.id === 'assistant-typing' && node.dataset.startStream)
+            ? node
+            : node.querySelector && node.querySelector('[data-start-stream]');
+          if (trigger) {
+            startAssistantStream(trigger);
+          }
+          /* Hide empty state on first message */
+          var empty = document.getElementById('chat-empty-state');
+          if (empty) empty.hidden = true;
+          scrollBottom();
+        }
       }
-      /* Hide empty state on first exchange */
-      var empty = document.getElementById('chat-empty-state');
-      if (empty) empty.hidden = true;
-      scrollBottom();
-    }
-  });
+    });
+    observer.observe(chatMessages, { childList: true });
+  }
 
   /* ── Voice Input (SpeechRecognition) ── */
   var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -390,6 +403,7 @@
 
   /* ── Init ── */
   document.addEventListener('DOMContentLoaded', function () {
+    watchForStreamTrigger();
     setupMic();
     setupTTSToggle();
     cleanExistingMessages();

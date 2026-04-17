@@ -186,7 +186,9 @@ def assistant_stream(request):
             from lightrag import QueryParam
 
             async def _get_stream():
-                rag = await get_rag_instance()
+                # 5-second timeout: if pgvector/postgres isn't running this returns
+                # quickly instead of hanging for minutes on a TCP timeout
+                rag = await asyncio.wait_for(get_rag_instance(), timeout=5.0)
                 param = QueryParam(
                     mode="mix",
                     stream=True,
@@ -197,12 +199,15 @@ def assistant_stream(request):
 
             response_iter = loop.run_until_complete(_get_stream())
 
-            # Iterate async generator from sync context
+            # Iterate async generator from sync context; timeout each chunk so a
+            # stalled query doesn't hang the browser indefinitely.
             async def _next_chunk(agen):
                 try:
-                    return await agen.__anext__(), False
+                    return await asyncio.wait_for(agen.__anext__(), timeout=15.0), False
                 except StopAsyncIteration:
                     return None, True
+                except asyncio.TimeoutError:
+                    return None, True  # treat as end of stream
 
             while True:
                 chunk, done = loop.run_until_complete(_next_chunk(response_iter))
@@ -210,16 +215,20 @@ def assistant_stream(request):
                     break
                 if chunk:
                     full_response.append(chunk)
-                    # Escape newlines in SSE data field
                     safe_chunk = str(chunk).replace("\n", "\\n").replace("\r", "")
                     yield f"data: {safe_chunk}\n\n"
-            rag_succeeded = True
+
+            # Only mark success if LightRAG actually returned content.
+            # An empty result (nothing indexed yet) falls through to Gemini.
+            if "".join(full_response):
+                rag_succeeded = True
+            else:
+                logger.warning("assistant_stream: LightRAG returned empty response, falling back to Gemini")
 
         except Exception:
             logger.warning("assistant_stream: LightRAG unavailable, falling back to Gemini direct")
 
-        # Gemini direct fallback — used when LightRAG is not initialised (e.g. no Docker/pgvector in dev).
-        # Provides real AI responses without requiring the full RAG stack.
+        # Gemini direct fallback — active when LightRAG is unavailable or returned nothing.
         if not rag_succeeded:
             try:
                 import google.generativeai as genai
