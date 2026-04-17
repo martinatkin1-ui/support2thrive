@@ -1,0 +1,1133 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Support2Thrive 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: so\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%(count)s sections"
+msgstr "%(count)s qaybaha"
+
+msgid "(opens in new tab)"
+msgstr "(ku furmay tab cusub)"
+
+msgid "1 section"
+msgstr "1 qayb"
+
+msgid ""
+"A GDPR consent checkbox is always appended automatically. You cannot remove "
+"it."
+msgstr ""
+"Sanduuqa hubinta ogolaanshaha GDPR had iyo jeer si toos ah ayaa loogu "
+"lifaaqaa. Ma saari kartid"
+
+msgid "A community connected."
+msgstr "Bulsho isku xidhan."
+
+msgid "AI Assistant"
+msgstr "Kaaliyaha AI"
+
+msgid "About"
+msgstr "Ku saabsan"
+
+msgid "About page saved."
+msgstr "Ku saabsan bogga la keydiyay"
+
+msgid "Accepts referrals:"
+msgstr "Aqbala tixraacyada:"
+
+msgid "Access denied."
+msgstr "Waa la diiday gelitaanka"
+
+msgid "Account Type"
+msgstr "Nooca Koontada"
+
+msgid "Acknowledge receipt"
+msgstr "qirashada rasiidka"
+
+msgid "Acknowledged"
+msgstr "La qiray"
+
+msgid "Acknowledgment"
+msgstr "Ictiraaf"
+
+msgid "Add a note (optional)"
+msgstr "Ku dar qoraal (ikhtiyaar)"
+
+msgid ""
+"Add each distinct service with access requirements, age range, and "
+"eligibility."
+msgstr ""
+"Ku dar adeeg kasta oo gaar ah oo leh shuruudaha gelitaanka, xadka da'da, iyo"
+" u-qalmitaanka."
+
+msgid "Additional information"
+msgstr "Macluumaad dheeri ah"
+
+msgid "Address"
+msgstr "Cinwaanka"
+
+msgid "Agenda"
+msgstr "Ajandaha"
+
+msgid "All"
+msgstr "Dhammaan"
+
+msgid "All events"
+msgstr "Dhammaan dhacdooyinka"
+
+msgid "All priorities"
+msgstr "Dhammaan mudnaanta"
+
+msgid "All statuses"
+msgstr "Dhammaan heerarka"
+
+msgid "All steps complete! Review and publish below."
+msgstr ""
+"Dhammaan tillaabooyinka waa dhammaystirmeen! Dib u eeg oo hoos ku daabac"
+
+msgid "All support streams"
+msgstr "Dhammaan durdurrada taageerada"
+
+msgid "Already have an account?"
+msgstr "Horeba akoon baad u leedahay?"
+
+msgid "Always on"
+msgstr "Had iyo jeer shid"
+
+msgid "Approve selected organizations"
+msgstr "Ansixi ururada la doortay"
+
+msgid "Approve selected users"
+msgstr "Oggolow isticmaalayaasha la xushay"
+
+msgid "Approved"
+msgstr "La ansixiyay"
+
+msgid "Back"
+msgstr "Dib u noqo"
+
+msgid "Back to events"
+msgstr "Ku noqo dhacdooyinka"
+
+msgid "Back to home"
+msgstr "Ku noqo guriga"
+
+msgid "Back to referrals"
+msgstr "Ku noqo tixraacyada"
+
+msgid "Book"
+msgstr "Buug"
+
+msgid "Booking"
+msgstr "Boos qabsan"
+
+msgid "Branding"
+msgstr "Calaamadaynta"
+
+msgid "Breadcrumb"
+msgstr "Burburka rootiga"
+
+msgid ""
+"Browse all local organisations and services, or use our AI assistant to find"
+" the right help for your situation."
+msgstr ""
+"Baadh dhammaan ururada maxaliga ah iyo adeegyada, ama isticmaal kaaliyaha AI"
+" si aad u hesho caawimada saxda ah ee xaaladaada."
+
+msgid "Browse all organisations"
+msgstr "Baadh dhammaan ururada"
+
+msgid "Browse organisations"
+msgstr "Baadh ururada"
+
+msgid ""
+"Browse trusted local organisations across the West Midlands. Filter by the "
+"type of support you need."
+msgstr ""
+"Ka baadh ururada maxaliga ah ee lagu kalsoon yahay ee West Midlands. Ku "
+"sifee nooca taageerada aad u baahan tahay."
+
+msgid "CRM webhook (outbound JSON)"
+msgstr "CRM webhook (ka baxa JSON)"
+
+msgid "CSV download from portal"
+msgstr "CSV kala soo deg portal"
+
+msgid "Cancel"
+msgstr "Jooji"
+
+msgid "Care"
+msgstr "Daryeel"
+
+msgid "Chat with assistant"
+msgstr "Kala hadal caawiye"
+
+msgid ""
+"Choose a theme to filter organisations — or browse the full directory at "
+"your own pace."
+msgstr ""
+"Dooro mawduuc si aad u shaandhayso ururada - ama u baadho tusaha buuxa ee "
+"xawligaaga."
+
+msgid "Clear filters"
+msgstr "Nadiifi filtarrada"
+
+msgid ""
+"Clear guides for situations that need extra care — written to be respectful "
+"and practical."
+msgstr ""
+"Tilmaamo cad oo loogu talagalay xaaladaha u baahan daryeel dheeraad ah - oo "
+"loo qoray si ixtiraam leh oo wax ku ool ah."
+
+msgid "Client information"
+msgstr "Macluumaadka macmiilka"
+
+msgid "Coming soon — Phase 6"
+msgstr "Dhawaan imaanaya - Wajiga 6"
+
+msgid "Community"
+msgstr "Bulshada"
+
+msgid "Community Events"
+msgstr "Dhacdooyinka Bulshada"
+
+msgid "Complete these steps before publishing:"
+msgstr "Buuxi tillaabooyinkan ka hor intaanad daabicin:"
+
+msgid "Complete your profile"
+msgstr "Buuxi astaantaada"
+
+msgid "Connect with your area"
+msgstr "Ku xidh aaggaga"
+
+msgid ""
+"Support2Thrive connects communities across the West Midlands. Find support, "
+"services, and events from local organisations."
+msgstr ""
+"Support2Thrive waxay isku xirtaa bulshooyinka Galbeedka Midlands. Raadi "
+"taageero, adeegyo, iyo dhacdooyin ka yimid ururada maxalliga ah."
+
+msgid "Consent"
+msgstr "Oggolaanshaha"
+
+msgid "Consent given"
+msgstr "Oggolaanshaha la bixiyay"
+
+msgid "Consent statement"
+msgstr "Oggolaanshaha qoraalka"
+
+msgid "Consent timestamp"
+msgstr "Wakhtiga ogolaanshaha"
+
+msgid "Contact"
+msgstr "Xiriir"
+
+msgid "Content"
+msgstr "Nuxurka"
+
+msgid "Content coming soon."
+msgstr "Nuxurka dhawaan imanaya"
+
+msgid "Create Account"
+msgstr "Abuur Account"
+
+msgid "Create Event"
+msgstr "Abuur Dhacdo"
+
+msgid "Create Referral"
+msgstr "Samee tixraac"
+
+msgid "Create your first event"
+msgstr "Abuur dhacdadaada ugu horeysa"
+
+msgid "Create, edit, and publish events"
+msgstr "Abuur, wax ka beddel, oo daabac dhacdooyinka"
+
+msgid ""
+"Curated regional photos can be added by staff in the admin (Site images) "
+"after review."
+msgstr ""
+"Sawirada gobolka ee la xushay waxa ku dari kara shaqaalaha maamulka "
+"(Sawirada goobta) dib u eegis kadib."
+
+msgid "Custom form fields:"
+msgstr "Goobaha foomka gaarka ah:"
+
+msgid "Custom referral form fields"
+msgstr "Goobaha foomka gudbinta ee gaarka ah"
+
+msgid "Date & Time"
+msgstr "Taariikhda & Waqtiga"
+
+msgid "Delete"
+msgstr "Tirtir"
+
+msgid "Delete this event?"
+msgstr "Ma tirtirtaa dhacdadan?"
+
+msgid "Delivery channels"
+msgstr "Kanaalka gaarsiinta"
+
+msgid "Delivery channels:"
+msgstr "Kanaalka gudbinta:"
+
+msgid "Delivery status"
+msgstr "Heerka gaarsiinta"
+
+msgid "Design the intake form volunteers/clients fill in"
+msgstr "Nakhshad foomka qaadashada mutadawiciinta/macaamiisha buuxiya"
+
+msgid "Don't have an account?"
+msgstr "Xisaab ma lihid?"
+
+msgid "Draft"
+msgstr "Qabyo"
+
+msgid "ESCALATED"
+msgstr "KACAY"
+
+msgid "Edit"
+msgstr "Wax ka beddel"
+
+msgid "Edit Event"
+msgstr "Wax ka beddel Dhacdada"
+
+msgid "Edit Profile"
+msgstr "Wax ka beddel xogta"
+
+msgid "Email"
+msgstr "iimaylka"
+
+msgid "Email to referral email address"
+msgstr "U dir cinwaanka iimaylka gudbinta"
+
+msgid "Emergency"
+msgstr "Gurmad"
+
+msgid "Encrypted"
+msgstr "Qarsoon"
+
+msgid "Encrypted at rest"
+msgstr "Qarsoon marka nasashada"
+
+msgid "Event \"%(title)s\" deleted."
+msgstr "Dhacdada \"%(title)s\" waa la tirtiray."
+
+msgid "Event created successfully."
+msgstr "Dhacdada si guul leh ayaa loo sameeyay"
+
+msgid "Event details"
+msgstr "Faahfaahinta dhacdada"
+
+msgid "Event updated successfully."
+msgstr "Dhacdada si guul leh ayaa loo cusboonaysiiyay"
+
+msgid "Events"
+msgstr "Dhacdooyinka"
+
+msgid "Events Calendar"
+msgstr "Jadwalka Dhacdooyinka"
+
+msgid "Examples:"
+msgstr "Tusaalooyinka:"
+
+msgid "Explore organisations"
+msgstr "Sahaminta ururada"
+
+msgid "Export CSV"
+msgstr "Dhoofinta CSV"
+
+msgid "Find events, groups, and activities near you"
+msgstr "Soo hel dhacdooyin, kooxo, iyo dhaqdhaqaaqyo kuu dhow"
+
+msgid "Find the right support for you"
+msgstr "Hel taageerada saxda ah ee adiga"
+
+msgid ""
+"Find trusted organisations, events, and pathways across the West Midlands — "
+"in one calm, welcoming place."
+msgstr ""
+"Soo hel ururo, dhacdooyin, iyo dariiqyo lagu kalsoon yahay oo dhan West "
+"Midlands - hal meel degan oo soo dhawayn leh."
+
+msgid "Footer navigation"
+msgstr "Socodka cagta"
+
+msgid ""
+"For one-off events only. Recurring events use the Recurrence Rule inline "
+"below."
+msgstr ""
+"Dhacdooyinka hal mar kaliya ah. Dhacdooyinka soo noqnoqda ayaa adeegsada "
+"Xeerka Soo noqnoqda ee hoosta."
+
+msgid "Form data"
+msgstr "Xogta foomka"
+
+msgid "Free"
+msgstr "Bilaash"
+
+msgid "Free event"
+msgstr "Dhacdo bilaash ah"
+
+msgid "GDPR-compliant referral record"
+msgstr "Diiwaanka gudbinta ee waafaqsan GDPR"
+
+msgid "General Public"
+msgstr "Dadweynaha Guud"
+
+msgid "Geography"
+msgstr "Juqraafiga"
+
+msgid "Get Help"
+msgstr "Caawin hel"
+
+msgid "Go to %(title)s pathway"
+msgstr "Tag jidka %(title)s"
+
+msgid "Grid"
+msgstr "Xarig"
+
+msgid "Guide sections"
+msgstr "Qaybaha hagaha"
+
+msgid "Handle in accordance with your data retention policy."
+msgstr "U maamul si waafaqsan siyaasaddaada haysashada xogta."
+
+msgid "Hash"
+msgstr "Xashiish"
+
+msgid "Help navigation"
+msgstr "Caawi socodka"
+
+msgid "Hierarchy"
+msgstr "Kala sareynta"
+
+msgid "History"
+msgstr "Taariikhda"
+
+msgid "Homeless or at risk?"
+msgstr "Guri la'aan mise halis?"
+
+msgid "Homelessness Support"
+msgstr "Taageerada Hoyla'aanta"
+
+msgid ""
+"Housing, benefits, health, and community links — step by step, without "
+"judgement."
+msgstr ""
+"Guriyeynta, faa'iidooyinka, caafimaadka, iyo isku xirka bulshada - tallaabo "
+"tallaabo, iyada oo aan la xukumin."
+
+msgid "How should referrals reach you? In-platform is always active."
+msgstr ""
+"Sidee bay tahay in tixraacyadu ku soo gaaraan? In-platform had iyo jeer waa "
+"firfircoon."
+
+msgid ""
+"I consent to my information being shared with %(org_name)s for the purpose "
+"of receiving support. I understand this data will be stored securely and "
+"handled in accordance with GDPR."
+msgstr ""
+"Waxaan ogolahay in xogtayda lala wadaago %(org_name)s ujeedaduna tahay "
+"taageero. Waxaan fahamsanahay in xogtan loo kaydin doono si ammaan ah oo loo"
+" maarayn doono si waafaqsan GDPR."
+
+msgid "I consent to my information being shared."
+msgstr "Waan ogolahay in xogtayda la wadaago."
+
+msgid ""
+"If you have a website with an events or news page, we can automatically "
+"import content weekly. You'll review and approve each imported item before "
+"it goes live."
+msgstr ""
+"Haddii aad leedahay degel leh dhacdooyin ama bogga wararka, waxaanu si toos "
+"ah u soo dejin karnaa macluumaadka toddobaad kasta. Waxaad dib u eegi "
+"doontaa oo oggolaan doontaa shay kasta oo la soo dejiyo ka hor inta aanu si "
+"toos ah u socon."
+
+msgid "Image"
+msgstr "Sawirka"
+
+msgid "Important"
+msgstr "Muhiim"
+
+msgid "In this guide"
+msgstr "Hagahan"
+
+msgid "In-platform inbox (always enabled)"
+msgstr "Sanduuqa gudaha ee madal (had iyo jeer waa karti)"
+
+msgid "Invalid username or password. Please try again."
+msgstr ""
+"Magaca isticmaale ama erayga sirta ah ee aan ansax ahayn Fadlan isku day mar"
+" kale"
+
+msgid "Join link"
+msgstr "Ku biir linkiga"
+
+msgid "Language"
+msgstr "Luuqad"
+
+msgid "Leaving prison?"
+msgstr "Ka bixida xabsiga?"
+
+msgid ""
+"Like a well-planned neighbourhood, this platform is designed around how "
+"people actually live — quick routes to food support, housing advice, "
+"recovery services, activities, and the organisations that make our towns and"
+" cities kinder."
+msgstr ""
+"Sida xaafad si fiican loo qorsheeyey, madalkan waxa loo qaabeeyey sida ay "
+"dadku dhab ahaan u nool yihiin - dariiqyo degdeg ah oo loo maro taageerada "
+"cuntada, la-talinta guryeynta, adeegyada soo kabashada, hawlaha, iyo "
+"ururrada ka dhiga magaalooyinkeenna iyo magaalooyinkeenna kuwo roon."
+
+msgid "Local events"
+msgstr "Dhacdooyinka maxaliga ah"
+
+msgid "Location"
+msgstr "Goobta"
+
+msgid "Login"
+msgstr "Soo gal"
+
+msgid "Logout"
+msgstr "Ka bax"
+
+msgid "Main navigation"
+msgstr "Navigation ugu weyn"
+
+msgid "Make a Referral"
+msgstr "Samee tixraac"
+
+msgid "Make a referral"
+msgstr "Samee tixraac"
+
+msgid "Make a referral to"
+msgstr "Samee tixraac"
+
+msgid "Manage Events"
+msgstr "Maamul dhacdooyinka"
+
+msgid "Marked for removal"
+msgstr "Loo calaamadeeyay saarista"
+
+msgid "Name"
+msgstr "Magaca"
+
+msgid "Need to refer someone to a service?"
+msgstr "Ma u baahan tahay inaad qof u dirto adeeg?"
+
+msgid "Need to refer someone?"
+msgstr "Ma u baahan tahay inaad qof u gudbiso?"
+
+msgid "Neighbours."
+msgstr "Deriska."
+
+msgid "New Event"
+msgstr "Dhacdo Cusub"
+
+msgid "News"
+msgstr "Wararka"
+
+msgid "Next"
+msgstr "Xiga"
+
+msgid "Next month"
+msgstr "Bisha soo socota"
+
+msgid "No"
+msgstr "Maya"
+
+msgid "No PII recorded."
+msgstr "Ma jiro PII la duubay"
+
+msgid "No delivery records."
+msgstr "Wax diiwaan gelin ah ma jiro"
+
+msgid "No events this month"
+msgstr "Ma jiraan dhacdooyin bishan"
+
+msgid "No events yet."
+msgstr "Weli ma jiraan dhacdooyin"
+
+msgid "No organisation found for your account."
+msgstr "Wax urur ah lagama helin akoonkaaga"
+
+msgid "No organizations found matching your criteria."
+msgstr "Lama helin ururo ku habboon shuruudahaaga."
+
+msgid "No pathways are currently available. Please check back soon."
+msgstr "Ma jiro waddooyin hadda la heli karo Fadlan dib u hubi mar dhow"
+
+msgid "No referrals yet."
+msgstr "Wali lama soo gudbin"
+
+msgid "No services added yet."
+msgstr "Wali wax adeegyo ah laguma darin"
+
+msgid "No status history yet."
+msgstr "Weli ma jiro xaalad xaalad."
+
+msgid "Normal"
+msgstr "Caadi ah"
+
+msgid "Not sure where to start?"
+msgstr "Ma hubtid meesha laga bilaabo?"
+
+msgid "Notes"
+msgstr "Xusuusin"
+
+msgid "Onboarding"
+msgstr "Koritaanka"
+
+msgid "Onboarding complete! Your organisation is now active on the platform."
+msgstr ""
+"Soo fuuliddii way dhammaatay! Ururkaagu hadda waxa uu ku firfircoon yahay "
+"goobta."
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Online event"
+msgstr "Dhacdo online ah"
+
+msgid "Open pathway"
+msgstr "Dariiqa furan"
+
+msgid "Opens the photo page on Flickr in a new tab."
+msgstr "Ka fura bogga sawirka ee Flicker tab cusub."
+
+msgid "Organisation"
+msgstr "Ururka"
+
+msgid "Organisation Portal"
+msgstr "Xariirka Ururka"
+
+msgid "Organisations"
+msgstr "Ururada"
+
+msgid "Organization"
+msgstr "Ururka"
+
+msgid "Organization Manager"
+msgstr "Maareeyaha Ururka"
+
+msgid "Organizations"
+msgstr "Ururada"
+
+msgid ""
+"Our AI assistant can answer specific questions and help you find the right "
+"organisation for your situation. Coming soon."
+msgstr ""
+"Kaaliyahayaga AI wuxuu ka jawaabi karaa su'aalo gaar ah wuxuuna kaa caawin "
+"karaa inaad hesho ururka saxda ah ee xaaladaada. Dhawaan imanaya."
+
+msgid "Password"
+msgstr "Furaha"
+
+msgid "Pathways"
+msgstr "Wadooyinka"
+
+msgid "Pathways with you in mind"
+msgstr "Dariiqyada maskaxda ku haya"
+
+msgid "Pending Approval"
+msgstr "Ansixinta sugaysa"
+
+msgid "Phone"
+msgstr "Taleefanka"
+
+msgid "Platform"
+msgstr "Platform"
+
+msgid "Please complete all steps before publishing."
+msgstr "Fadlan buuxi dhammaan tallaabooyinka ka hor inta aanad daabacin."
+
+msgid "Please correct the errors below."
+msgstr "Fadlan sax khaladaadka hoose"
+
+msgid "Practical help"
+msgstr "Caawin wax ku ool ah"
+
+msgid "Previous"
+msgstr "Hore"
+
+msgid "Previous month"
+msgstr "Bishii hore"
+
+msgid "Print"
+msgstr "Daabac"
+
+msgid "Print-ready view (paper filing)"
+msgstr "Daabacaadda diyaar u ah (warqaynta warqad)"
+
+msgid "Printed"
+msgstr "Daabacan"
+
+msgid "Priority"
+msgstr "Mudnaanta"
+
+msgid "Prison Leavers Support"
+msgstr "Taageerada Maxaabiista Ka Tagay"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Profile completeness"
+msgstr "Dhamaystirka xogta"
+
+msgid "Progress"
+msgstr "Horumarka"
+
+msgid ""
+"Public pages only show images that are active and have a review timestamp. "
+"Use this to record human moderation."
+msgstr ""
+"Bogagga dadwaynaha ayaa kaliya muujinaya sawirro firfircoon oo leh dib u "
+"eegis waqti-shabad ah. Isticmaal tan si aad u duubto dhexdhexaadnimada "
+"aadanaha."
+
+msgid "Publish organisation to the platform"
+msgstr "Daabac ururka ilaa madal"
+
+msgid "Published"
+msgstr "La daabacay"
+
+msgid "Publishing"
+msgstr "Daabacaada"
+
+msgid ""
+"Queen Square and Wolverhampton city centre on a bright day: people in the "
+"square, historic timber-framed and stone buildings, and clear sky."
+msgstr ""
+"Queen Square iyo bartamaha magaalada Wolverhampton maalin dhalaalaysa: dadka"
+" ku sugan fagaaraha, alwaaxyo taariikhi ah iyo dhismayaal dhagax ah, iyo cir"
+" cad."
+
+msgid ""
+"Queen Square, Wolverhampton — pre-approved library photo for the platform."
+msgstr ""
+"Queen Square, Wolverhampton - sawirka maktabadda ee horay loo ansixiyay ee "
+"goobta."
+
+msgid "Quick Links"
+msgstr "Xiriirinta Degdegga ah"
+
+msgid ""
+"RFC 5545 recurrence rule, e.g. FREQ=WEEKLY;BYDAY=MO or "
+"FREQ=MONTHLY;BYMONTHDAY=1"
+msgstr ""
+"RFC 5545 xeerka soo noqnoqda, tusaale. FREQ=Toddobaadle;BYDAY=MO ama "
+"FREQ=BISHII;BYMONTHDAY=1"
+
+msgid "Read the guide"
+msgstr "Akhri hagaha"
+
+msgid "Recurrence"
+msgstr "Soo noqnoqda"
+
+msgid "Recurring"
+msgstr "Soo noqnoqda"
+
+msgid "Refer to"
+msgstr "Tixraac"
+
+msgid "Reference"
+msgstr "Tixraac"
+
+msgid "Referral"
+msgstr "U gudbin"
+
+msgid "Referral Inbox"
+msgstr "Sanduuqa Gudbinta"
+
+msgid "Referral acknowledged."
+msgstr "Gudbinta waa la qiray."
+
+msgid "Referral config"
+msgstr "Qaabka gudbinta"
+
+msgid "Referral details"
+msgstr "Faahfaahinta gudbinta"
+
+msgid "Referral preferences"
+msgstr "Dookhyada gudbinta"
+
+msgid "Referral settings saved."
+msgstr "Dejinta gudbinta waa la keydiyay"
+
+msgid "Referral submitted"
+msgstr "Gudbinta waa la gudbiyay"
+
+msgid "Referrals"
+msgstr "tixraac"
+
+msgid "Referred by"
+msgstr "Waxaa tixraacay"
+
+msgid "Referring org"
+msgstr "Tixraaca org"
+
+msgid ""
+"Regional moments from public Flickr feeds — each tile links to the "
+"photographer’s page."
+msgstr ""
+"Daqiiqado goboleed laga bilaabo quudinta Flickr dadweynaha - tile kasta "
+"wuxuu ku xiraa bogga sawir qaadaha."
+
+msgid "Register"
+msgstr "Is diwaangeli"
+
+msgid "Register Your Organisation"
+msgstr "Diiwaangeli Ururkaaga"
+
+msgid "Reject selected users"
+msgstr "Diid isticmaalayaasha la xushay"
+
+msgid "Remove"
+msgstr "Ka saar"
+
+msgid "Reset onboarding for selected organisations"
+msgstr "Dib-u-dejinta fuulista hay'adaha la doortay"
+
+msgid "Review"
+msgstr "Dib u eegis"
+
+msgid "Role"
+msgstr "Doorka"
+
+msgid "Save & continue"
+msgstr "Keydso oo sii wad"
+
+msgid "Save & review"
+msgstr "Keydi & dib u eeg"
+
+msgid "Save event"
+msgstr "Keydso dhacdada"
+
+msgid "Scraping"
+msgstr "xoqid"
+
+msgid "Scraping config saved."
+msgstr "Qaabka xoqidda waa la keydiyay"
+
+msgid "Scroll to explore"
+msgstr "U rog si aad u sahamiso"
+
+msgid "See what’s on"
+msgstr "Eeg waxa jira"
+
+msgid "See your page as the public sees it"
+msgstr "U arag boggaaga sida dadweynuhu u arkaan"
+
+msgid "Select"
+msgstr "Dooro"
+
+msgid "Select language"
+msgstr "Dooro luqadda"
+
+msgid "Self-referrals are also accepted."
+msgstr "Is-sheegid sidoo kale waa la aqbalayaa."
+
+msgid "Services"
+msgstr "Adeegyada"
+
+msgid "Services Offered"
+msgstr "Adeegyada la bixiyo"
+
+msgid "Services saved."
+msgstr "Adeegyada la keydiyay"
+
+msgid "Set up your organisation"
+msgstr "Samee ururkaaga"
+
+msgid "Site footer"
+msgstr "Cagta goobta"
+
+msgid "Skip (I'll add this later)"
+msgstr "Ka bood (kan dib ayaan ku dari doonaa)"
+
+msgid "Skip to main content"
+msgstr "U gudub nuxurka muhiimka ah"
+
+msgid ""
+"Soon you’ll be able to chat with our assistant in plain language — the same "
+"warmth as asking a neighbour, with clear next steps."
+msgstr ""
+"Mar dhow waxaad awoodi doontaa inaad la hadasho kaaliyahayaga luqad cad - "
+"isla diirran sida weydiinta deriska, oo leh tillaabooyinka xiga ee cad."
+
+msgid "Specialist Support"
+msgstr "Taageerada Khaaska ah"
+
+msgid "Specific services you offer"
+msgstr "Adeegyada gaarka ah ee aad bixiso"
+
+msgid "Start"
+msgstr "Bilow"
+
+msgid ""
+"Start with what you need today. Every listing is here to help you take the "
+"next step."
+msgstr ""
+"Ka bilow waxaad u baahan tahay maanta. Liis kasta ayaa halkan u yaal si uu "
+"kaaga caawiyo qaadashada tallaabada xigta."
+
+msgid "Status"
+msgstr "Xaalada"
+
+msgid "Status updated."
+msgstr "Xaalada waa la cusboonaysiiyay"
+
+msgid "Submit referral"
+msgstr "Soo gudbi tixraac"
+
+msgid "Submitted"
+msgstr "La soo gudbiyay"
+
+msgid "Subscribe"
+msgstr "Subscribe dheh"
+
+msgid "Subscribe to"
+msgstr "Subscribe dheh"
+
+msgid "Subscribe to iCal feed"
+msgstr "Ku biir iCal feed"
+
+msgid "Support Pathways"
+msgstr "Dariiqyada Taageerada"
+
+msgid "Support."
+msgstr "Taageero."
+
+msgid "Taxonomy"
+msgstr "Taxonomy"
+
+msgid "Tell us about your organisation"
+msgstr "Wax nooga sheeg ururkaaga"
+
+msgid ""
+"The organisation will acknowledge your referral. If you don't hear back "
+"within 48 hours, our team will follow up."
+msgstr ""
+"Ururku wuxuu aqoonsan doonaa gudbintaada. Haddii aad dib u maqli waydo 48 "
+"saacadood gudahood, kooxdayadu way dabagali doontaa."
+
+msgid ""
+"These pathways are for people who need a bit more specific guidance. They're"
+" written in plain language and connect you directly to organisations in the "
+"West Midlands that can help. You don't need a referral to use this section —"
+" just find what's relevant to you and reach out."
+msgstr ""
+"Wadooyinkan waxaa loogu talagalay dadka u baahan hagitaan gaar ah oo xoogaa "
+"ka sii badan. Waxay ku qoran yihiin luqad cad waxayna si toos ah kuugu "
+"xidhaan ururada West Midlands ee ku caawin kara. Uma baahnid tixraac si aad "
+"u isticmaasho qaybtan - kaliya hel waxa adiga kugu khuseeya oo la xidhiidh."
+
+msgid "This field is required."
+msgstr "Goobtan ayaa loo baahan yahay."
+
+msgid "This is a recurring event"
+msgstr "Tani waa dhacdo soo noqnoqota"
+
+msgid "This organization accepts referrals."
+msgstr "Ururkani wuxuu aqbalaa gudbinta."
+
+msgid "Timestamps"
+msgstr "Jadwalka wakhtiga"
+
+msgid "Tip: drag to reorder using display_order."
+msgstr "Talo: jiid si aad dib u dalbato adigoo isticmaalaya display_order."
+
+msgid "Title"
+msgstr "Ciwaanka"
+
+msgid "Today"
+msgstr "Maanta"
+
+msgid "Toggle navigation menu"
+msgstr "Beddel liiska navigation"
+
+msgid "Try a different month or clear your filters."
+msgstr "Isku day bil kale ama nadiifi filtarradaada."
+
+msgid ""
+"URL of a page listing your events. We'll scrape it weekly and add draft "
+"events for your review."
+msgstr ""
+"URL ee bogga liiska dhacdooyinkaaga Waanu xoqin doonaa toddobaadle waxaanan "
+"ku dari doonaa dhacdooyin qabyo ah dib u eegistaada."
+
+msgid "URL of your news/blog page. We'll scrape it weekly."
+msgstr "URL ee boggaaga wararka/blooga Waxaan xoqin doonaa toddobaadle."
+
+msgid "Untitled"
+msgstr "Aan cinwaan lahayn"
+
+msgid "Upcoming dates"
+msgstr "Taariikhaha soo socda"
+
+msgid "Update"
+msgstr "Cusbooneysii"
+
+msgid "Update your organisation details"
+msgstr "Cusbooneysii faahfaahinta ururkaaga"
+
+msgid "Urgent"
+msgstr "Degdeg"
+
+msgid "Urgent step"
+msgstr "Tallaabo degdeg ah"
+
+msgid "Username"
+msgstr "Magaca isticmaale"
+
+msgid "View"
+msgstr "Daawo"
+
+msgid "View Public Listing"
+msgstr "Daawo Liiska Dadweynaha"
+
+msgid "View all pathways"
+msgstr "Eeg dhammaan waddooyinka"
+
+msgid "View and manage incoming referrals"
+msgstr "Arag oo maamul tixraacyada soo socda"
+
+msgid "View organisation"
+msgstr "Daawo ururka"
+
+msgid "Volunteer"
+msgstr "Iskaa wax u qabso"
+
+msgid ""
+"Volunteer and Organization Manager accounts require approval before you can "
+"access the portal."
+msgstr ""
+"Koontooyinka tabaruceyaasha iyo Maareeyaha Ururka waxay u baahan yihiin "
+"ogolaansho ka hor inta aanad marin marinka."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation on the platform."
+msgstr ""
+"Tabarucayaasha iyo shaqaalaha taageerada waxay samayn karaan tixraac sugan "
+"urur kasta oo maxalli ah oo ku yaala goobta."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation."
+msgstr ""
+"Tabarucayaasha iyo shaqaalaha taageerada waxay samayn karaan tixraac sugan "
+"urur kasta oo maxalli ah."
+
+msgid ""
+"Warm meals, shelter, advocacy, and longer-term housing help — find what’s "
+"available near you."
+msgstr ""
+"Cuntooyinka diiran, hoyga, u doodista, iyo caawinta guriyeynta muddada dheer"
+" - hel waxa agtaada ah."
+
+msgid "Website"
+msgstr "Mareegta"
+
+msgid "Website & scraping (optional)"
+msgstr "Website & xoqid (ikhtiyaar)"
+
+msgid "Welcome to the West Midlands."
+msgstr "Ku soo dhawoow West Midlands."
+
+msgid "Support2Thrive"
+msgstr "Support2Thrive"
+
+msgid "Support2Thrive platform"
+msgstr "Platform Support2Thrive"
+
+msgid "Support2Thrive brings local help closer to the people who need it."
+msgstr "Support2Thrive waxay u keentaa caawimada maxalliga ah dadka u baahan."
+
+msgid "Support2Thrive — Home"
+msgstr "Support2Thrive — Guriga"
+
+msgid "West Midlands city scene — Queen Square, Wolverhampton"
+msgstr "Muuqaalka magaalada West Midlands - Queen Square, Wolverhampton"
+
+msgid "What support do you need?"
+msgstr "Waa maxay taageerada aad u baahan tahay?"
+
+msgid ""
+"Whether you've just left prison or are struggling with homelessness, there "
+"is help available right now. Choose the section that fits your situation."
+msgstr ""
+"Haddii aad hadda uun xabsiga ka tagtay ama aad la daalaa dhacayso guri "
+"la'aan, hadda waxa jira gargaar la heli karo. Dooro qaybta ku habboon "
+"xaaladdaada."
+
+msgid "Which areas do you serve?"
+msgstr "Aagagee ayaad u adeegtaa?"
+
+msgid "Which support streams do you cover?"
+msgstr "Waa maxay durdurrada taageerada ee aad daboosho?"
+
+msgid "Who is this for?"
+msgstr "Kani yaa loogu talagalay?"
+
+msgid "Yes"
+msgstr "Haa"
+
+msgid "You must give consent to submit a referral."
+msgstr "Waa inaad bixisa ogolaanshaha gudbinta."
+
+msgid "Your Profile"
+msgstr "Xogtaada"
+
+msgid ""
+"Your account has been created and is pending approval. You will be notified "
+"once an administrator approves your access."
+msgstr ""
+"Koontadaada waa la sameeyay oo waxay sugaysaa oggolaanshaha Waxaa lagugu "
+"wargelin doonaa mar uu maamuluhu ogolaado gelitaankaaga."
+
+msgid "Your account has been created successfully."
+msgstr "Koontadaada si guul leh ayaa loo sameeyay"
+
+msgid ""
+"Your profile is %(score)s%% complete. A fuller profile helps people find "
+"you."
+msgstr ""
+"Boggagaagu waa %(score)s%% oo dhammaystiran. Boggaga buuxa ayaa dadka ka "
+"caawiya inay ku helaan."
+
+msgid "Your profile is incomplete"
+msgstr "Profile-kaagu ma dhamaystirna"
+
+msgid "Your reference number is:"
+msgstr "Lambarka tixraacaagu waa:"
+
+msgid "attempts"
+msgstr "isku dayo"
+
+msgid "by"
+msgstr "by"
+
+msgid "complete"
+msgstr "dhamaystiran"
+
+msgid "confidential — handle securely"
+msgstr "qarsoodi ah - si badbaado leh u maamul"
+
+msgid "events"
+msgstr "dhacdooyinka"
+
+msgid "referral(s) awaiting acknowledgment"
+msgstr "tixraac(-yada) oo sugaya aqoonsiga"

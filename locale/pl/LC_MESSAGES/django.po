@@ -1,0 +1,1136 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Support2Thrive 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "%(count)s sections"
+msgstr "%(count)s sekcji"
+
+msgid "(opens in new tab)"
+msgstr "(otwiera się w nowej karcie)"
+
+msgid "1 section"
+msgstr "1 sekcja"
+
+msgid ""
+"A GDPR consent checkbox is always appended automatically. You cannot remove "
+"it."
+msgstr ""
+"Pole wyboru zgody na RODO jest zawsze dołączane automatycznie. Nie możesz go"
+" usunąć."
+
+msgid "A community connected."
+msgstr "Połączona społeczność."
+
+msgid "AI Assistant"
+msgstr "Asystent AI"
+
+msgid "About"
+msgstr "O"
+
+msgid "About page saved."
+msgstr "Informacje o stronie zapisanej."
+
+msgid "Accepts referrals:"
+msgstr "Akceptuje polecenia:"
+
+msgid "Access denied."
+msgstr "Odmowa dostępu."
+
+msgid "Account Type"
+msgstr "Typ konta"
+
+msgid "Acknowledge receipt"
+msgstr "Potwierdź odbiór"
+
+msgid "Acknowledged"
+msgstr "Uznany"
+
+msgid "Acknowledgment"
+msgstr "Potwierdzenie"
+
+msgid "Add a note (optional)"
+msgstr "Dodaj notatkę (opcjonalnie)"
+
+msgid ""
+"Add each distinct service with access requirements, age range, and "
+"eligibility."
+msgstr ""
+"Dodaj każdą odrębną usługę wraz z wymaganiami dostępu, przedziałem wiekowym "
+"i uprawnieniami."
+
+msgid "Additional information"
+msgstr "Dodatkowe informacje"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Agenda"
+msgstr "Porządek obrad"
+
+msgid "All"
+msgstr "Wszystko"
+
+msgid "All events"
+msgstr "Wszystkie wydarzenia"
+
+msgid "All priorities"
+msgstr "Wszystkie priorytety"
+
+msgid "All statuses"
+msgstr "Wszystkie statusy"
+
+msgid "All steps complete! Review and publish below."
+msgstr "Wszystkie kroki zakończone! Przejrzyj i opublikuj poniżej."
+
+msgid "All support streams"
+msgstr "Wszystkie strumienie wsparcia"
+
+msgid "Already have an account?"
+msgstr "Masz już konto?"
+
+msgid "Always on"
+msgstr "Zawsze włączone"
+
+msgid "Approve selected organizations"
+msgstr "Zatwierdź wybrane organizacje"
+
+msgid "Approve selected users"
+msgstr "Zatwierdź wybranych użytkowników"
+
+msgid "Approved"
+msgstr "Zatwierdzony"
+
+msgid "Back"
+msgstr "Z powrotem"
+
+msgid "Back to events"
+msgstr "Wracając do wydarzeń"
+
+msgid "Back to home"
+msgstr "Powrót do domu"
+
+msgid "Back to referrals"
+msgstr "Wracając do skierowań"
+
+msgid "Book"
+msgstr "Książka"
+
+msgid "Booking"
+msgstr "Rezerwacja"
+
+msgid "Branding"
+msgstr "Marka"
+
+msgid "Breadcrumb"
+msgstr "Bułka tarta"
+
+msgid ""
+"Browse all local organisations and services, or use our AI assistant to find"
+" the right help for your situation."
+msgstr ""
+"Przeglądaj wszystkie lokalne organizacje i usługi lub skorzystaj z naszego "
+"asystenta AI, aby znaleźć odpowiednią pomoc w swojej sytuacji."
+
+msgid "Browse all organisations"
+msgstr "Przeglądaj wszystkie organizacje"
+
+msgid "Browse organisations"
+msgstr "Przeglądaj organizacje"
+
+msgid ""
+"Browse trusted local organisations across the West Midlands. Filter by the "
+"type of support you need."
+msgstr ""
+"Przeglądaj zaufane organizacje lokalne w całym regionie West Midlands. "
+"Filtruj według rodzaju wsparcia, jakiego potrzebujesz."
+
+msgid "CRM webhook (outbound JSON)"
+msgstr "Webhook CRM (wychodzący JSON)"
+
+msgid "CSV download from portal"
+msgstr "Pobieranie pliku CSV z portalu"
+
+msgid "Cancel"
+msgstr "Anulować"
+
+msgid "Care"
+msgstr "Pielęgnacja"
+
+msgid "Chat with assistant"
+msgstr "Czat z asystentem"
+
+msgid ""
+"Choose a theme to filter organisations — or browse the full directory at "
+"your own pace."
+msgstr ""
+"Wybierz motyw, aby filtrować organizacje — lub przeglądaj cały katalog we "
+"własnym tempie."
+
+msgid "Clear filters"
+msgstr "Wyczyść filtry"
+
+msgid ""
+"Clear guides for situations that need extra care — written to be respectful "
+"and practical."
+msgstr ""
+"Jasne wytyczne dotyczące sytuacji wymagających szczególnej ostrożności — "
+"napisane z szacunkiem i praktyczne."
+
+msgid "Client information"
+msgstr "Informacje o kliencie"
+
+msgid "Coming soon — Phase 6"
+msgstr "Już wkrótce — Faza 6"
+
+msgid "Community"
+msgstr "Wspólnota"
+
+msgid "Community Events"
+msgstr "Wydarzenia społecznościowe"
+
+msgid "Complete these steps before publishing:"
+msgstr "Przed opublikowaniem wykonaj następujące kroki:"
+
+msgid "Complete your profile"
+msgstr "Uzupełnij swój profil"
+
+msgid "Connect with your area"
+msgstr "Połącz się ze swoją okolicą"
+
+msgid ""
+"Support2Thrive connects communities across the West Midlands. Find support, "
+"services, and events from local organisations."
+msgstr ""
+"Support2Thrive łączy społeczności w regionie West Midlands. Znajdź wsparcie,"
+" usługi i wydarzenia oferowane przez lokalne organizacje."
+
+msgid "Consent"
+msgstr "Zgoda"
+
+msgid "Consent given"
+msgstr "Wyrażono zgodę"
+
+msgid "Consent statement"
+msgstr "Oświadczenie o zgodzie"
+
+msgid "Consent timestamp"
+msgstr "Znacznik czasu zgody"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Content"
+msgstr "Treść"
+
+msgid "Content coming soon."
+msgstr "Treść już wkrótce."
+
+msgid "Create Account"
+msgstr "Utwórz konto"
+
+msgid "Create Event"
+msgstr "Utwórz wydarzenie"
+
+msgid "Create Referral"
+msgstr "Utwórz polecenie"
+
+msgid "Create your first event"
+msgstr "Stwórz swoje pierwsze wydarzenie"
+
+msgid "Create, edit, and publish events"
+msgstr "Twórz, edytuj i publikuj wydarzenia"
+
+msgid ""
+"Curated regional photos can be added by staff in the admin (Site images) "
+"after review."
+msgstr ""
+"Wyselekcjonowane zdjęcia regionalne mogą być dodawane przez pracowników w "
+"panelu administracyjnym (obrazy witryny) po ich przejrzeniu."
+
+msgid "Custom form fields:"
+msgstr "Niestandardowe pola formularza:"
+
+msgid "Custom referral form fields"
+msgstr "Niestandardowe pola formularza polecającego"
+
+msgid "Date & Time"
+msgstr "Data i godzina"
+
+msgid "Delete"
+msgstr "Usuwać"
+
+msgid "Delete this event?"
+msgstr "Usunąć to wydarzenie?"
+
+msgid "Delivery channels"
+msgstr "Kanały dostawy"
+
+msgid "Delivery channels:"
+msgstr "Kanały dostawy:"
+
+msgid "Delivery status"
+msgstr "Stan dostawy"
+
+msgid "Design the intake form volunteers/clients fill in"
+msgstr ""
+"Zaprojektuj formularz przyjmowania, który wypełniają wolontariusze/klienci"
+
+msgid "Don't have an account?"
+msgstr "Nie masz konta?"
+
+msgid "Draft"
+msgstr "Projekt"
+
+msgid "ESCALATED"
+msgstr "eskalacja"
+
+msgid "Edit"
+msgstr "Redagować"
+
+msgid "Edit Event"
+msgstr "Edytuj wydarzenie"
+
+msgid "Edit Profile"
+msgstr "Edytuj profil"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Email to referral email address"
+msgstr "Wyślij e-mail na adres e-mail polecenia"
+
+msgid "Emergency"
+msgstr "Nagły wypadek"
+
+msgid "Encrypted"
+msgstr "Zaszyfrowane"
+
+msgid "Encrypted at rest"
+msgstr "Zaszyfrowane w stanie spoczynku"
+
+msgid "Event \"%(title)s\" deleted."
+msgstr "Wydarzenie „%(title)s” usunięte."
+
+msgid "Event created successfully."
+msgstr "Wydarzenie zostało utworzone pomyślnie."
+
+msgid "Event details"
+msgstr "Szczegóły wydarzenia"
+
+msgid "Event updated successfully."
+msgstr "Wydarzenie zostało pomyślnie zaktualizowane."
+
+msgid "Events"
+msgstr "Wydarzenia"
+
+msgid "Events Calendar"
+msgstr "Kalendarz wydarzeń"
+
+msgid "Examples:"
+msgstr "Przykłady:"
+
+msgid "Explore organisations"
+msgstr "Przeglądaj organizacje"
+
+msgid "Export CSV"
+msgstr "Eksportuj plik CSV"
+
+msgid "Find events, groups, and activities near you"
+msgstr "Znajdź wydarzenia, grupy i zajęcia w pobliżu"
+
+msgid "Find the right support for you"
+msgstr "Znajdź odpowiednie wsparcie dla siebie"
+
+msgid ""
+"Find trusted organisations, events, and pathways across the West Midlands — "
+"in one calm, welcoming place."
+msgstr ""
+"Znajdź zaufane organizacje, wydarzenia i ścieżki w całym West Midlands — w "
+"jednym spokojnym, przyjaznym miejscu."
+
+msgid "Footer navigation"
+msgstr "Nawigacja stopką"
+
+msgid ""
+"For one-off events only. Recurring events use the Recurrence Rule inline "
+"below."
+msgstr ""
+"Tylko na jednorazowe wydarzenia. W przypadku wydarzeń cyklicznych stosowana "
+"jest reguła powtarzania znajdująca się poniżej."
+
+msgid "Form data"
+msgstr "Dane formularza"
+
+msgid "Free"
+msgstr "Bezpłatny"
+
+msgid "Free event"
+msgstr "Bezpłatne wydarzenie"
+
+msgid "GDPR-compliant referral record"
+msgstr "Rejestr poleceń zgodny z RODO"
+
+msgid "General Public"
+msgstr "Opinia publiczna"
+
+msgid "Geography"
+msgstr "Geografia"
+
+msgid "Get Help"
+msgstr "Uzyskaj pomoc"
+
+msgid "Go to %(title)s pathway"
+msgstr "Idź do ścieżki %(title)s"
+
+msgid "Grid"
+msgstr "Siatka"
+
+msgid "Guide sections"
+msgstr "Sekcje przewodników"
+
+msgid "Handle in accordance with your data retention policy."
+msgstr "Postępuj zgodnie ze swoją polityką przechowywania danych."
+
+msgid "Hash"
+msgstr "Haszysz"
+
+msgid "Help navigation"
+msgstr "Pomoc w nawigacji"
+
+msgid "Hierarchy"
+msgstr "Hierarchia"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Homeless or at risk?"
+msgstr "Bezdomny czy zagrożony?"
+
+msgid "Homelessness Support"
+msgstr "Wsparcie dla bezdomnych"
+
+msgid ""
+"Housing, benefits, health, and community links — step by step, without "
+"judgement."
+msgstr ""
+"Mieszkalnictwo, świadczenia, zdrowie i powiązania społeczne — krok po kroku,"
+" bez osądu."
+
+msgid "How should referrals reach you? In-platform is always active."
+msgstr ""
+"W jaki sposób polecenia powinny do Ciebie dotrzeć? Na platformie jest zawsze"
+" aktywne."
+
+msgid ""
+"I consent to my information being shared with %(org_name)s for the purpose "
+"of receiving support. I understand this data will be stored securely and "
+"handled in accordance with GDPR."
+msgstr ""
+"Wyrażam zgodę na udostępnienie moich danych firmie %(org_name)s w celu "
+"otrzymania wsparcia. Rozumiem, że te dane będą bezpiecznie przechowywane i "
+"przetwarzane zgodnie z RODO."
+
+msgid "I consent to my information being shared."
+msgstr "Wyrażam zgodę na udostępnianie moich danych."
+
+msgid ""
+"If you have a website with an events or news page, we can automatically "
+"import content weekly. You'll review and approve each imported item before "
+"it goes live."
+msgstr ""
+"Jeśli masz witrynę internetową zawierającą stronę z wydarzeniami lub "
+"aktualnościami, możemy automatycznie importować treści co tydzień. Będziesz "
+"przeglądać i zatwierdzać każdy zaimportowany element, zanim zostanie "
+"opublikowany."
+
+msgid "Image"
+msgstr "Obraz"
+
+msgid "Important"
+msgstr "Ważny"
+
+msgid "In this guide"
+msgstr "W tym przewodniku"
+
+msgid "In-platform inbox (always enabled)"
+msgstr "Skrzynka odbiorcza na platformie (zawsze włączona)"
+
+msgid "Invalid username or password. Please try again."
+msgstr "Nieprawidłowa nazwa użytkownika lub hasło. Spróbuj ponownie."
+
+msgid "Join link"
+msgstr "Dołącz do linku"
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Leaving prison?"
+msgstr "Opuszczenie więzienia?"
+
+msgid ""
+"Like a well-planned neighbourhood, this platform is designed around how "
+"people actually live — quick routes to food support, housing advice, "
+"recovery services, activities, and the organisations that make our towns and"
+" cities kinder."
+msgstr ""
+"Podobnie jak dobrze zaplanowane sąsiedztwo, platforma ta została "
+"zaprojektowana wokół tego, jak faktycznie żyją ludzie – szybkie trasy do "
+"wsparcia żywnościowego, porad mieszkaniowych, usług rekonwalescencji, "
+"działań i organizacji, które czynią nasze miasta bardziej przyjaznymi."
+
+msgid "Local events"
+msgstr "Wydarzenia lokalne"
+
+msgid "Location"
+msgstr "Lokalizacja"
+
+msgid "Login"
+msgstr "Logowanie"
+
+msgid "Logout"
+msgstr "Wyloguj się"
+
+msgid "Main navigation"
+msgstr "Główna nawigacja"
+
+msgid "Make a Referral"
+msgstr "Zrób polecenie"
+
+msgid "Make a referral"
+msgstr "Zrób skierowanie"
+
+msgid "Make a referral to"
+msgstr "Skieruj się do"
+
+msgid "Manage Events"
+msgstr "Zarządzaj wydarzeniami"
+
+msgid "Marked for removal"
+msgstr "Oznaczone do usunięcia"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Need to refer someone to a service?"
+msgstr "Chcesz kogoś polecić do usługi?"
+
+msgid "Need to refer someone?"
+msgstr "Chcesz kogoś polecić?"
+
+msgid "Neighbours."
+msgstr "Sąsiedzi."
+
+msgid "New Event"
+msgstr "Nowe wydarzenie"
+
+msgid "News"
+msgstr "Aktualności"
+
+msgid "Next"
+msgstr "Następny"
+
+msgid "Next month"
+msgstr "Przyszły miesiąc"
+
+msgid "No"
+msgstr "NIE"
+
+msgid "No PII recorded."
+msgstr ""
+"Nie zarejestrowano żadnych informacji umożliwiających identyfikację osób."
+
+msgid "No delivery records."
+msgstr "Brak ewidencji dostaw."
+
+msgid "No events this month"
+msgstr "Brak wydarzeń w tym miesiącu"
+
+msgid "No events yet."
+msgstr "Nie ma jeszcze żadnych wydarzeń."
+
+msgid "No organisation found for your account."
+msgstr "Nie znaleziono organizacji dla Twojego konta."
+
+msgid "No organizations found matching your criteria."
+msgstr "Nie znaleziono organizacji spełniających podane kryteria."
+
+msgid "No pathways are currently available. Please check back soon."
+msgstr "Obecnie nie są dostępne żadne ścieżki. Sprawdź ponownie wkrótce."
+
+msgid "No referrals yet."
+msgstr "Nie ma jeszcze żadnych skierowań."
+
+msgid "No services added yet."
+msgstr "Nie dodano jeszcze żadnych usług."
+
+msgid "No status history yet."
+msgstr "Nie ma jeszcze historii statusu."
+
+msgid "Normal"
+msgstr "Normalna"
+
+msgid "Not sure where to start?"
+msgstr "Nie wiesz od czego zacząć?"
+
+msgid "Notes"
+msgstr "Notatki"
+
+msgid "Onboarding"
+msgstr "Proces wdrażania do firmy nowego pracownika"
+
+msgid "Onboarding complete! Your organisation is now active on the platform."
+msgstr ""
+"Wdrożenie zakończone! Twoja organizacja jest teraz aktywna na platformie."
+
+msgid "Online"
+msgstr "W Internecie"
+
+msgid "Online event"
+msgstr "Wydarzenie w Internecie"
+
+msgid "Open pathway"
+msgstr "Otwarta ścieżka"
+
+msgid "Opens the photo page on Flickr in a new tab."
+msgstr "Otwiera stronę ze zdjęciami w serwisie Flickr w nowej karcie."
+
+msgid "Organisation"
+msgstr "Organizacja"
+
+msgid "Organisation Portal"
+msgstr "Portal organizacji"
+
+msgid "Organisations"
+msgstr "Organizacje"
+
+msgid "Organization"
+msgstr "Organizacja"
+
+msgid "Organization Manager"
+msgstr "Menedżer Organizacji"
+
+msgid "Organizations"
+msgstr "Organizacje"
+
+msgid ""
+"Our AI assistant can answer specific questions and help you find the right "
+"organisation for your situation. Coming soon."
+msgstr ""
+"Nasz asystent AI może odpowiedzieć na konkretne pytania i pomóc w "
+"znalezieniu organizacji odpowiedniej do Twojej sytuacji. Już wkrótce."
+
+msgid "Password"
+msgstr "Hasło"
+
+msgid "Pathways"
+msgstr "Ścieżki"
+
+msgid "Pathways with you in mind"
+msgstr "Ścieżki z myślą o Tobie"
+
+msgid "Pending Approval"
+msgstr "Oczekujące na zatwierdzenie"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Platform"
+msgstr "Platforma"
+
+msgid "Please complete all steps before publishing."
+msgstr "Przed opublikowaniem wykonaj wszystkie kroki."
+
+msgid "Please correct the errors below."
+msgstr "Popraw poniższe błędy."
+
+msgid "Practical help"
+msgstr "Praktyczna pomoc"
+
+msgid "Previous"
+msgstr "Poprzedni"
+
+msgid "Previous month"
+msgstr "Poprzedni miesiąc"
+
+msgid "Print"
+msgstr "Wydrukować"
+
+msgid "Print-ready view (paper filing)"
+msgstr "Widok gotowy do druku (przechowywanie w formie papierowej)"
+
+msgid "Printed"
+msgstr "Drukowane"
+
+msgid "Priority"
+msgstr "Priorytet"
+
+msgid "Prison Leavers Support"
+msgstr "Wsparcie dla osób opuszczających więzienia"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Profile completeness"
+msgstr "Kompletność profilu"
+
+msgid "Progress"
+msgstr "Postęp"
+
+msgid ""
+"Public pages only show images that are active and have a review timestamp. "
+"Use this to record human moderation."
+msgstr ""
+"Na stronach publicznych wyświetlane są tylko obrazy, które są aktywne i mają"
+" sygnaturę czasową recenzji. Użyj tego, aby zarejestrować moderację przez "
+"ludzi."
+
+msgid "Publish organisation to the platform"
+msgstr "Opublikuj organizację na platformie"
+
+msgid "Published"
+msgstr "Opublikowany"
+
+msgid "Publishing"
+msgstr "Wydawniczy"
+
+msgid ""
+"Queen Square and Wolverhampton city centre on a bright day: people in the "
+"square, historic timber-framed and stone buildings, and clear sky."
+msgstr ""
+"Centrum Queen Square i Wolverhampton w jasny dzień: ludzie na placu, "
+"historyczne budynki o konstrukcji szachulcowej i kamienia oraz czyste niebo."
+
+msgid ""
+"Queen Square, Wolverhampton — pre-approved library photo for the platform."
+msgstr ""
+"Queen Square, Wolverhampton — wstępnie zatwierdzone zdjęcie biblioteczne na "
+"peron."
+
+msgid "Quick Links"
+msgstr "Szybkie linki"
+
+msgid ""
+"RFC 5545 recurrence rule, e.g. FREQ=WEEKLY;BYDAY=MO or "
+"FREQ=MONTHLY;BYMONTHDAY=1"
+msgstr ""
+"Reguła powtarzalności RFC 5545, np. FREQ=TYGODNIOWY;BYDAY=MO lub "
+"FREQ=MIESIĘCZNY;BYMONTHDAY=1"
+
+msgid "Read the guide"
+msgstr "Przeczytaj przewodnik"
+
+msgid "Recurrence"
+msgstr "Nawrót"
+
+msgid "Recurring"
+msgstr "Powtarzający się"
+
+msgid "Refer to"
+msgstr "Patrz"
+
+msgid "Reference"
+msgstr "Odniesienie"
+
+msgid "Referral"
+msgstr "Skierowanie"
+
+msgid "Referral Inbox"
+msgstr "Skrzynka odbiorcza poleceń"
+
+msgid "Referral acknowledged."
+msgstr "Skierowanie potwierdzone."
+
+msgid "Referral config"
+msgstr "Konfiguracja skierowań"
+
+msgid "Referral details"
+msgstr "Szczegóły skierowania"
+
+msgid "Referral preferences"
+msgstr "Preferencje dotyczące skierowań"
+
+msgid "Referral settings saved."
+msgstr "Ustawienia poleceń zostały zapisane."
+
+msgid "Referral submitted"
+msgstr "Skierowanie przesłane"
+
+msgid "Referrals"
+msgstr "Polecenia"
+
+msgid "Referred by"
+msgstr "Polecony przez"
+
+msgid "Referring org"
+msgstr "Organizacja odsyłająca"
+
+msgid ""
+"Regional moments from public Flickr feeds — each tile links to the "
+"photographer’s page."
+msgstr ""
+"Regionalne momenty z publicznych kanałów Flickr — każdy kafelek prowadzi do "
+"strony fotografa."
+
+msgid "Register"
+msgstr "Rejestr"
+
+msgid "Register Your Organisation"
+msgstr "Zarejestruj swoją organizację"
+
+msgid "Reject selected users"
+msgstr "Odrzuć wybranych użytkowników"
+
+msgid "Remove"
+msgstr "Usunąć"
+
+msgid "Reset onboarding for selected organisations"
+msgstr "Zresetuj onboarding dla wybranych organizacji"
+
+msgid "Review"
+msgstr "Recenzja"
+
+msgid "Role"
+msgstr "Rola"
+
+msgid "Save & continue"
+msgstr "Zapisz i kontynuuj"
+
+msgid "Save & review"
+msgstr "Zapisz i przejrzyj"
+
+msgid "Save event"
+msgstr "Zapisz wydarzenie"
+
+msgid "Scraping"
+msgstr "Skrobanie"
+
+msgid "Scraping config saved."
+msgstr "Konfiguracja skrobania została zapisana."
+
+msgid "Scroll to explore"
+msgstr "Przewiń, aby odkryć"
+
+msgid "See what’s on"
+msgstr "Zobacz, co się dzieje"
+
+msgid "See your page as the public sees it"
+msgstr "Zobacz swoją stronę tak, jak ją widzą inni"
+
+msgid "Select"
+msgstr "Wybierać"
+
+msgid "Select language"
+msgstr "Wybierz język"
+
+msgid "Self-referrals are also accepted."
+msgstr "Akceptowane są także zgłoszenia samodzielne."
+
+msgid "Services"
+msgstr "Usługi"
+
+msgid "Services Offered"
+msgstr "Oferowane usługi"
+
+msgid "Services saved."
+msgstr "Usługi zapisane."
+
+msgid "Set up your organisation"
+msgstr "Skonfiguruj swoją organizację"
+
+msgid "Site footer"
+msgstr "Stopka witryny"
+
+msgid "Skip (I'll add this later)"
+msgstr "Pomiń (dodam to później)"
+
+msgid "Skip to main content"
+msgstr "Przejdź do głównej treści"
+
+msgid ""
+"Soon you’ll be able to chat with our assistant in plain language — the same "
+"warmth as asking a neighbour, with clear next steps."
+msgstr ""
+"Wkrótce będziesz mógł rozmawiać z naszym asystentem prostym językiem — z "
+"taką samą serdecznością, jak z pytaniem sąsiada, z jasnymi instrukcjami "
+"dotyczącymi kolejnych kroków."
+
+msgid "Specialist Support"
+msgstr "Wsparcie specjalistyczne"
+
+msgid "Specific services you offer"
+msgstr "Konkretne usługi, które oferujesz"
+
+msgid "Start"
+msgstr "Początek"
+
+msgid ""
+"Start with what you need today. Every listing is here to help you take the "
+"next step."
+msgstr ""
+"Zacznij od tego, czego potrzebujesz dzisiaj. Każdy wpis jest tutaj, aby "
+"pomóc Ci zrobić kolejny krok."
+
+msgid "Status"
+msgstr "Stan"
+
+msgid "Status updated."
+msgstr "Stan zaktualizowany."
+
+msgid "Submit referral"
+msgstr "Prześlij skierowanie"
+
+msgid "Submitted"
+msgstr "Złożony"
+
+msgid "Subscribe"
+msgstr "Subskrybować"
+
+msgid "Subscribe to"
+msgstr "Subskrybuj"
+
+msgid "Subscribe to iCal feed"
+msgstr "Subskrybuj kanał iCal"
+
+msgid "Support Pathways"
+msgstr "Ścieżki wsparcia"
+
+msgid "Support."
+msgstr "Wsparcie."
+
+msgid "Taxonomy"
+msgstr "Taksonomia"
+
+msgid "Tell us about your organisation"
+msgstr "Opowiedz nam o swojej organizacji"
+
+msgid ""
+"The organisation will acknowledge your referral. If you don't hear back "
+"within 48 hours, our team will follow up."
+msgstr ""
+"Organizacja potwierdzi Twoje skierowanie. Jeśli nie otrzymasz odpowiedzi w "
+"ciągu 48 godzin, nasz zespół skontaktuje się z Tobą."
+
+msgid ""
+"These pathways are for people who need a bit more specific guidance. They're"
+" written in plain language and connect you directly to organisations in the "
+"West Midlands that can help. You don't need a referral to use this section —"
+" just find what's relevant to you and reach out."
+msgstr ""
+"Te ścieżki są przeznaczone dla osób potrzebujących nieco bardziej "
+"szczegółowych wskazówek. Są napisane prostym językiem i kierują Cię "
+"bezpośrednio do organizacji w West Midlands, które mogą Ci pomóc. Aby "
+"skorzystać z tej sekcji, nie potrzebujesz skierowania — po prostu znajdź to,"
+" co jest dla Ciebie istotne i skontaktuj się z nami."
+
+msgid "This field is required."
+msgstr "To pole jest wymagane."
+
+msgid "This is a recurring event"
+msgstr "Jest to wydarzenie powtarzające się"
+
+msgid "This organization accepts referrals."
+msgstr "Organizacja ta przyjmuje polecenia."
+
+msgid "Timestamps"
+msgstr "Znaczniki czasu"
+
+msgid "Tip: drag to reorder using display_order."
+msgstr ""
+"Wskazówka: przeciągnij, aby zmienić kolejność za pomocą display_order."
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "Today"
+msgstr "Dzisiaj"
+
+msgid "Toggle navigation menu"
+msgstr "Przełącz menu nawigacji"
+
+msgid "Try a different month or clear your filters."
+msgstr "Wypróbuj inny miesiąc lub wyczyść filtry."
+
+msgid ""
+"URL of a page listing your events. We'll scrape it weekly and add draft "
+"events for your review."
+msgstr ""
+"Adres URL strony z listą Twoich wydarzeń. Będziemy go przeglądać co tydzień "
+"i dodawać wersje robocze wydarzeń do sprawdzenia."
+
+msgid "URL of your news/blog page. We'll scrape it weekly."
+msgstr ""
+"Adres URL Twojej strony z wiadomościami/blogiem. Będziemy to zeskrobywać co "
+"tydzień."
+
+msgid "Untitled"
+msgstr "Nieuprawny"
+
+msgid "Upcoming dates"
+msgstr "Nadchodzące daty"
+
+msgid "Update"
+msgstr "Aktualizacja"
+
+msgid "Update your organisation details"
+msgstr "Zaktualizuj dane swojej organizacji"
+
+msgid "Urgent"
+msgstr "Pilny"
+
+msgid "Urgent step"
+msgstr "Pilny krok"
+
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+msgid "View"
+msgstr "Pogląd"
+
+msgid "View Public Listing"
+msgstr "Zobacz listę publiczną"
+
+msgid "View all pathways"
+msgstr "Zobacz wszystkie ścieżki"
+
+msgid "View and manage incoming referrals"
+msgstr "Przeglądaj i zarządzaj przychodzącymi poleceniami"
+
+msgid "View organisation"
+msgstr "Zobacz organizację"
+
+msgid "Volunteer"
+msgstr "Wolontariusz"
+
+msgid ""
+"Volunteer and Organization Manager accounts require approval before you can "
+"access the portal."
+msgstr ""
+"Konta wolontariuszy i menedżerów organizacji wymagają zatwierdzenia, zanim "
+"będzie można uzyskać dostęp do portalu."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation on the platform."
+msgstr ""
+"Wolontariusze i pracownicy pomocowi mogą bezpiecznie skierować osobę do "
+"dowolnej lokalnej organizacji na platformie."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation."
+msgstr ""
+"Wolontariusze i pracownicy pomocowi mogą bezpiecznie skierować się do "
+"dowolnej lokalnej organizacji."
+
+msgid ""
+"Warm meals, shelter, advocacy, and longer-term housing help — find what’s "
+"available near you."
+msgstr ""
+"Ciepłe posiłki, schronienie, rzecznictwo i długoterminowa pomoc mieszkaniowa"
+" — znajdź to, co jest dostępne w Twojej okolicy."
+
+msgid "Website"
+msgstr "Strona internetowa"
+
+msgid "Website & scraping (optional)"
+msgstr "Strona internetowa i scraping (opcjonalnie)"
+
+msgid "Welcome to the West Midlands."
+msgstr "Witamy w West Midlands."
+
+msgid "Support2Thrive"
+msgstr "Support2Thrive"
+
+msgid "Support2Thrive platform"
+msgstr "Platforma Support2Thrive"
+
+msgid "Support2Thrive brings local help closer to the people who need it."
+msgstr ""
+"Support2Thrive przybliża lokalną pomoc do ludzi, którzy jej potrzebują."
+
+msgid "Support2Thrive — Home"
+msgstr "Support2Thrive — Strona główna"
+
+msgid "West Midlands city scene — Queen Square, Wolverhampton"
+msgstr "Scena miejska w West Midlands — Queen Square, Wolverhampton"
+
+msgid "What support do you need?"
+msgstr "Jakiego wsparcia potrzebujesz?"
+
+msgid ""
+"Whether you've just left prison or are struggling with homelessness, there "
+"is help available right now. Choose the section that fits your situation."
+msgstr ""
+"Niezależnie od tego, czy właśnie opuściłeś więzienie, czy zmagasz się z "
+"bezdomnością, pomoc jest dostępna już teraz. Wybierz sekcję pasującą do "
+"Twojej sytuacji."
+
+msgid "Which areas do you serve?"
+msgstr "Które obszary obsługujecie?"
+
+msgid "Which support streams do you cover?"
+msgstr "Które strumienie wsparcia obejmujecie?"
+
+msgid "Who is this for?"
+msgstr "Dla kogo to jest?"
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "You must give consent to submit a referral."
+msgstr "Należy wyrazić zgodę na przesłanie skierowania."
+
+msgid "Your Profile"
+msgstr "Twój profil"
+
+msgid ""
+"Your account has been created and is pending approval. You will be notified "
+"once an administrator approves your access."
+msgstr ""
+"Twoje konto zostało utworzone i oczekuje na zatwierdzenie. Otrzymasz "
+"powiadomienie, gdy administrator zatwierdzi Twój dostęp."
+
+msgid "Your account has been created successfully."
+msgstr "Twoje konto zostało pomyślnie utworzone."
+
+msgid ""
+"Your profile is %(score)s%% complete. A fuller profile helps people find "
+"you."
+msgstr ""
+"Twój profil jest kompletny %(score)sZZPCTZZZ. Pełniejszy profil ułatwia "
+"innym znalezienie Cię."
+
+msgid "Your profile is incomplete"
+msgstr "Twój profil jest niekompletny"
+
+msgid "Your reference number is:"
+msgstr "Twój numer referencyjny to:"
+
+msgid "attempts"
+msgstr "próbowanie"
+
+msgid "by"
+msgstr "przez"
+
+msgid "complete"
+msgstr "kompletny"
+
+msgid "confidential — handle securely"
+msgstr "poufne — postępuj bezpiecznie"
+
+msgid "events"
+msgstr "wydarzenia"
+
+msgid "referral(s) awaiting acknowledgment"
+msgstr "skierowania oczekujące na potwierdzenie"

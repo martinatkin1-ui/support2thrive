@@ -1,0 +1,1109 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Support2Thrive 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "%(count)s sections"
+msgstr "أقسام %(count)s"
+
+msgid "(opens in new tab)"
+msgstr "(يفتح في علامة تبويب جديدة)"
+
+msgid "1 section"
+msgstr "1 قسم"
+
+msgid ""
+"A GDPR consent checkbox is always appended automatically. You cannot remove "
+"it."
+msgstr ""
+"يتم دائمًا إلحاق مربع اختيار الموافقة على اللائحة العامة لحماية البيانات "
+"(GDPR) تلقائيًا. لا يمكنك إزالته."
+
+msgid "A community connected."
+msgstr "مجتمع متصل."
+
+msgid "AI Assistant"
+msgstr "مساعد الذكاء الاصطناعي"
+
+msgid "About"
+msgstr "عن"
+
+msgid "About page saved."
+msgstr "حول الصفحة المحفوظة."
+
+msgid "Accepts referrals:"
+msgstr "يقبل الإحالات:"
+
+msgid "Access denied."
+msgstr "تم الرفض."
+
+msgid "Account Type"
+msgstr "نوع الحساب"
+
+msgid "Acknowledge receipt"
+msgstr "الإقرار بالاستلام"
+
+msgid "Acknowledged"
+msgstr "معترف به"
+
+msgid "Acknowledgment"
+msgstr "شكر وتقدير"
+
+msgid "Add a note (optional)"
+msgstr "إضافة ملاحظة (اختياري)"
+
+msgid ""
+"Add each distinct service with access requirements, age range, and "
+"eligibility."
+msgstr "أضف كل خدمة مميزة مع متطلبات الوصول والفئة العمرية والأهلية."
+
+msgid "Additional information"
+msgstr "معلومات إضافية"
+
+msgid "Address"
+msgstr "عنوان"
+
+msgid "Agenda"
+msgstr "جدول الأعمال"
+
+msgid "All"
+msgstr "الجميع"
+
+msgid "All events"
+msgstr "جميع الأحداث"
+
+msgid "All priorities"
+msgstr "جميع الأولويات"
+
+msgid "All statuses"
+msgstr "جميع الحالات"
+
+msgid "All steps complete! Review and publish below."
+msgstr "جميع الخطوات كاملة! قم بالمراجعة والنشر أدناه."
+
+msgid "All support streams"
+msgstr "جميع تيارات الدعم"
+
+msgid "Already have an account?"
+msgstr "هل لديك حساب بالفعل؟"
+
+msgid "Always on"
+msgstr "دائما على"
+
+msgid "Approve selected organizations"
+msgstr "الموافقة على المنظمات المختارة"
+
+msgid "Approve selected users"
+msgstr "الموافقة على المستخدمين المحددين"
+
+msgid "Approved"
+msgstr "موافقة"
+
+msgid "Back"
+msgstr "خلف"
+
+msgid "Back to events"
+msgstr "العودة إلى الأحداث"
+
+msgid "Back to home"
+msgstr "العودة إلى المنزل"
+
+msgid "Back to referrals"
+msgstr "العودة إلى الإحالات"
+
+msgid "Book"
+msgstr "كتاب"
+
+msgid "Booking"
+msgstr "الحجز"
+
+msgid "Branding"
+msgstr "العلامة التجارية"
+
+msgid "Breadcrumb"
+msgstr "مسار التنقل"
+
+msgid ""
+"Browse all local organisations and services, or use our AI assistant to find"
+" the right help for your situation."
+msgstr ""
+"تصفح جميع المنظمات والخدمات المحلية، أو استخدم مساعد الذكاء الاصطناعي الخاص "
+"بنا للعثور على المساعدة المناسبة لموقفك."
+
+msgid "Browse all organisations"
+msgstr "تصفح جميع المنظمات"
+
+msgid "Browse organisations"
+msgstr "تصفح المنظمات"
+
+msgid ""
+"Browse trusted local organisations across the West Midlands. Filter by the "
+"type of support you need."
+msgstr ""
+"تصفح المنظمات المحلية الموثوقة في جميع أنحاء ويست ميدلاندز. قم بالتصفية حسب "
+"نوع الدعم الذي تحتاجه."
+
+msgid "CRM webhook (outbound JSON)"
+msgstr "خطاف ويب CRM (JSON الصادر)"
+
+msgid "CSV download from portal"
+msgstr "تنزيل ملف CSV من البوابة"
+
+msgid "Cancel"
+msgstr "يلغي"
+
+msgid "Care"
+msgstr "رعاية"
+
+msgid "Chat with assistant"
+msgstr "الدردشة مع المساعد"
+
+msgid ""
+"Choose a theme to filter organisations — or browse the full directory at "
+"your own pace."
+msgstr ""
+"اختر موضوعًا لتصفية المؤسسات — أو تصفح الدليل الكامل بالسرعة التي تناسبك."
+
+msgid "Clear filters"
+msgstr "مسح المرشحات"
+
+msgid ""
+"Clear guides for situations that need extra care — written to be respectful "
+"and practical."
+msgstr ""
+"أدلة واضحة للمواقف التي تحتاج إلى رعاية إضافية - مكتوبة لتكون محترمة وعملية."
+
+msgid "Client information"
+msgstr "معلومات العميل"
+
+msgid "Coming soon — Phase 6"
+msgstr "قريبا - المرحلة السادسة"
+
+msgid "Community"
+msgstr "مجتمع"
+
+msgid "Community Events"
+msgstr "أحداث المجتمع"
+
+msgid "Complete these steps before publishing:"
+msgstr "أكمل هذه الخطوات قبل النشر:"
+
+msgid "Complete your profile"
+msgstr "أكمل ملفك الشخصي"
+
+msgid "Connect with your area"
+msgstr "تواصل مع منطقتك"
+
+msgid ""
+"Support2Thrive connects communities across the West Midlands. Find support, "
+"services, and events from local organisations."
+msgstr ""
+"Support2Thrive يربط المجتمعات في جميع أنحاء ويست ميدلاندز. اعثر على الدعم "
+"والخدمات والفعاليات من المنظمات المحلية."
+
+msgid "Consent"
+msgstr "موافقة"
+
+msgid "Consent given"
+msgstr "تم منح الموافقة"
+
+msgid "Consent statement"
+msgstr "بيان الموافقة"
+
+msgid "Consent timestamp"
+msgstr "الطابع الزمني للموافقة"
+
+msgid "Contact"
+msgstr "اتصال"
+
+msgid "Content"
+msgstr "محتوى"
+
+msgid "Content coming soon."
+msgstr "المحتوى قريبا."
+
+msgid "Create Account"
+msgstr "إنشاء حساب"
+
+msgid "Create Event"
+msgstr "إنشاء حدث"
+
+msgid "Create Referral"
+msgstr "إنشاء الإحالة"
+
+msgid "Create your first event"
+msgstr "أنشئ حدثك الأول"
+
+msgid "Create, edit, and publish events"
+msgstr "إنشاء الأحداث وتحريرها ونشرها"
+
+msgid ""
+"Curated regional photos can be added by staff in the admin (Site images) "
+"after review."
+msgstr ""
+"يمكن للموظفين في الإدارة (صور الموقع) إضافة الصور الإقليمية المنسقة بعد "
+"المراجعة."
+
+msgid "Custom form fields:"
+msgstr "حقول النماذج المخصصة:"
+
+msgid "Custom referral form fields"
+msgstr "حقول نموذج الإحالة المخصصة"
+
+msgid "Date & Time"
+msgstr "التاريخ والوقت"
+
+msgid "Delete"
+msgstr "يمسح"
+
+msgid "Delete this event?"
+msgstr "هل تريد حذف هذا الحدث؟"
+
+msgid "Delivery channels"
+msgstr "قنوات التسليم"
+
+msgid "Delivery channels:"
+msgstr "قنوات التسليم:"
+
+msgid "Delivery status"
+msgstr "حالة التسليم"
+
+msgid "Design the intake form volunteers/clients fill in"
+msgstr "صمم نموذج القبول الذي يملأه المتطوعون/العملاء"
+
+msgid "Don't have an account?"
+msgstr "ليس لديك حساب؟"
+
+msgid "Draft"
+msgstr "مسودة"
+
+msgid "ESCALATED"
+msgstr "تصاعدت"
+
+msgid "Edit"
+msgstr "يحرر"
+
+msgid "Edit Event"
+msgstr "تحرير الحدث"
+
+msgid "Edit Profile"
+msgstr "تحرير الملف الشخصي"
+
+msgid "Email"
+msgstr "بريد إلكتروني"
+
+msgid "Email to referral email address"
+msgstr "البريد الإلكتروني إلى عنوان البريد الإلكتروني للإحالة"
+
+msgid "Emergency"
+msgstr "طارئ"
+
+msgid "Encrypted"
+msgstr "مشفرة"
+
+msgid "Encrypted at rest"
+msgstr "مشفرة في بقية"
+
+msgid "Event \"%(title)s\" deleted."
+msgstr "تم حذف الحدث \"%(title)s\"."
+
+msgid "Event created successfully."
+msgstr "تم إنشاء الحدث بنجاح."
+
+msgid "Event details"
+msgstr "تفاصيل الحدث"
+
+msgid "Event updated successfully."
+msgstr "تم تحديث الحدث بنجاح."
+
+msgid "Events"
+msgstr "الأحداث"
+
+msgid "Events Calendar"
+msgstr "تقويم الأحداث"
+
+msgid "Examples:"
+msgstr "أمثلة:"
+
+msgid "Explore organisations"
+msgstr "استكشاف المنظمات"
+
+msgid "Export CSV"
+msgstr "تصدير CSV"
+
+msgid "Find events, groups, and activities near you"
+msgstr "ابحث عن الأحداث والمجموعات والأنشطة القريبة منك"
+
+msgid "Find the right support for you"
+msgstr "ابحث عن الدعم المناسب لك"
+
+msgid ""
+"Find trusted organisations, events, and pathways across the West Midlands — "
+"in one calm, welcoming place."
+msgstr ""
+"ابحث عن المنظمات والفعاليات والمسارات الموثوقة عبر منطقة ويست ميدلاندز - في "
+"مكان واحد هادئ ومرحب."
+
+msgid "Footer navigation"
+msgstr "التنقل في التذييل"
+
+msgid ""
+"For one-off events only. Recurring events use the Recurrence Rule inline "
+"below."
+msgstr ""
+"للأحداث لمرة واحدة فقط. تستخدم الأحداث المتكررة قاعدة التكرار المضمنة أدناه."
+
+msgid "Form data"
+msgstr "بيانات النموذج"
+
+msgid "Free"
+msgstr "حر"
+
+msgid "Free event"
+msgstr "حدث مجاني"
+
+msgid "GDPR-compliant referral record"
+msgstr "سجل الإحالة المتوافق مع اللائحة العامة لحماية البيانات (GDPR)."
+
+msgid "General Public"
+msgstr "عامة الناس"
+
+msgid "Geography"
+msgstr "الجغرافيا"
+
+msgid "Get Help"
+msgstr "احصل على المساعدة"
+
+msgid "Go to %(title)s pathway"
+msgstr "انتقل إلى المسار %(title)s"
+
+msgid "Grid"
+msgstr "شبكة"
+
+msgid "Guide sections"
+msgstr "أقسام الدليل"
+
+msgid "Handle in accordance with your data retention policy."
+msgstr "التعامل وفقًا لسياسة الاحتفاظ بالبيانات الخاصة بك."
+
+msgid "Hash"
+msgstr "التجزئة"
+
+msgid "Help navigation"
+msgstr "مساعدة في الملاحة"
+
+msgid "Hierarchy"
+msgstr "تَسَلسُل"
+
+msgid "History"
+msgstr "تاريخ"
+
+msgid "Homeless or at risk?"
+msgstr "بلا مأوى أو في خطر؟"
+
+msgid "Homelessness Support"
+msgstr "دعم التشرد"
+
+msgid ""
+"Housing, benefits, health, and community links — step by step, without "
+"judgement."
+msgstr ""
+"الإسكان والفوائد والصحة والروابط المجتمعية - خطوة بخطوة، دون إصدار أحكام."
+
+msgid "How should referrals reach you? In-platform is always active."
+msgstr "كيف يجب أن تصل إليك الإحالات؟ النظام الأساسي نشط دائمًا."
+
+msgid ""
+"I consent to my information being shared with %(org_name)s for the purpose "
+"of receiving support. I understand this data will be stored securely and "
+"handled in accordance with GDPR."
+msgstr ""
+"أوافق على مشاركة معلوماتي مع %(org_name)s بغرض تلقي الدعم. أدرك أنه سيتم "
+"تخزين هذه البيانات بشكل آمن وسيتم التعامل معها وفقًا للقانون العام لحماية "
+"البيانات."
+
+msgid "I consent to my information being shared."
+msgstr "أوافق على مشاركة معلوماتي."
+
+msgid ""
+"If you have a website with an events or news page, we can automatically "
+"import content weekly. You'll review and approve each imported item before "
+"it goes live."
+msgstr ""
+"إذا كان لديك موقع ويب به صفحة أحداث أو أخبار، فيمكننا استيراد المحتوى "
+"تلقائيًا أسبوعيًا. ستقوم بمراجعة كل عنصر مستورد والموافقة عليه قبل نشره."
+
+msgid "Image"
+msgstr "صورة"
+
+msgid "Important"
+msgstr "مهم"
+
+msgid "In this guide"
+msgstr "في هذا الدليل"
+
+msgid "In-platform inbox (always enabled)"
+msgstr "البريد الوارد داخل النظام الأساسي (ممكّن دائمًا)"
+
+msgid "Invalid username or password. Please try again."
+msgstr "اسم المستخدم أو كلمة المرور غير صالحة. يرجى المحاولة مرة أخرى."
+
+msgid "Join link"
+msgstr "رابط الانضمام"
+
+msgid "Language"
+msgstr "لغة"
+
+msgid "Leaving prison?"
+msgstr "مغادرة السجن؟"
+
+msgid ""
+"Like a well-planned neighbourhood, this platform is designed around how "
+"people actually live — quick routes to food support, housing advice, "
+"recovery services, activities, and the organisations that make our towns and"
+" cities kinder."
+msgstr ""
+"مثل أي حي جيد التخطيط، تم تصميم هذه المنصة حول كيفية عيش الناس فعليًا - طرق "
+"سريعة للدعم الغذائي، ونصائح الإسكان، وخدمات التعافي، والأنشطة، والمنظمات "
+"التي تجعل بلداتنا ومدننا أكثر لطفًا."
+
+msgid "Local events"
+msgstr "الأحداث المحلية"
+
+msgid "Location"
+msgstr "موقع"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+msgid "Main navigation"
+msgstr "الملاحة الرئيسية"
+
+msgid "Make a Referral"
+msgstr "قم بالإحالة"
+
+msgid "Make a referral"
+msgstr "قم بالإحالة"
+
+msgid "Make a referral to"
+msgstr "قم بالإحالة إلى"
+
+msgid "Manage Events"
+msgstr "إدارة الأحداث"
+
+msgid "Marked for removal"
+msgstr "تم وضع علامة للإزالة"
+
+msgid "Name"
+msgstr "اسم"
+
+msgid "Need to refer someone to a service?"
+msgstr "هل تحتاج إلى إحالة شخص ما إلى الخدمة؟"
+
+msgid "Need to refer someone?"
+msgstr "هل تحتاج إلى إحالة شخص ما؟"
+
+msgid "Neighbours."
+msgstr "الجيران."
+
+msgid "New Event"
+msgstr "حدث جديد"
+
+msgid "News"
+msgstr "أخبار"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Next month"
+msgstr "الشهر المقبل"
+
+msgid "No"
+msgstr "لا"
+
+msgid "No PII recorded."
+msgstr "لم يتم تسجيل أي معلومات تحديد هوية شخصية."
+
+msgid "No delivery records."
+msgstr "لا توجد سجلات التسليم."
+
+msgid "No events this month"
+msgstr "لا توجد أحداث هذا الشهر"
+
+msgid "No events yet."
+msgstr "لا توجد أحداث حتى الآن."
+
+msgid "No organisation found for your account."
+msgstr "لم يتم العثور على منظمة لحسابك."
+
+msgid "No organizations found matching your criteria."
+msgstr "لم يتم العثور على منظمات مطابقة لمعاييرك."
+
+msgid "No pathways are currently available. Please check back soon."
+msgstr "لا توجد مسارات متاحة حاليا. يرجى التحقق مرة أخرى قريبا."
+
+msgid "No referrals yet."
+msgstr "لا الإحالات حتى الآن."
+
+msgid "No services added yet."
+msgstr "لم تتم إضافة أي خدمات حتى الآن."
+
+msgid "No status history yet."
+msgstr "لا يوجد سجل حالة حتى الآن."
+
+msgid "Normal"
+msgstr "طبيعي"
+
+msgid "Not sure where to start?"
+msgstr "لست متأكدا من أين تبدأ؟"
+
+msgid "Notes"
+msgstr "ملحوظات"
+
+msgid "Onboarding"
+msgstr "الإعداد"
+
+msgid "Onboarding complete! Your organisation is now active on the platform."
+msgstr "اكتمل الإعداد! مؤسستك نشطة الآن على النظام الأساسي."
+
+msgid "Online"
+msgstr "متصل"
+
+msgid "Online event"
+msgstr "الحدث على الانترنت"
+
+msgid "Open pathway"
+msgstr "مسار مفتوح"
+
+msgid "Opens the photo page on Flickr in a new tab."
+msgstr "يفتح صفحة الصور على Flickr في علامة تبويب جديدة."
+
+msgid "Organisation"
+msgstr "منظمة"
+
+msgid "Organisation Portal"
+msgstr "بوابة المنظمة"
+
+msgid "Organisations"
+msgstr "المنظمات"
+
+msgid "Organization"
+msgstr "منظمة"
+
+msgid "Organization Manager"
+msgstr "مدير المنظمة"
+
+msgid "Organizations"
+msgstr "المنظمات"
+
+msgid ""
+"Our AI assistant can answer specific questions and help you find the right "
+"organisation for your situation. Coming soon."
+msgstr ""
+"يمكن لمساعد الذكاء الاصطناعي لدينا الإجابة على أسئلة محددة ومساعدتك في "
+"العثور على المؤسسة المناسبة لموقفك. قريباً."
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Pathways"
+msgstr "الممرات"
+
+msgid "Pathways with you in mind"
+msgstr "مسارات معك في الاعتبار"
+
+msgid "Pending Approval"
+msgstr "في انتظار الموافقة"
+
+msgid "Phone"
+msgstr "هاتف"
+
+msgid "Platform"
+msgstr "منصة"
+
+msgid "Please complete all steps before publishing."
+msgstr "يرجى إكمال جميع الخطوات قبل النشر."
+
+msgid "Please correct the errors below."
+msgstr "يرجى تصحيح الأخطاء أدناه."
+
+msgid "Practical help"
+msgstr "مساعدة عملية"
+
+msgid "Previous"
+msgstr "سابق"
+
+msgid "Previous month"
+msgstr "الشهر السابق"
+
+msgid "Print"
+msgstr "مطبعة"
+
+msgid "Print-ready view (paper filing)"
+msgstr "عرض جاهز للطباعة (حفظ الورق)"
+
+msgid "Printed"
+msgstr "مطبوعة"
+
+msgid "Priority"
+msgstr "أولوية"
+
+msgid "Prison Leavers Support"
+msgstr "دعم مغادرة السجون"
+
+msgid "Profile"
+msgstr "حساب تعريفي"
+
+msgid "Profile completeness"
+msgstr "اكتمال الملف الشخصي"
+
+msgid "Progress"
+msgstr "تقدم"
+
+msgid ""
+"Public pages only show images that are active and have a review timestamp. "
+"Use this to record human moderation."
+msgstr ""
+"تعرض الصفحات العامة فقط الصور النشطة والتي لها طابع زمني للمراجعة. استخدم "
+"هذا لتسجيل الاعتدال البشري."
+
+msgid "Publish organisation to the platform"
+msgstr "نشر المنظمة على المنصة"
+
+msgid "Published"
+msgstr "تم النشر"
+
+msgid "Publishing"
+msgstr "نشر"
+
+msgid ""
+"Queen Square and Wolverhampton city centre on a bright day: people in the "
+"square, historic timber-framed and stone buildings, and clear sky."
+msgstr ""
+"ساحة كوين ومركز مدينة ولفرهامبتون في يوم مشرق: الناس في الساحة، والمباني "
+"التاريخية ذات الإطارات الخشبية والحجرية، والسماء الصافية."
+
+msgid ""
+"Queen Square, Wolverhampton — pre-approved library photo for the platform."
+msgstr "Queen Square، ولفرهامبتون – صورة مكتبة معتمدة مسبقًا للمنصة."
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid ""
+"RFC 5545 recurrence rule, e.g. FREQ=WEEKLY;BYDAY=MO or "
+"FREQ=MONTHLY;BYMONTHDAY=1"
+msgstr ""
+"قاعدة التكرار RFC 5545، على سبيل المثال. FREQ=أسبوعي;BYDAY=MO أو "
+"FREQ=شهري;BYMONTHDAY=1"
+
+msgid "Read the guide"
+msgstr "اقرأ الدليل"
+
+msgid "Recurrence"
+msgstr "تكرار"
+
+msgid "Recurring"
+msgstr "يتكرر"
+
+msgid "Refer to"
+msgstr "الرجوع إلى"
+
+msgid "Reference"
+msgstr "مرجع"
+
+msgid "Referral"
+msgstr "الإحالة"
+
+msgid "Referral Inbox"
+msgstr "صندوق الوارد للإحالة"
+
+msgid "Referral acknowledged."
+msgstr "تم الإقرار بالإحالة."
+
+msgid "Referral config"
+msgstr "تكوين الإحالة"
+
+msgid "Referral details"
+msgstr "تفاصيل الإحالة"
+
+msgid "Referral preferences"
+msgstr "تفضيلات الإحالة"
+
+msgid "Referral settings saved."
+msgstr "تم حفظ إعدادات الإحالة."
+
+msgid "Referral submitted"
+msgstr "تم تقديم الإحالة"
+
+msgid "Referrals"
+msgstr "الإحالات"
+
+msgid "Referred by"
+msgstr "تمت الإشارة إليه بواسطة"
+
+msgid "Referring org"
+msgstr "منظمة الإشارة"
+
+msgid ""
+"Regional moments from public Flickr feeds — each tile links to the "
+"photographer’s page."
+msgstr ""
+"اللحظات الإقليمية من خلاصات Flickr العامة - يرتبط كل مربع بصفحة المصور."
+
+msgid "Register"
+msgstr "يسجل"
+
+msgid "Register Your Organisation"
+msgstr "سجل مؤسستك"
+
+msgid "Reject selected users"
+msgstr "رفض المستخدمين المحددين"
+
+msgid "Remove"
+msgstr "يزيل"
+
+msgid "Reset onboarding for selected organisations"
+msgstr "إعادة تعيين الإعداد للمؤسسات المحددة"
+
+msgid "Review"
+msgstr "مراجعة"
+
+msgid "Role"
+msgstr "دور"
+
+msgid "Save & continue"
+msgstr "حفظ ومتابعة"
+
+msgid "Save & review"
+msgstr "حفظ ومراجعة"
+
+msgid "Save event"
+msgstr "حفظ الحدث"
+
+msgid "Scraping"
+msgstr "كشط"
+
+msgid "Scraping config saved."
+msgstr "تم حفظ تكوين القشط."
+
+msgid "Scroll to explore"
+msgstr "قم بالتمرير للاستكشاف"
+
+msgid "See what’s on"
+msgstr "انظر ماذا يجري"
+
+msgid "See your page as the public sees it"
+msgstr "شاهد صفحتك كما يراها الجمهور"
+
+msgid "Select"
+msgstr "يختار"
+
+msgid "Select language"
+msgstr "اختر اللغة"
+
+msgid "Self-referrals are also accepted."
+msgstr "كما يتم قبول الإحالات الذاتية."
+
+msgid "Services"
+msgstr "خدمات"
+
+msgid "Services Offered"
+msgstr "الخدمات المقدمة"
+
+msgid "Services saved."
+msgstr "تم حفظ الخدمات."
+
+msgid "Set up your organisation"
+msgstr "قم بإعداد مؤسستك"
+
+msgid "Site footer"
+msgstr "تذييل الموقع"
+
+msgid "Skip (I'll add this later)"
+msgstr "تخطي (سأضيف هذا لاحقًا)"
+
+msgid "Skip to main content"
+msgstr "انتقل إلى المحتوى الرئيسي"
+
+msgid ""
+"Soon you’ll be able to chat with our assistant in plain language — the same "
+"warmth as asking a neighbour, with clear next steps."
+msgstr ""
+"ستتمكن قريبًا من الدردشة مع مساعدنا بلغة واضحة - بنفس الدفء الذي تشعر به عند"
+" سؤال أحد الجيران، مع خطوات تالية واضحة."
+
+msgid "Specialist Support"
+msgstr "الدعم المتخصص"
+
+msgid "Specific services you offer"
+msgstr "الخدمات المحددة التي تقدمها"
+
+msgid "Start"
+msgstr "يبدأ"
+
+msgid ""
+"Start with what you need today. Every listing is here to help you take the "
+"next step."
+msgstr ""
+"ابدأ بما تحتاجه اليوم. كل قائمة هنا لمساعدتك على اتخاذ الخطوة التالية."
+
+msgid "Status"
+msgstr "حالة"
+
+msgid "Status updated."
+msgstr "تم تحديث الحالة."
+
+msgid "Submit referral"
+msgstr "إرسال الإحالة"
+
+msgid "Submitted"
+msgstr "مُقَدَّم"
+
+msgid "Subscribe"
+msgstr "يشترك"
+
+msgid "Subscribe to"
+msgstr "اشترك في"
+
+msgid "Subscribe to iCal feed"
+msgstr "اشترك في تغذية iCal"
+
+msgid "Support Pathways"
+msgstr "مسارات الدعم"
+
+msgid "Support."
+msgstr "يدعم."
+
+msgid "Taxonomy"
+msgstr "التصنيف"
+
+msgid "Tell us about your organisation"
+msgstr "أخبرنا عن مؤسستك"
+
+msgid ""
+"The organisation will acknowledge your referral. If you don't hear back "
+"within 48 hours, our team will follow up."
+msgstr ""
+"سوف تعترف المنظمة بإحالتك. إذا لم تتلقى ردًا خلال 48 ساعة، فسيقوم فريقنا "
+"بالمتابعة."
+
+msgid ""
+"These pathways are for people who need a bit more specific guidance. They're"
+" written in plain language and connect you directly to organisations in the "
+"West Midlands that can help. You don't need a referral to use this section —"
+" just find what's relevant to you and reach out."
+msgstr ""
+"هذه المسارات مخصصة للأشخاص الذين يحتاجون إلى إرشادات أكثر تحديدًا. إنها "
+"مكتوبة بلغة واضحة وتربطك مباشرةً بالمنظمات الموجودة في ويست ميدلاندز التي "
+"يمكنها مساعدتك. لا تحتاج إلى إحالة لاستخدام هذا القسم — ما عليك سوى العثور "
+"على ما يناسبك والتواصل معه."
+
+msgid "This field is required."
+msgstr "هذه الخانة مطلوبه."
+
+msgid "This is a recurring event"
+msgstr "هذا حدث متكرر"
+
+msgid "This organization accepts referrals."
+msgstr "هذه المنظمة تقبل الإحالات."
+
+msgid "Timestamps"
+msgstr "الطوابع الزمنية"
+
+msgid "Tip: drag to reorder using display_order."
+msgstr "نصيحة: اسحب لإعادة الترتيب باستخدام Display_order."
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "Toggle navigation menu"
+msgstr "تبديل قائمة التنقل"
+
+msgid "Try a different month or clear your filters."
+msgstr "جرّب شهرًا مختلفًا أو امسح عوامل التصفية لديك."
+
+msgid ""
+"URL of a page listing your events. We'll scrape it weekly and add draft "
+"events for your review."
+msgstr ""
+"عنوان URL لصفحة تدرج الأحداث الخاصة بك. سنقوم باستخلاصها أسبوعيًا وإضافة "
+"مسودة الأحداث لمراجعتها."
+
+msgid "URL of your news/blog page. We'll scrape it weekly."
+msgstr "عنوان URL لصفحة الأخبار/المدونة الخاصة بك. سنقوم بكشطها أسبوعيا."
+
+msgid "Untitled"
+msgstr "بدون عنوان"
+
+msgid "Upcoming dates"
+msgstr "التواريخ القادمة"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "Update your organisation details"
+msgstr "قم بتحديث تفاصيل مؤسستك"
+
+msgid "Urgent"
+msgstr "عاجل"
+
+msgid "Urgent step"
+msgstr "خطوة عاجلة"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "View"
+msgstr "منظر"
+
+msgid "View Public Listing"
+msgstr "عرض القائمة العامة"
+
+msgid "View all pathways"
+msgstr "عرض كافة المسارات"
+
+msgid "View and manage incoming referrals"
+msgstr "عرض وإدارة الإحالات الواردة"
+
+msgid "View organisation"
+msgstr "عرض المنظمة"
+
+msgid "Volunteer"
+msgstr "متطوع"
+
+msgid ""
+"Volunteer and Organization Manager accounts require approval before you can "
+"access the portal."
+msgstr ""
+"تتطلب حسابات المتطوعين ومديري المؤسسة الموافقة قبل أن تتمكن من الوصول إلى "
+"البوابة."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation on the platform."
+msgstr ""
+"يمكن للمتطوعين والعاملين في مجال الدعم إجراء إحالة آمنة إلى أي منظمة محلية "
+"على المنصة."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation."
+msgstr ""
+"يمكن للمتطوعين والعاملين في مجال الدعم إجراء إحالة آمنة إلى أي منظمة محلية."
+
+msgid ""
+"Warm meals, shelter, advocacy, and longer-term housing help — find what’s "
+"available near you."
+msgstr ""
+"الوجبات الدافئة والمأوى والمناصرة والمساعدة في السكن على المدى الطويل - ابحث"
+" عن ما هو متاح بالقرب منك."
+
+msgid "Website"
+msgstr "موقع إلكتروني"
+
+msgid "Website & scraping (optional)"
+msgstr "موقع الويب والكشط (اختياري)"
+
+msgid "Welcome to the West Midlands."
+msgstr "مرحبًا بكم في ويست ميدلاندز."
+
+msgid "Support2Thrive"
+msgstr "Support2Thrive"
+
+msgid "Support2Thrive platform"
+msgstr "منصة Support2Thrive"
+
+msgid "Support2Thrive brings local help closer to the people who need it."
+msgstr "Support2Thrive يقرّب المساعدة المحلية من الأشخاص الذين يحتاجون إليها."
+
+msgid "Support2Thrive — Home"
+msgstr "Support2Thrive — الصفحة الرئيسية"
+
+msgid "West Midlands city scene — Queen Square, Wolverhampton"
+msgstr "مشهد مدينة ويست ميدلاندز - كوين سكوير، ولفرهامبتون"
+
+msgid "What support do you need?"
+msgstr "ما هو الدعم الذي تحتاجه؟"
+
+msgid ""
+"Whether you've just left prison or are struggling with homelessness, there "
+"is help available right now. Choose the section that fits your situation."
+msgstr ""
+"سواء كنت قد غادرت السجن للتو أو كنت تعاني من التشرد، فهناك مساعدة متاحة "
+"الآن. اختر القسم الذي يناسب حالتك."
+
+msgid "Which areas do you serve?"
+msgstr "ما هي المناطق التي تخدمها؟"
+
+msgid "Which support streams do you cover?"
+msgstr "ما هي تدفقات الدعم التي تغطيها؟"
+
+msgid "Who is this for?"
+msgstr "لمن هذا؟"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "You must give consent to submit a referral."
+msgstr "يجب عليك إعطاء الموافقة على تقديم الإحالة."
+
+msgid "Your Profile"
+msgstr "ملفك الشخصي"
+
+msgid ""
+"Your account has been created and is pending approval. You will be notified "
+"once an administrator approves your access."
+msgstr ""
+"تم إنشاء حسابك وهو في انتظار الموافقة. سيتم إعلامك بمجرد موافقة المسؤول على "
+"وصولك."
+
+msgid "Your account has been created successfully."
+msgstr "لقد تم إنشاء حسابك بنجاح."
+
+msgid ""
+"Your profile is %(score)s%% complete. A fuller profile helps people find "
+"you."
+msgstr ""
+"ملفك الشخصي مكتمل %(score)sZZPCTZZZ. يساعد الملف الشخصي الكامل الأشخاص في "
+"العثور عليك."
+
+msgid "Your profile is incomplete"
+msgstr "ملفك الشخصي غير مكتمل"
+
+msgid "Your reference number is:"
+msgstr "الرقم المرجعي الخاص بك هو:"
+
+msgid "attempts"
+msgstr "محاولات"
+
+msgid "by"
+msgstr "بواسطة"
+
+msgid "complete"
+msgstr "مكتمل"
+
+msgid "confidential — handle securely"
+msgstr "سري - التعامل بشكل آمن"
+
+msgid "events"
+msgstr "الأحداث"
+
+msgid "referral(s) awaiting acknowledgment"
+msgstr "الإحالة (الإحالات) في انتظار الاعتراف"

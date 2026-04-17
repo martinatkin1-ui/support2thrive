@@ -1,0 +1,1118 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Support2Thrive 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: gu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%(count)s sections"
+msgstr "%(count)s વિભાગો"
+
+msgid "(opens in new tab)"
+msgstr "(નવી ટેબમાં ખુલે છે)"
+
+msgid "1 section"
+msgstr "1 વિભાગ"
+
+msgid ""
+"A GDPR consent checkbox is always appended automatically. You cannot remove "
+"it."
+msgstr ""
+"GDPR સંમતિ ચેકબૉક્સ હંમેશા ઑટોમૅટિક રીતે જોડવામાં આવે છે. તમે તેને દૂર કરી "
+"શકતા નથી."
+
+msgid "A community connected."
+msgstr "એક સમુદાય જોડાયેલ છે."
+
+msgid "AI Assistant"
+msgstr "એઆઈ સહાયક"
+
+msgid "About"
+msgstr "વિશે"
+
+msgid "About page saved."
+msgstr "વિશે પૃષ્ઠ સાચવ્યું."
+
+msgid "Accepts referrals:"
+msgstr "રેફરલ્સ સ્વીકારે છે:"
+
+msgid "Access denied."
+msgstr "ઍક્સેસ નકારી."
+
+msgid "Account Type"
+msgstr "એકાઉન્ટનો પ્રકાર"
+
+msgid "Acknowledge receipt"
+msgstr "રસીદ સ્વીકારો"
+
+msgid "Acknowledged"
+msgstr "સ્વીકાર્યું"
+
+msgid "Acknowledgment"
+msgstr "સ્વીકૃતિ"
+
+msgid "Add a note (optional)"
+msgstr "નોંધ ઉમેરો (વૈકલ્પિક)"
+
+msgid ""
+"Add each distinct service with access requirements, age range, and "
+"eligibility."
+msgstr "ઍક્સેસ આવશ્યકતાઓ, વય શ્રેણી અને પાત્રતા સાથે દરેક અલગ સેવા ઉમેરો."
+
+msgid "Additional information"
+msgstr "વધારાની માહિતી"
+
+msgid "Address"
+msgstr "સરનામું"
+
+msgid "Agenda"
+msgstr "કાર્યસૂચિ"
+
+msgid "All"
+msgstr "બધા"
+
+msgid "All events"
+msgstr "બધી ઘટનાઓ"
+
+msgid "All priorities"
+msgstr "તમામ પ્રાથમિકતાઓ"
+
+msgid "All statuses"
+msgstr "બધી સ્થિતિઓ"
+
+msgid "All steps complete! Review and publish below."
+msgstr "બધા પગલાં પૂર્ણ! સમીક્ષા કરો અને નીચે પ્રકાશિત કરો."
+
+msgid "All support streams"
+msgstr "બધા સપોર્ટ સ્ટ્રીમ્સ"
+
+msgid "Already have an account?"
+msgstr "પહેલેથી એકાઉન્ટ છે?"
+
+msgid "Always on"
+msgstr "હંમેશા ચાલુ"
+
+msgid "Approve selected organizations"
+msgstr "પસંદ કરેલી સંસ્થાઓને મંજૂરી આપો"
+
+msgid "Approve selected users"
+msgstr "પસંદ કરેલા વપરાશકર્તાઓને મંજૂરી આપો"
+
+msgid "Approved"
+msgstr "મંજૂર"
+
+msgid "Back"
+msgstr "પાછળ"
+
+msgid "Back to events"
+msgstr "ઘટનાઓ પર પાછા"
+
+msgid "Back to home"
+msgstr "ઘરે પાછા"
+
+msgid "Back to referrals"
+msgstr "રેફરલ્સ પર પાછા"
+
+msgid "Book"
+msgstr "પુસ્તક"
+
+msgid "Booking"
+msgstr "બુકિંગ"
+
+msgid "Branding"
+msgstr "બ્રાન્ડિંગ"
+
+msgid "Breadcrumb"
+msgstr "બ્રેડક્રમ્બ"
+
+msgid ""
+"Browse all local organisations and services, or use our AI assistant to find"
+" the right help for your situation."
+msgstr ""
+"બધી સ્થાનિક સંસ્થાઓ અને સેવાઓ બ્રાઉઝ કરો અથવા તમારી પરિસ્થિતિ માટે યોગ્ય મદદ"
+" શોધવા માટે અમારા AI સહાયકનો ઉપયોગ કરો."
+
+msgid "Browse all organisations"
+msgstr "બધી સંસ્થાઓ બ્રાઉઝ કરો"
+
+msgid "Browse organisations"
+msgstr "સંસ્થાઓ બ્રાઉઝ કરો"
+
+msgid ""
+"Browse trusted local organisations across the West Midlands. Filter by the "
+"type of support you need."
+msgstr ""
+"સમગ્ર વેસ્ટ મિડલેન્ડ્સમાં વિશ્વસનીય સ્થાનિક સંસ્થાઓને બ્રાઉઝ કરો. તમને જરૂરી"
+" આધારના પ્રકાર દ્વારા ફિલ્ટર કરો."
+
+msgid "CRM webhook (outbound JSON)"
+msgstr "CRM વેબહૂક (આઉટબાઉન્ડ JSON)"
+
+msgid "CSV download from portal"
+msgstr "પોર્ટલ પરથી CSV ડાઉનલોડ કરો"
+
+msgid "Cancel"
+msgstr "રદ કરો"
+
+msgid "Care"
+msgstr "કાળજી"
+
+msgid "Chat with assistant"
+msgstr "સહાયક સાથે ચેટ કરો"
+
+msgid ""
+"Choose a theme to filter organisations — or browse the full directory at "
+"your own pace."
+msgstr ""
+"સંસ્થાઓને ફિલ્ટર કરવા માટે થીમ પસંદ કરો — અથવા તમારી પોતાની ગતિએ સંપૂર્ણ "
+"ડિરેક્ટરી બ્રાઉઝ કરો."
+
+msgid "Clear filters"
+msgstr "ફિલ્ટર્સ સાફ કરો"
+
+msgid ""
+"Clear guides for situations that need extra care — written to be respectful "
+"and practical."
+msgstr ""
+"વધારાની કાળજીની જરૂર હોય તેવી પરિસ્થિતિઓ માટે સ્પષ્ટ માર્ગદર્શિકાઓ - આદરણીય "
+"અને વ્યવહારુ બનવા માટે લખાયેલ."
+
+msgid "Client information"
+msgstr "ગ્રાહક માહિતી"
+
+msgid "Coming soon — Phase 6"
+msgstr "ટૂંક સમયમાં આવી રહ્યું છે - તબક્કો 6"
+
+msgid "Community"
+msgstr "સમુદાય"
+
+msgid "Community Events"
+msgstr "સમુદાય ઘટનાઓ"
+
+msgid "Complete these steps before publishing:"
+msgstr "પ્રકાશિત કરતા પહેલા આ પગલાંઓ પૂર્ણ કરો:"
+
+msgid "Complete your profile"
+msgstr "તમારી પ્રોફાઇલ પૂર્ણ કરો"
+
+msgid "Connect with your area"
+msgstr "તમારા વિસ્તાર સાથે જોડાઓ"
+
+msgid ""
+"Support2Thrive connects communities across the West Midlands. Find support, "
+"services, and events from local organisations."
+msgstr ""
+"Support2Thrive વેસ્ટ મિડલેન્ડ્સમાં સમુદાયોને જોડે છે. સ્થાનિક સંસ્થાઓ તરફથી "
+"સમર્થન, સેવાઓ અને ઇવેન્ટ્સ શોધો."
+
+msgid "Consent"
+msgstr "સંમતિ"
+
+msgid "Consent given"
+msgstr "સંમતિ આપી"
+
+msgid "Consent statement"
+msgstr "સંમતિ નિવેદન"
+
+msgid "Consent timestamp"
+msgstr "સંમતિ ટાઇમસ્ટેમ્પ"
+
+msgid "Contact"
+msgstr "સંપર્ક કરો"
+
+msgid "Content"
+msgstr "સામગ્રી"
+
+msgid "Content coming soon."
+msgstr "સામગ્રી ટૂંક સમયમાં આવી રહી છે."
+
+msgid "Create Account"
+msgstr "એકાઉન્ટ બનાવો"
+
+msgid "Create Event"
+msgstr "ઇવેન્ટ બનાવો"
+
+msgid "Create Referral"
+msgstr "રેફરલ બનાવો"
+
+msgid "Create your first event"
+msgstr "તમારી પ્રથમ ઇવેન્ટ બનાવો"
+
+msgid "Create, edit, and publish events"
+msgstr "ઇવેન્ટ્સ બનાવો, સંપાદિત કરો અને પ્રકાશિત કરો"
+
+msgid ""
+"Curated regional photos can be added by staff in the admin (Site images) "
+"after review."
+msgstr ""
+"ક્યૂરેટેડ પ્રાદેશિક ફોટાઓ સમીક્ષા પછી એડમિન (સાઇટ છબીઓ) માં સ્ટાફ દ્વારા "
+"ઉમેરી શકાય છે."
+
+msgid "Custom form fields:"
+msgstr "કસ્ટમ ફોર્મ ફીલ્ડ્સ:"
+
+msgid "Custom referral form fields"
+msgstr "કસ્ટમ રેફરલ ફોર્મ ફીલ્ડ્સ"
+
+msgid "Date & Time"
+msgstr "તારીખ અને સમય"
+
+msgid "Delete"
+msgstr "કાઢી નાખો"
+
+msgid "Delete this event?"
+msgstr "આ ઇવેન્ટ ડિલીટ કરીએ?"
+
+msgid "Delivery channels"
+msgstr "ડિલિવરી ચેનલો"
+
+msgid "Delivery channels:"
+msgstr "ડિલિવરી ચેનલો:"
+
+msgid "Delivery status"
+msgstr "ડિલિવરી સ્થિતિ"
+
+msgid "Design the intake form volunteers/clients fill in"
+msgstr "ઇન્ટેક ફોર્મ સ્વયંસેવકો/ગ્રાહકો ભરીને ડિઝાઇન કરો"
+
+msgid "Don't have an account?"
+msgstr "ખાતું નથી?"
+
+msgid "Draft"
+msgstr "ડ્રાફ્ટ"
+
+msgid "ESCALATED"
+msgstr "ઉન્નત"
+
+msgid "Edit"
+msgstr "સંપાદિત કરો"
+
+msgid "Edit Event"
+msgstr "ઇવેન્ટ સંપાદિત કરો"
+
+msgid "Edit Profile"
+msgstr "પ્રોફાઇલ સંપાદિત કરો"
+
+msgid "Email"
+msgstr "ઈમેલ"
+
+msgid "Email to referral email address"
+msgstr "રેફરલ ઈમેલ એડ્રેસ પર ઈમેલ"
+
+msgid "Emergency"
+msgstr "કટોકટી"
+
+msgid "Encrypted"
+msgstr "એન્ક્રિપ્ટેડ"
+
+msgid "Encrypted at rest"
+msgstr "બાકીના સમયે એન્ક્રિપ્ટેડ"
+
+msgid "Event \"%(title)s\" deleted."
+msgstr "ઇવેન્ટ \"%(title)s\" કાઢી નાખી."
+
+msgid "Event created successfully."
+msgstr "ઇવેન્ટ સફળતાપૂર્વક બનાવવામાં આવી."
+
+msgid "Event details"
+msgstr "ઘટના વિગતો"
+
+msgid "Event updated successfully."
+msgstr "ઇવેન્ટ સફળતાપૂર્વક અપડેટ થઈ."
+
+msgid "Events"
+msgstr "ઘટનાઓ"
+
+msgid "Events Calendar"
+msgstr "ઇવેન્ટ્સ કેલેન્ડર"
+
+msgid "Examples:"
+msgstr "ઉદાહરણો:"
+
+msgid "Explore organisations"
+msgstr "સંસ્થાઓનું અન્વેષણ કરો"
+
+msgid "Export CSV"
+msgstr "CSV નિકાસ કરો"
+
+msgid "Find events, groups, and activities near you"
+msgstr "તમારી નજીકની ઇવેન્ટ્સ, જૂથો અને પ્રવૃત્તિઓ શોધો"
+
+msgid "Find the right support for you"
+msgstr "તમારા માટે યોગ્ય આધાર શોધો"
+
+msgid ""
+"Find trusted organisations, events, and pathways across the West Midlands — "
+"in one calm, welcoming place."
+msgstr ""
+"સમગ્ર વેસ્ટ મિડલેન્ડ્સમાં વિશ્વસનીય સંસ્થાઓ, ઇવેન્ટ્સ અને માર્ગો શોધો — એક "
+"શાંત, સ્વાગત સ્થાનમાં."
+
+msgid "Footer navigation"
+msgstr "ફૂટર નેવિગેશન"
+
+msgid ""
+"For one-off events only. Recurring events use the Recurrence Rule inline "
+"below."
+msgstr ""
+"માત્ર એક જ ઇવેન્ટ માટે. પુનરાવર્તિત ઇવેન્ટ્સ નીચેની પુનરાવૃત્તિ નિયમનો ઉપયોગ"
+" કરે છે."
+
+msgid "Form data"
+msgstr "ફોર્મ ડેટા"
+
+msgid "Free"
+msgstr "મફત"
+
+msgid "Free event"
+msgstr "મફત ઘટના"
+
+msgid "GDPR-compliant referral record"
+msgstr "GDPR-સુસંગત રેફરલ રેકોર્ડ"
+
+msgid "General Public"
+msgstr "સામાન્ય જનતા"
+
+msgid "Geography"
+msgstr "ભૂગોળ"
+
+msgid "Get Help"
+msgstr "મદદ મેળવો"
+
+msgid "Go to %(title)s pathway"
+msgstr "%(title)s પાથવે પર જાઓ"
+
+msgid "Grid"
+msgstr "ગ્રીડ"
+
+msgid "Guide sections"
+msgstr "માર્ગદર્શિકા વિભાગો"
+
+msgid "Handle in accordance with your data retention policy."
+msgstr "તમારી ડેટા રીટેન્શન નીતિ અનુસાર હેન્ડલ કરો."
+
+msgid "Hash"
+msgstr "હાશ"
+
+msgid "Help navigation"
+msgstr "નેવિગેશનમાં મદદ કરો"
+
+msgid "Hierarchy"
+msgstr "વંશવેલો"
+
+msgid "History"
+msgstr "ઈતિહાસ"
+
+msgid "Homeless or at risk?"
+msgstr "બેઘર અથવા જોખમ?"
+
+msgid "Homelessness Support"
+msgstr "હોમલેસનેસ સપોર્ટ"
+
+msgid ""
+"Housing, benefits, health, and community links — step by step, without "
+"judgement."
+msgstr ""
+"હાઉસિંગ, લાભો, આરોગ્ય અને સામુદાયિક લિંક્સ — સ્ટેપ બાય સ્ટેપ, ચુકાદા વિના."
+
+msgid "How should referrals reach you? In-platform is always active."
+msgstr ""
+"રેફરલ્સ તમારા સુધી કેવી રીતે પહોંચવા જોઈએ? ઇન-પ્લેટફોર્મ હંમેશા સક્રિય છે."
+
+msgid ""
+"I consent to my information being shared with %(org_name)s for the purpose "
+"of receiving support. I understand this data will be stored securely and "
+"handled in accordance with GDPR."
+msgstr ""
+"આધાર પ્રાપ્ત કરવાના હેતુથી મારી માહિતી %(org_name)s સાથે શેર કરવામાં આવે તે "
+"માટે હું સંમતિ આપું છું. હું સમજું છું કે આ ડેટા સુરક્ષિત રીતે સ્ટોર કરવામાં"
+" આવશે અને GDPR અનુસાર હેન્ડલ કરવામાં આવશે."
+
+msgid "I consent to my information being shared."
+msgstr "હું મારી માહિતી શેર કરવા માટે સંમત છું."
+
+msgid ""
+"If you have a website with an events or news page, we can automatically "
+"import content weekly. You'll review and approve each imported item before "
+"it goes live."
+msgstr ""
+"જો તમારી પાસે ઇવેન્ટ અથવા સમાચાર પૃષ્ઠ સાથેની વેબસાઇટ છે, તો અમે આપમેળે "
+"સાપ્તાહિક સામગ્રી આયાત કરી શકીએ છીએ. તમે દરેક આયાત કરેલી આઇટમ લાઇવ થાય તે "
+"પહેલાં તેની સમીક્ષા કરશો અને તેને મંજૂર કરશો."
+
+msgid "Image"
+msgstr "છબી"
+
+msgid "Important"
+msgstr "મહત્વપૂર્ણ"
+
+msgid "In this guide"
+msgstr "આ માર્ગદર્શિકામાં"
+
+msgid "In-platform inbox (always enabled)"
+msgstr "ઇન-પ્લેટફોર્મ ઇનબોક્સ (હંમેશા સક્ષમ)"
+
+msgid "Invalid username or password. Please try again."
+msgstr "અમાન્ય વપરાશકર્તા નામ અથવા પાસવર્ડ. કૃપા કરીને ફરી પ્રયાસ કરો."
+
+msgid "Join link"
+msgstr "લિંક સાથે જોડાઓ"
+
+msgid "Language"
+msgstr "ભાષા"
+
+msgid "Leaving prison?"
+msgstr "જેલ છોડીને?"
+
+msgid ""
+"Like a well-planned neighbourhood, this platform is designed around how "
+"people actually live — quick routes to food support, housing advice, "
+"recovery services, activities, and the organisations that make our towns and"
+" cities kinder."
+msgstr ""
+"સુઆયોજિત પડોશની જેમ, આ પ્લેટફોર્મ લોકો ખરેખર કેવી રીતે જીવે છે તેની આસપાસ "
+"ડિઝાઇન કરવામાં આવ્યું છે — ખોરાક સહાય, આવાસ સલાહ, પુનઃપ્રાપ્તિ સેવાઓ, "
+"પ્રવૃત્તિઓ અને સંસ્થાઓ કે જે આપણા નગરો અને શહેરોને દયાળુ બનાવે છે."
+
+msgid "Local events"
+msgstr "સ્થાનિક ઘટનાઓ"
+
+msgid "Location"
+msgstr "સ્થાન"
+
+msgid "Login"
+msgstr "લૉગિન કરો"
+
+msgid "Logout"
+msgstr "લોગઆઉટ"
+
+msgid "Main navigation"
+msgstr "મુખ્ય નેવિગેશન"
+
+msgid "Make a Referral"
+msgstr "રેફરલ બનાવો"
+
+msgid "Make a referral"
+msgstr "રેફરલ કરો"
+
+msgid "Make a referral to"
+msgstr "માટે રેફરલ કરો"
+
+msgid "Manage Events"
+msgstr "ઇવેન્ટ્સ મેનેજ કરો"
+
+msgid "Marked for removal"
+msgstr "દૂર કરવા માટે ચિહ્નિત"
+
+msgid "Name"
+msgstr "નામ"
+
+msgid "Need to refer someone to a service?"
+msgstr "કોઈને સેવા માટે સંદર્ભિત કરવાની જરૂર છે?"
+
+msgid "Need to refer someone?"
+msgstr "કોઈને સંદર્ભિત કરવાની જરૂર છે?"
+
+msgid "Neighbours."
+msgstr "પડોશીઓ."
+
+msgid "New Event"
+msgstr "નવી ઘટના"
+
+msgid "News"
+msgstr "સમાચાર"
+
+msgid "Next"
+msgstr "આગળ"
+
+msgid "Next month"
+msgstr "આવતા મહિને"
+
+msgid "No"
+msgstr "ના"
+
+msgid "No PII recorded."
+msgstr "કોઈ PII રેકોર્ડ કરેલ નથી."
+
+msgid "No delivery records."
+msgstr "કોઈ ડિલિવરી રેકોર્ડ નથી."
+
+msgid "No events this month"
+msgstr "આ મહિને કોઈ ઇવેન્ટ નથી"
+
+msgid "No events yet."
+msgstr "હજી સુધી કોઈ ઇવેન્ટ નથી."
+
+msgid "No organisation found for your account."
+msgstr "તમારા એકાઉન્ટ માટે કોઈ સંસ્થા મળી નથી."
+
+msgid "No organizations found matching your criteria."
+msgstr "તમારા માપદંડ સાથે મેળ ખાતી કોઈ સંસ્થા મળી નથી."
+
+msgid "No pathways are currently available. Please check back soon."
+msgstr "હાલમાં કોઈ પાથવે ઉપલબ્ધ નથી. કૃપા કરીને ટૂંક સમયમાં પાછા તપાસો."
+
+msgid "No referrals yet."
+msgstr "હજુ સુધી કોઈ રેફરલ્સ નથી."
+
+msgid "No services added yet."
+msgstr "હજુ સુધી કોઈ સેવાઓ ઉમેરવામાં આવી નથી."
+
+msgid "No status history yet."
+msgstr "હજુ સુધી કોઈ સ્થિતિ ઇતિહાસ નથી."
+
+msgid "Normal"
+msgstr "સામાન્ય"
+
+msgid "Not sure where to start?"
+msgstr "ક્યાંથી શરૂ કરવું તેની ખાતરી નથી?"
+
+msgid "Notes"
+msgstr "નોંધો"
+
+msgid "Onboarding"
+msgstr "ઓનબોર્ડિંગ"
+
+msgid "Onboarding complete! Your organisation is now active on the platform."
+msgstr "ઓનબોર્ડિંગ પૂર્ણ થયું! તમારી સંસ્થા હવે પ્લેટફોર્મ પર સક્રિય છે."
+
+msgid "Online"
+msgstr "ઓનલાઈન"
+
+msgid "Online event"
+msgstr "ઑનલાઇન ઇવેન્ટ"
+
+msgid "Open pathway"
+msgstr "ખુલ્લો માર્ગ"
+
+msgid "Opens the photo page on Flickr in a new tab."
+msgstr "Flickr પર ફોટો પેજને નવી ટેબમાં ખોલે છે."
+
+msgid "Organisation"
+msgstr "સંસ્થા"
+
+msgid "Organisation Portal"
+msgstr "સંસ્થા પોર્ટલ"
+
+msgid "Organisations"
+msgstr "સંસ્થાઓ"
+
+msgid "Organization"
+msgstr "સંસ્થા"
+
+msgid "Organization Manager"
+msgstr "ઓર્ગેનાઈઝેશન મેનેજર"
+
+msgid "Organizations"
+msgstr "સંસ્થાઓ"
+
+msgid ""
+"Our AI assistant can answer specific questions and help you find the right "
+"organisation for your situation. Coming soon."
+msgstr ""
+"અમારા AI સહાયક ચોક્કસ પ્રશ્નોના જવાબ આપી શકે છે અને તમારી પરિસ્થિતિ માટે "
+"યોગ્ય સંસ્થા શોધવામાં તમારી મદદ કરી શકે છે. ટૂંક સમયમાં આવી રહ્યું છે."
+
+msgid "Password"
+msgstr "પાસવર્ડ"
+
+msgid "Pathways"
+msgstr "માર્ગો"
+
+msgid "Pathways with you in mind"
+msgstr "તમને ધ્યાનમાં રાખીને માર્ગો"
+
+msgid "Pending Approval"
+msgstr "બાકી મંજૂરી"
+
+msgid "Phone"
+msgstr "ફોન"
+
+msgid "Platform"
+msgstr "પ્લેટફોર્મ"
+
+msgid "Please complete all steps before publishing."
+msgstr "કૃપા કરીને પ્રકાશિત કરતા પહેલા તમામ પગલાં પૂર્ણ કરો."
+
+msgid "Please correct the errors below."
+msgstr "કૃપા કરીને નીચેની ભૂલો સુધારો."
+
+msgid "Practical help"
+msgstr "વ્યવહારુ મદદ"
+
+msgid "Previous"
+msgstr "ગત"
+
+msgid "Previous month"
+msgstr "પાછલો મહિનો"
+
+msgid "Print"
+msgstr "છાપો"
+
+msgid "Print-ready view (paper filing)"
+msgstr "છાપવા માટે તૈયાર દૃશ્ય (પેપર ફાઇલિંગ)"
+
+msgid "Printed"
+msgstr "મુદ્રિત"
+
+msgid "Priority"
+msgstr "પ્રાથમિકતા"
+
+msgid "Prison Leavers Support"
+msgstr "જેલ લીવર્સ સપોર્ટ"
+
+msgid "Profile"
+msgstr "પ્રોફાઇલ"
+
+msgid "Profile completeness"
+msgstr "પ્રોફાઇલ સંપૂર્ણતા"
+
+msgid "Progress"
+msgstr "પ્રગતિ"
+
+msgid ""
+"Public pages only show images that are active and have a review timestamp. "
+"Use this to record human moderation."
+msgstr ""
+"સાર્વજનિક પૃષ્ઠો ફક્ત તે જ છબીઓ દર્શાવે છે જે સક્રિય છે અને તેની સમીક્ષા "
+"ટાઇમસ્ટેમ્પ છે. માનવ મધ્યસ્થતાને રેકોર્ડ કરવા માટે આનો ઉપયોગ કરો."
+
+msgid "Publish organisation to the platform"
+msgstr "સંસ્થાને પ્લેટફોર્મ પર પ્રકાશિત કરો"
+
+msgid "Published"
+msgstr "પ્રકાશિત"
+
+msgid "Publishing"
+msgstr "પ્રકાશન"
+
+msgid ""
+"Queen Square and Wolverhampton city centre on a bright day: people in the "
+"square, historic timber-framed and stone buildings, and clear sky."
+msgstr ""
+"તેજસ્વી દિવસે ક્વીન સ્ક્વેર અને વોલ્વરહેમ્પ્ટન શહેરનું કેન્દ્ર: સ્ક્વેરમાં "
+"લોકો, ઐતિહાસિક લાકડાની ફ્રેમવાળી અને પથ્થરની ઇમારતો અને સ્વચ્છ આકાશ."
+
+msgid ""
+"Queen Square, Wolverhampton — pre-approved library photo for the platform."
+msgstr ""
+"ક્વીન સ્ક્વેર, વોલ્વરહેમ્પટન — પ્લેટફોર્મ માટે પૂર્વ-મંજૂર લાઇબ્રેરી ફોટો."
+
+msgid "Quick Links"
+msgstr "ઝડપી લિંક્સ"
+
+msgid ""
+"RFC 5545 recurrence rule, e.g. FREQ=WEEKLY;BYDAY=MO or "
+"FREQ=MONTHLY;BYMONTHDAY=1"
+msgstr ""
+"RFC 5545 પુનરાવૃત્તિ નિયમ, દા.ત. FREQ=સાપ્તાહિક;BYDAY=MO અથવા "
+"FREQ=Monthly;BYMONTHAY=1"
+
+msgid "Read the guide"
+msgstr "માર્ગદર્શિકા વાંચો"
+
+msgid "Recurrence"
+msgstr "પુનરાવૃત્તિ"
+
+msgid "Recurring"
+msgstr "રિકરિંગ"
+
+msgid "Refer to"
+msgstr "નો સંદર્ભ લો"
+
+msgid "Reference"
+msgstr "સંદર્ભ"
+
+msgid "Referral"
+msgstr "રેફરલ"
+
+msgid "Referral Inbox"
+msgstr "રેફરલ ઇનબોક્સ"
+
+msgid "Referral acknowledged."
+msgstr "રેફરલ સ્વીકાર્યું."
+
+msgid "Referral config"
+msgstr "રેફરલ રૂપરેખા"
+
+msgid "Referral details"
+msgstr "રેફરલ વિગતો"
+
+msgid "Referral preferences"
+msgstr "રેફરલ પસંદગીઓ"
+
+msgid "Referral settings saved."
+msgstr "રેફરલ સેટિંગ્સ સાચવી."
+
+msgid "Referral submitted"
+msgstr "રેફરલ સબમિટ"
+
+msgid "Referrals"
+msgstr "રેફરલ્સ"
+
+msgid "Referred by"
+msgstr "દ્વારા સંદર્ભિત"
+
+msgid "Referring org"
+msgstr "સંદર્ભ.org"
+
+msgid ""
+"Regional moments from public Flickr feeds — each tile links to the "
+"photographer’s page."
+msgstr ""
+"સાર્વજનિક ફ્લિકર ફીડ્સમાંથી પ્રાદેશિક ક્ષણો — દરેક ટાઇલ ફોટોગ્રાફરના પૃષ્ઠ "
+"સાથે લિંક કરે છે."
+
+msgid "Register"
+msgstr "નોંધણી કરો"
+
+msgid "Register Your Organisation"
+msgstr "તમારી સંસ્થાની નોંધણી કરો"
+
+msgid "Reject selected users"
+msgstr "પસંદ કરેલા વપરાશકર્તાઓને નકારો"
+
+msgid "Remove"
+msgstr "દૂર કરો"
+
+msgid "Reset onboarding for selected organisations"
+msgstr "પસંદ કરેલી સંસ્થાઓ માટે ઓનબોર્ડિંગ રીસેટ કરો"
+
+msgid "Review"
+msgstr "સમીક્ષા"
+
+msgid "Role"
+msgstr "ભૂમિકા"
+
+msgid "Save & continue"
+msgstr "સાચવો અને ચાલુ રાખો"
+
+msgid "Save & review"
+msgstr "સાચવો અને સમીક્ષા કરો"
+
+msgid "Save event"
+msgstr "ઇવેન્ટ સાચવો"
+
+msgid "Scraping"
+msgstr "સ્ક્રેપિંગ"
+
+msgid "Scraping config saved."
+msgstr "સ્ક્રેપિંગ રૂપરેખા સાચવી."
+
+msgid "Scroll to explore"
+msgstr "અન્વેષણ કરવા માટે સ્ક્રોલ કરો"
+
+msgid "See what’s on"
+msgstr "શું ચાલુ છે તે જુઓ"
+
+msgid "See your page as the public sees it"
+msgstr "લોકો તેને જુએ છે તેમ તમારું પૃષ્ઠ જુઓ"
+
+msgid "Select"
+msgstr "પસંદ કરો"
+
+msgid "Select language"
+msgstr "ભાષા પસંદ કરો"
+
+msgid "Self-referrals are also accepted."
+msgstr "સ્વ-રેફરલ્સ પણ સ્વીકારવામાં આવે છે."
+
+msgid "Services"
+msgstr "સેવાઓ"
+
+msgid "Services Offered"
+msgstr "ઓફર કરેલી સેવાઓ"
+
+msgid "Services saved."
+msgstr "સેવાઓ સાચવી."
+
+msgid "Set up your organisation"
+msgstr "તમારી સંસ્થા સેટ કરો"
+
+msgid "Site footer"
+msgstr "સાઇટ ફૂટર"
+
+msgid "Skip (I'll add this later)"
+msgstr "છોડો (હું આને પછી ઉમેરીશ)"
+
+msgid "Skip to main content"
+msgstr "મુખ્ય સામગ્રી પર જાઓ"
+
+msgid ""
+"Soon you’ll be able to chat with our assistant in plain language — the same "
+"warmth as asking a neighbour, with clear next steps."
+msgstr ""
+"ટૂંક સમયમાં તમે અમારા આસિસ્ટન્ટ સાથે સાદી ભાષામાં ચેટ કરી શકશો - સ્પષ્ટ આગલા"
+" પગલાં સાથે, પડોશીને પૂછવા જેવી જ હૂંફ."
+
+msgid "Specialist Support"
+msgstr "નિષ્ણાત આધાર"
+
+msgid "Specific services you offer"
+msgstr "તમે પ્રદાન કરો છો તે વિશિષ્ટ સેવાઓ"
+
+msgid "Start"
+msgstr "શરૂ કરો"
+
+msgid ""
+"Start with what you need today. Every listing is here to help you take the "
+"next step."
+msgstr ""
+"આજે તમને જે જોઈએ છે તેની સાથે પ્રારંભ કરો. આગળનું પગલું ભરવામાં તમારી સહાય "
+"કરવા માટે દરેક સૂચિ અહીં છે."
+
+msgid "Status"
+msgstr "સ્થિતિ"
+
+msgid "Status updated."
+msgstr "સ્થિતિ અપડેટ કરી."
+
+msgid "Submit referral"
+msgstr "રેફરલ સબમિટ કરો"
+
+msgid "Submitted"
+msgstr "સબમિટ કર્યું"
+
+msgid "Subscribe"
+msgstr "સબ્સ્ક્રાઇબ કરો"
+
+msgid "Subscribe to"
+msgstr "સબ્સ્ક્રાઇબ કરો"
+
+msgid "Subscribe to iCal feed"
+msgstr "iCal ફીડ પર સબ્સ્ક્રાઇબ કરો"
+
+msgid "Support Pathways"
+msgstr "આધાર પાથવેઝ"
+
+msgid "Support."
+msgstr "આધાર."
+
+msgid "Taxonomy"
+msgstr "વર્ગીકરણ"
+
+msgid "Tell us about your organisation"
+msgstr "અમને તમારી સંસ્થા વિશે કહો"
+
+msgid ""
+"The organisation will acknowledge your referral. If you don't hear back "
+"within 48 hours, our team will follow up."
+msgstr ""
+"સંસ્થા તમારા રેફરલને સ્વીકારશે. જો તમે 48 કલાકની અંદર પાછા ન સાંભળો, તો "
+"અમારી ટીમ ફોલોઅપ કરશે."
+
+msgid ""
+"These pathways are for people who need a bit more specific guidance. They're"
+" written in plain language and connect you directly to organisations in the "
+"West Midlands that can help. You don't need a referral to use this section —"
+" just find what's relevant to you and reach out."
+msgstr ""
+"આ માર્ગો એવા લોકો માટે છે જેમને થોડી વધુ ચોક્કસ માર્ગદર્શનની જરૂર છે. તેઓ "
+"સાદી ભાષામાં લખેલા છે અને તમને વેસ્ટ મિડલેન્ડની સંસ્થાઓ સાથે સીધા જ જોડે છે "
+"જે મદદ કરી શકે છે. આ વિભાગનો ઉપયોગ કરવા માટે તમારે રેફરલની જરૂર નથી — ફક્ત "
+"તમારા માટે શું સંબંધિત છે તે શોધો અને સંપર્ક કરો."
+
+msgid "This field is required."
+msgstr "આ ક્ષેત્ર જરૂરી છે."
+
+msgid "This is a recurring event"
+msgstr "આ એક પુનરાવર્તિત ઘટના છે"
+
+msgid "This organization accepts referrals."
+msgstr "આ સંસ્થા રેફરલ્સ સ્વીકારે છે."
+
+msgid "Timestamps"
+msgstr "ટાઇમસ્ટેમ્પ્સ"
+
+msgid "Tip: drag to reorder using display_order."
+msgstr "ટીપ: ડિસ્પ્લે_ઓર્ડરનો ઉપયોગ કરીને ફરીથી ગોઠવવા માટે ખેંચો."
+
+msgid "Title"
+msgstr "શીર્ષક"
+
+msgid "Today"
+msgstr "આજે"
+
+msgid "Toggle navigation menu"
+msgstr "નેવિગેશન મેનૂ ટૉગલ કરો"
+
+msgid "Try a different month or clear your filters."
+msgstr "એક અલગ મહિનો અજમાવી જુઓ અથવા તમારા ફિલ્ટર્સ સાફ કરો."
+
+msgid ""
+"URL of a page listing your events. We'll scrape it weekly and add draft "
+"events for your review."
+msgstr ""
+"તમારી ઇવેન્ટ્સને સૂચિબદ્ધ કરતા પૃષ્ઠનું URL. અમે તેને સાપ્તાહિક સ્ક્રેપ "
+"કરીશું અને તમારી સમીક્ષા માટે ડ્રાફ્ટ ઇવેન્ટ્સ ઉમેરીશું."
+
+msgid "URL of your news/blog page. We'll scrape it weekly."
+msgstr "તમારા સમાચાર/બ્લોગ પૃષ્ઠનું URL. અમે તેને સાપ્તાહિક ઉઝરડા કરીશું."
+
+msgid "Untitled"
+msgstr "શીર્ષક વિનાનું"
+
+msgid "Upcoming dates"
+msgstr "આગામી તારીખો"
+
+msgid "Update"
+msgstr "અપડેટ કરો"
+
+msgid "Update your organisation details"
+msgstr "તમારી સંસ્થાની વિગતો અપડેટ કરો"
+
+msgid "Urgent"
+msgstr "અર્જન્ટ"
+
+msgid "Urgent step"
+msgstr "તાકીદનું પગલું"
+
+msgid "Username"
+msgstr "વપરાશકર્તા નામ"
+
+msgid "View"
+msgstr "જુઓ"
+
+msgid "View Public Listing"
+msgstr "સાર્વજનિક સૂચિ જુઓ"
+
+msgid "View all pathways"
+msgstr "બધા રસ્તાઓ જુઓ"
+
+msgid "View and manage incoming referrals"
+msgstr "ઇનકમિંગ રેફરલ્સ જુઓ અને મેનેજ કરો"
+
+msgid "View organisation"
+msgstr "સંસ્થા જુઓ"
+
+msgid "Volunteer"
+msgstr "સ્વયંસેવક"
+
+msgid ""
+"Volunteer and Organization Manager accounts require approval before you can "
+"access the portal."
+msgstr ""
+"તમે પોર્ટલ ઍક્સેસ કરી શકો તે પહેલાં સ્વયંસેવક અને સંસ્થા મેનેજર એકાઉન્ટ્સને "
+"મંજૂરીની જરૂર છે."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation on the platform."
+msgstr ""
+"સ્વયંસેવકો અને સહાયક કાર્યકરો પ્લેટફોર્મ પર કોઈપણ સ્થાનિક સંસ્થાને સુરક્ષિત "
+"રેફરલ કરી શકે છે."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation."
+msgstr ""
+"સ્વયંસેવકો અને સહાયક કાર્યકરો કોઈપણ સ્થાનિક સંસ્થાને સુરક્ષિત રેફરલ કરી શકે "
+"છે."
+
+msgid ""
+"Warm meals, shelter, advocacy, and longer-term housing help — find what’s "
+"available near you."
+msgstr ""
+"ગરમ ભોજન, આશ્રય, હિમાયત અને લાંબા ગાળાની આવાસ સહાય — તમારી નજીક શું ઉપલબ્ધ "
+"છે તે શોધો."
+
+msgid "Website"
+msgstr "વેબસાઈટ"
+
+msgid "Website & scraping (optional)"
+msgstr "વેબસાઇટ અને સ્ક્રેપિંગ (વૈકલ્પિક)"
+
+msgid "Welcome to the West Midlands."
+msgstr "વેસ્ટ મિડલેન્ડ્સમાં આપનું સ્વાગત છે."
+
+msgid "Support2Thrive"
+msgstr "Support2Thrive"
+
+msgid "Support2Thrive platform"
+msgstr "Support2Thrive પ્લેટફોર્મ"
+
+msgid "Support2Thrive brings local help closer to the people who need it."
+msgstr "Support2Thrive સ્થાનિક મદદની જરૂર હોય તેવા લોકોની નજીક લાવે છે."
+
+msgid "Support2Thrive — Home"
+msgstr "Support2Thrive — હોમ"
+
+msgid "West Midlands city scene — Queen Square, Wolverhampton"
+msgstr "વેસ્ટ મિડલેન્ડ્સ શહેરનું દ્રશ્ય - ક્વીન સ્ક્વેર, વોલ્વરહેમ્પટન"
+
+msgid "What support do you need?"
+msgstr "તમને કયા સમર્થનની જરૂર છે?"
+
+msgid ""
+"Whether you've just left prison or are struggling with homelessness, there "
+"is help available right now. Choose the section that fits your situation."
+msgstr ""
+"ભલે તમે હમણાં જ જેલ છોડી દીધી હોય અથવા બેઘરતા સાથે સંઘર્ષ કરી રહ્યાં હોવ, "
+"અત્યારે મદદ ઉપલબ્ધ છે. તમારી પરિસ્થિતિને અનુરૂપ વિભાગ પસંદ કરો."
+
+msgid "Which areas do you serve?"
+msgstr "તમે કયા વિસ્તારોમાં સેવા આપો છો?"
+
+msgid "Which support streams do you cover?"
+msgstr "તમે કયા સપોર્ટ સ્ટ્રીમ્સને આવરી લો છો?"
+
+msgid "Who is this for?"
+msgstr "આ કોના માટે છે?"
+
+msgid "Yes"
+msgstr "હા"
+
+msgid "You must give consent to submit a referral."
+msgstr "તમારે રેફરલ સબમિટ કરવા માટે સંમતિ આપવી પડશે."
+
+msgid "Your Profile"
+msgstr "તમારી પ્રોફાઇલ"
+
+msgid ""
+"Your account has been created and is pending approval. You will be notified "
+"once an administrator approves your access."
+msgstr ""
+"તમારું એકાઉન્ટ બનાવવામાં આવ્યું છે અને તેની મંજૂરી બાકી છે. એકવાર "
+"એડમિનિસ્ટ્રેટર તમારી ઍક્સેસને મંજૂર કરે પછી તમને સૂચિત કરવામાં આવશે."
+
+msgid "Your account has been created successfully."
+msgstr "તમારું એકાઉન્ટ સફળતાપૂર્વક બનાવવામાં આવ્યું છે."
+
+msgid ""
+"Your profile is %(score)s%% complete. A fuller profile helps people find "
+"you."
+msgstr ""
+"તમારી પ્રોફાઇલ %(score)s%% પૂર્ણ છે. સંપૂર્ણ પ્રોફાઇલ લોકોને તમને શોધવામાં "
+"મદદ કરે છે."
+
+msgid "Your profile is incomplete"
+msgstr "તમારી પ્રોફાઇલ અધૂરી છે"
+
+msgid "Your reference number is:"
+msgstr "તમારો સંદર્ભ નંબર છે:"
+
+msgid "attempts"
+msgstr "પ્રયાસો"
+
+msgid "by"
+msgstr "દ્વારા"
+
+msgid "complete"
+msgstr "પૂર્ણ"
+
+msgid "confidential — handle securely"
+msgstr "ગોપનીય - સુરક્ષિત રીતે હેન્ડલ કરો"
+
+msgid "events"
+msgstr "ઘટનાઓ"
+
+msgid "referral(s) awaiting acknowledgment"
+msgstr "રેફરલ(ઓ) સ્વીકૃતિની રાહ જોઈ રહ્યા છે"

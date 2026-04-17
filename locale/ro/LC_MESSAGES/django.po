@@ -1,0 +1,1129 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Support2Thrive 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n%100<=19) ? 1 : 2);\n"
+
+msgid "%(count)s sections"
+msgstr "%(count)s secțiuni"
+
+msgid "(opens in new tab)"
+msgstr "(se deschide într-o filă nouă)"
+
+msgid "1 section"
+msgstr "1 sectiune"
+
+msgid ""
+"A GDPR consent checkbox is always appended automatically. You cannot remove "
+"it."
+msgstr ""
+"O casetă de selectare a consimțământului GDPR este întotdeauna atașată "
+"automat. Nu o poți elimina."
+
+msgid "A community connected."
+msgstr "O comunitate conectată."
+
+msgid "AI Assistant"
+msgstr "Asistent AI"
+
+msgid "About"
+msgstr "Despre"
+
+msgid "About page saved."
+msgstr "Despre pagina salvată."
+
+msgid "Accepts referrals:"
+msgstr "Acceptă recomandări:"
+
+msgid "Access denied."
+msgstr "Acces interzis."
+
+msgid "Account Type"
+msgstr "Tip de cont"
+
+msgid "Acknowledge receipt"
+msgstr "Confirmați primirea"
+
+msgid "Acknowledged"
+msgstr "Recunoscut"
+
+msgid "Acknowledgment"
+msgstr "Confirmare"
+
+msgid "Add a note (optional)"
+msgstr "Adăugați o notă (opțional)"
+
+msgid ""
+"Add each distinct service with access requirements, age range, and "
+"eligibility."
+msgstr ""
+"Adăugați fiecare serviciu distinct cu cerințe de acces, interval de vârstă "
+"și eligibilitate."
+
+msgid "Additional information"
+msgstr "Informații suplimentare"
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "All"
+msgstr "Toate"
+
+msgid "All events"
+msgstr "Toate evenimentele"
+
+msgid "All priorities"
+msgstr "Toate prioritățile"
+
+msgid "All statuses"
+msgstr "Toate stările"
+
+msgid "All steps complete! Review and publish below."
+msgstr "Toți pașii finalizați! Examinați și publicați mai jos."
+
+msgid "All support streams"
+msgstr "Toate fluxurile de suport"
+
+msgid "Already have an account?"
+msgstr "Aveți deja un cont?"
+
+msgid "Always on"
+msgstr "Mereu pornit"
+
+msgid "Approve selected organizations"
+msgstr "Aprobați organizațiile selectate"
+
+msgid "Approve selected users"
+msgstr "Aprobați utilizatorii selectați"
+
+msgid "Approved"
+msgstr "Aprobat"
+
+msgid "Back"
+msgstr "Spate"
+
+msgid "Back to events"
+msgstr "Înapoi la evenimente"
+
+msgid "Back to home"
+msgstr "Înapoi acasă"
+
+msgid "Back to referrals"
+msgstr "Înapoi la referințe"
+
+msgid "Book"
+msgstr "Carte"
+
+msgid "Booking"
+msgstr "Rezervare"
+
+msgid "Branding"
+msgstr "Branding"
+
+msgid "Breadcrumb"
+msgstr "Pesmet"
+
+msgid ""
+"Browse all local organisations and services, or use our AI assistant to find"
+" the right help for your situation."
+msgstr ""
+"Răsfoiți toate organizațiile și serviciile locale sau utilizați asistentul "
+"nostru AI pentru a găsi ajutorul potrivit pentru situația dvs."
+
+msgid "Browse all organisations"
+msgstr "Răsfoiți toate organizațiile"
+
+msgid "Browse organisations"
+msgstr "Răsfoiți organizații"
+
+msgid ""
+"Browse trusted local organisations across the West Midlands. Filter by the "
+"type of support you need."
+msgstr ""
+"Răsfoiți organizațiile locale de încredere din West Midlands. Filtrați după "
+"tipul de suport de care aveți nevoie."
+
+msgid "CRM webhook (outbound JSON)"
+msgstr "Webhook CRM (JSON de ieșire)"
+
+msgid "CSV download from portal"
+msgstr "Descărcare CSV de pe portal"
+
+msgid "Cancel"
+msgstr "Anula"
+
+msgid "Care"
+msgstr "Îngrijire"
+
+msgid "Chat with assistant"
+msgstr "Chat cu asistentul"
+
+msgid ""
+"Choose a theme to filter organisations — or browse the full directory at "
+"your own pace."
+msgstr ""
+"Alegeți o temă pentru a filtra organizațiile - sau răsfoiți întregul "
+"director în ritmul dvs."
+
+msgid "Clear filters"
+msgstr "Ștergeți filtrele"
+
+msgid ""
+"Clear guides for situations that need extra care — written to be respectful "
+"and practical."
+msgstr ""
+"Ghiduri clare pentru situațiile care necesită îngrijire suplimentară — "
+"scrise pentru a fi respectuoase și practice."
+
+msgid "Client information"
+msgstr "Informații despre client"
+
+msgid "Coming soon — Phase 6"
+msgstr "În curând - Faza 6"
+
+msgid "Community"
+msgstr "Comunitate"
+
+msgid "Community Events"
+msgstr "Evenimente comunitare"
+
+msgid "Complete these steps before publishing:"
+msgstr "Parcurgeți acești pași înainte de a publica:"
+
+msgid "Complete your profile"
+msgstr "Completează-ți profilul"
+
+msgid "Connect with your area"
+msgstr "Conectați-vă cu zona dvs"
+
+msgid ""
+"Support2Thrive connects communities across the West Midlands. Find support, "
+"services, and events from local organisations."
+msgstr ""
+"Support2Thrive conectează comunitățile din West Midlands. Găsiți asistență, "
+"servicii și evenimente de la organizațiile locale."
+
+msgid "Consent"
+msgstr "Consimţământ"
+
+msgid "Consent given"
+msgstr "Consimțământul dat"
+
+msgid "Consent statement"
+msgstr "Declarație de consimțământ"
+
+msgid "Consent timestamp"
+msgstr "Timp de consimțământ"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Content"
+msgstr "Conţinut"
+
+msgid "Content coming soon."
+msgstr "Conținut în curând."
+
+msgid "Create Account"
+msgstr "Creează cont"
+
+msgid "Create Event"
+msgstr "Creați eveniment"
+
+msgid "Create Referral"
+msgstr "Creați o recomandare"
+
+msgid "Create your first event"
+msgstr "Creează primul tău eveniment"
+
+msgid "Create, edit, and publish events"
+msgstr "Creați, editați și publicați evenimente"
+
+msgid ""
+"Curated regional photos can be added by staff in the admin (Site images) "
+"after review."
+msgstr ""
+"Fotografiile regionale organizate pot fi adăugate de personal în "
+"administrator (Imagini site) după examinare."
+
+msgid "Custom form fields:"
+msgstr "Câmpuri de formular personalizate:"
+
+msgid "Custom referral form fields"
+msgstr "Câmpuri personalizate ale formularului de recomandare"
+
+msgid "Date & Time"
+msgstr "Data și ora"
+
+msgid "Delete"
+msgstr "Şterge"
+
+msgid "Delete this event?"
+msgstr "Ștergeți acest eveniment?"
+
+msgid "Delivery channels"
+msgstr "Canale de livrare"
+
+msgid "Delivery channels:"
+msgstr "Canale de livrare:"
+
+msgid "Delivery status"
+msgstr "Starea livrării"
+
+msgid "Design the intake form volunteers/clients fill in"
+msgstr "Proiectați formularul de admitere completat de voluntari/clienți"
+
+msgid "Don't have an account?"
+msgstr "Nu ai un cont?"
+
+msgid "Draft"
+msgstr "Proiect"
+
+msgid "ESCALATED"
+msgstr "ESCALATĂ"
+
+msgid "Edit"
+msgstr "Edita"
+
+msgid "Edit Event"
+msgstr "Editați evenimentul"
+
+msgid "Edit Profile"
+msgstr "Editați profilul"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Email to referral email address"
+msgstr "E-mail la adresa de e-mail de recomandare"
+
+msgid "Emergency"
+msgstr "Urgență"
+
+msgid "Encrypted"
+msgstr "Criptat"
+
+msgid "Encrypted at rest"
+msgstr "Criptat în repaus"
+
+msgid "Event \"%(title)s\" deleted."
+msgstr "Evenimentul „%(title)s” a fost șters."
+
+msgid "Event created successfully."
+msgstr "Eveniment creat cu succes."
+
+msgid "Event details"
+msgstr "Detalii eveniment"
+
+msgid "Event updated successfully."
+msgstr "Evenimentul a fost actualizat cu succes."
+
+msgid "Events"
+msgstr "Evenimente"
+
+msgid "Events Calendar"
+msgstr "Calendarul evenimentelor"
+
+msgid "Examples:"
+msgstr "Exemple:"
+
+msgid "Explore organisations"
+msgstr "Explorați organizațiile"
+
+msgid "Export CSV"
+msgstr "Exportați CSV"
+
+msgid "Find events, groups, and activities near you"
+msgstr "Găsiți evenimente, grupuri și activități în apropierea dvs"
+
+msgid "Find the right support for you"
+msgstr "Găsiți suportul potrivit pentru dvs"
+
+msgid ""
+"Find trusted organisations, events, and pathways across the West Midlands — "
+"in one calm, welcoming place."
+msgstr ""
+"Găsiți organizații, evenimente și căi de încredere în West Midlands - într-"
+"un loc calm și primitor."
+
+msgid "Footer navigation"
+msgstr "Navigare subsol"
+
+msgid ""
+"For one-off events only. Recurring events use the Recurrence Rule inline "
+"below."
+msgstr ""
+"Doar pentru evenimente unice. Evenimentele recurente folosesc regula de "
+"recurență de mai jos."
+
+msgid "Form data"
+msgstr "Datele formularului"
+
+msgid "Free"
+msgstr "Gratuit"
+
+msgid "Free event"
+msgstr "Eveniment gratuit"
+
+msgid "GDPR-compliant referral record"
+msgstr "Fișă de trimitere conformă cu GDPR"
+
+msgid "General Public"
+msgstr "Publicul general"
+
+msgid "Geography"
+msgstr "Geografie"
+
+msgid "Get Help"
+msgstr "Obțineți ajutor"
+
+msgid "Go to %(title)s pathway"
+msgstr "Accesați calea %(title)s"
+
+msgid "Grid"
+msgstr "Grilă"
+
+msgid "Guide sections"
+msgstr "Secțiuni de ghid"
+
+msgid "Handle in accordance with your data retention policy."
+msgstr "Gestionați în conformitate cu politica dvs. de păstrare a datelor."
+
+msgid "Hash"
+msgstr "Hash"
+
+msgid "Help navigation"
+msgstr "Ajutor la navigare"
+
+msgid "Hierarchy"
+msgstr "Ierarhie"
+
+msgid "History"
+msgstr "Istorie"
+
+msgid "Homeless or at risk?"
+msgstr "Fără adăpost sau în pericol?"
+
+msgid "Homelessness Support"
+msgstr "Sprijin pentru persoanele fără adăpost"
+
+msgid ""
+"Housing, benefits, health, and community links — step by step, without "
+"judgement."
+msgstr ""
+"Locuințe, beneficii, sănătate și legături cu comunitatea — pas cu pas, fără "
+"judecată."
+
+msgid "How should referrals reach you? In-platform is always active."
+msgstr ""
+"Cum ar trebui să ajungă recomandările la tine? În platformă este întotdeauna"
+" activ."
+
+msgid ""
+"I consent to my information being shared with %(org_name)s for the purpose "
+"of receiving support. I understand this data will be stored securely and "
+"handled in accordance with GDPR."
+msgstr ""
+"Sunt de acord ca informațiile mele să fie partajate cu %(org_name)s în "
+"scopul de a primi asistență. Înțeleg că aceste date vor fi stocate în "
+"siguranță și gestionate în conformitate cu GDPR."
+
+msgid "I consent to my information being shared."
+msgstr "Sunt de acord ca informațiile mele să fie partajate."
+
+msgid ""
+"If you have a website with an events or news page, we can automatically "
+"import content weekly. You'll review and approve each imported item before "
+"it goes live."
+msgstr ""
+"Dacă aveți un site web cu o pagină de evenimente sau știri, putem importa "
+"automat conținut săptămânal. Veți examina și aproba fiecare articol importat"
+" înainte de a fi lansat."
+
+msgid "Image"
+msgstr "Imagine"
+
+msgid "Important"
+msgstr "Important"
+
+msgid "In this guide"
+msgstr "În acest ghid"
+
+msgid "In-platform inbox (always enabled)"
+msgstr "Mesaje primite în platformă (activat întotdeauna)"
+
+msgid "Invalid username or password. Please try again."
+msgstr ""
+"Nume de utilizator sau parolă nevalidă. Vă rugăm să încercați din nou."
+
+msgid "Join link"
+msgstr "Link de alăturare"
+
+msgid "Language"
+msgstr "Limbă"
+
+msgid "Leaving prison?"
+msgstr "Pleacă din închisoare?"
+
+msgid ""
+"Like a well-planned neighbourhood, this platform is designed around how "
+"people actually live — quick routes to food support, housing advice, "
+"recovery services, activities, and the organisations that make our towns and"
+" cities kinder."
+msgstr ""
+"Asemenea unui cartier bine planificat, această platformă este concepută în "
+"jurul modului în care oamenii trăiesc de fapt - rute rapide către sprijin "
+"alimentar, sfaturi privind locuințe, servicii de recuperare, activități și "
+"organizațiile care fac orașele noastre mai amabile."
+
+msgid "Local events"
+msgstr "Evenimente locale"
+
+msgid "Location"
+msgstr "Locaţie"
+
+msgid "Login"
+msgstr "Log in"
+
+msgid "Logout"
+msgstr "Deconectare"
+
+msgid "Main navigation"
+msgstr "Navigație principală"
+
+msgid "Make a Referral"
+msgstr "Faceți o recomandare"
+
+msgid "Make a referral"
+msgstr "Faceți o recomandare"
+
+msgid "Make a referral to"
+msgstr "Faceți o trimitere la"
+
+msgid "Manage Events"
+msgstr "Gestionați evenimente"
+
+msgid "Marked for removal"
+msgstr "Marcat pentru îndepărtare"
+
+msgid "Name"
+msgstr "Nume"
+
+msgid "Need to refer someone to a service?"
+msgstr "Trebuie să trimiteți pe cineva la un serviciu?"
+
+msgid "Need to refer someone?"
+msgstr "Trebuie să trimiteți pe cineva?"
+
+msgid "Neighbours."
+msgstr "Vecinii."
+
+msgid "New Event"
+msgstr "Eveniment nou"
+
+msgid "News"
+msgstr "Ştiri"
+
+msgid "Next"
+msgstr "Următorul"
+
+msgid "Next month"
+msgstr "Luna viitoare"
+
+msgid "No"
+msgstr "Nu"
+
+msgid "No PII recorded."
+msgstr "Nu s-a înregistrat PII."
+
+msgid "No delivery records."
+msgstr "Fara inregistrari de livrare."
+
+msgid "No events this month"
+msgstr "Niciun eveniment luna aceasta"
+
+msgid "No events yet."
+msgstr "Niciun eveniment încă."
+
+msgid "No organisation found for your account."
+msgstr "Nu a fost găsită nicio organizație pentru contul dvs."
+
+msgid "No organizations found matching your criteria."
+msgstr "Nu s-a găsit nicio organizație care să corespundă criteriilor dvs."
+
+msgid "No pathways are currently available. Please check back soon."
+msgstr "În prezent, nu sunt disponibile căi. Vă rugăm să reveniți în curând."
+
+msgid "No referrals yet."
+msgstr "Nicio recomandare încă."
+
+msgid "No services added yet."
+msgstr "Nu au fost adăugate servicii încă."
+
+msgid "No status history yet."
+msgstr "Încă nu există istoric de stare."
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Not sure where to start?"
+msgstr "Nu sunteți sigur de unde să începeți?"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Onboarding"
+msgstr "Onboarding"
+
+msgid "Onboarding complete! Your organisation is now active on the platform."
+msgstr "Onboarding complete! Organizația dvs. este acum activă pe platformă."
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Online event"
+msgstr "Eveniment online"
+
+msgid "Open pathway"
+msgstr "Calea deschisă"
+
+msgid "Opens the photo page on Flickr in a new tab."
+msgstr "Deschide pagina foto de pe Flickr într-o filă nouă."
+
+msgid "Organisation"
+msgstr "Organizare"
+
+msgid "Organisation Portal"
+msgstr "Portal de organizare"
+
+msgid "Organisations"
+msgstr "Organizații"
+
+msgid "Organization"
+msgstr "Organizare"
+
+msgid "Organization Manager"
+msgstr "Manager de organizare"
+
+msgid "Organizations"
+msgstr "Organizații"
+
+msgid ""
+"Our AI assistant can answer specific questions and help you find the right "
+"organisation for your situation. Coming soon."
+msgstr ""
+"Our AI assistant can answer specific questions and help you find the right "
+"organisation for your situation. Coming soon."
+
+msgid "Password"
+msgstr "Parolă"
+
+msgid "Pathways"
+msgstr "Căi"
+
+msgid "Pathways with you in mind"
+msgstr "Căi cu tine în minte"
+
+msgid "Pending Approval"
+msgstr "În așteptarea aprobării"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Platform"
+msgstr "Platformă"
+
+msgid "Please complete all steps before publishing."
+msgstr "Vă rugăm să parcurgeți toți pașii înainte de a publica."
+
+msgid "Please correct the errors below."
+msgstr "Vă rugăm să corectați erorile de mai jos."
+
+msgid "Practical help"
+msgstr "Ajutor practic"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Previous month"
+msgstr "Luna anterioară"
+
+msgid "Print"
+msgstr "Imprimare"
+
+msgid "Print-ready view (paper filing)"
+msgstr "Vizualizare gata de imprimare (arhivare pe hârtie)"
+
+msgid "Printed"
+msgstr "Imprimat"
+
+msgid "Priority"
+msgstr "Prioritate"
+
+msgid "Prison Leavers Support"
+msgstr "Sprijin pentru cei care părăsesc închisoarea"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Profile completeness"
+msgstr "Profile completeness"
+
+msgid "Progress"
+msgstr "Progres"
+
+msgid ""
+"Public pages only show images that are active and have a review timestamp. "
+"Use this to record human moderation."
+msgstr ""
+"Paginile publice afișează numai imagini care sunt active și au un marcaj de "
+"timp pentru examinare. Folosiți-l pentru a înregistra moderația umană."
+
+msgid "Publish organisation to the platform"
+msgstr "Publicați organizația pe platformă"
+
+msgid "Published"
+msgstr "Publicat"
+
+msgid "Publishing"
+msgstr "Publicare"
+
+msgid ""
+"Queen Square and Wolverhampton city centre on a bright day: people in the "
+"square, historic timber-framed and stone buildings, and clear sky."
+msgstr ""
+"Queen Square și centrul orașului Wolverhampton într-o zi luminoasă: oameni "
+"în piață, clădiri istorice cu rame și piatră și cer senin."
+
+msgid ""
+"Queen Square, Wolverhampton — pre-approved library photo for the platform."
+msgstr ""
+"Queen Square, Wolverhampton — fotografie de bibliotecă preaprobată pentru "
+"platformă."
+
+msgid "Quick Links"
+msgstr "Legături rapide"
+
+msgid ""
+"RFC 5545 recurrence rule, e.g. FREQ=WEEKLY;BYDAY=MO or "
+"FREQ=MONTHLY;BYMONTHDAY=1"
+msgstr ""
+"Regula de recurență RFC 5545, de ex. FREQ=WEEKLY;BYDAY=LU sau "
+"FREQ=MONTHLY;BYMONTHDAY=1"
+
+msgid "Read the guide"
+msgstr "Citiți ghidul"
+
+msgid "Recurrence"
+msgstr "Recidiva"
+
+msgid "Recurring"
+msgstr "Recurente"
+
+msgid "Refer to"
+msgstr "Consultați"
+
+msgid "Reference"
+msgstr "Referinţă"
+
+msgid "Referral"
+msgstr "Sesizare"
+
+msgid "Referral Inbox"
+msgstr "Mesaje primite de recomandare"
+
+msgid "Referral acknowledged."
+msgstr "Sesizarea a fost confirmată."
+
+msgid "Referral config"
+msgstr "Configurare referință"
+
+msgid "Referral details"
+msgstr "Detalii referire"
+
+msgid "Referral preferences"
+msgstr "Preferințe de recomandare"
+
+msgid "Referral settings saved."
+msgstr "Setările de recomandare au fost salvate."
+
+msgid "Referral submitted"
+msgstr "Sesizare trimisă"
+
+msgid "Referrals"
+msgstr "Recomandări"
+
+msgid "Referred by"
+msgstr "Referit de"
+
+msgid "Referring org"
+msgstr "Organizația de referință"
+
+msgid ""
+"Regional moments from public Flickr feeds — each tile links to the "
+"photographer’s page."
+msgstr ""
+"Momente regionale din fluxurile publice Flickr - fiecare țiglă trimite la "
+"pagina fotografului."
+
+msgid "Register"
+msgstr "Registru"
+
+msgid "Register Your Organisation"
+msgstr "Înregistrați-vă organizația"
+
+msgid "Reject selected users"
+msgstr "Respinge utilizatorii selectați"
+
+msgid "Remove"
+msgstr "Elimina"
+
+msgid "Reset onboarding for selected organisations"
+msgstr "Resetați integrarea pentru organizațiile selectate"
+
+msgid "Review"
+msgstr "Recenzie"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Save & continue"
+msgstr "Salvați și continuați"
+
+msgid "Save & review"
+msgstr "Salvați și revizuiți"
+
+msgid "Save event"
+msgstr "Salvați evenimentul"
+
+msgid "Scraping"
+msgstr "Răzuire"
+
+msgid "Scraping config saved."
+msgstr "Configurația de răzuire a fost salvată."
+
+msgid "Scroll to explore"
+msgstr "Derulați pentru a explora"
+
+msgid "See what’s on"
+msgstr "Vezi ce se întâmplă"
+
+msgid "See your page as the public sees it"
+msgstr "Vedeți-vă pagina așa cum o vede publicul"
+
+msgid "Select"
+msgstr "Selecta"
+
+msgid "Select language"
+msgstr "Selectați limba"
+
+msgid "Self-referrals are also accepted."
+msgstr "De asemenea, sunt acceptate auto-recomandări."
+
+msgid "Services"
+msgstr "Servicii"
+
+msgid "Services Offered"
+msgstr "Servicii oferite"
+
+msgid "Services saved."
+msgstr "Servicii salvate."
+
+msgid "Set up your organisation"
+msgstr "Configurați-vă organizația"
+
+msgid "Site footer"
+msgstr "Subsolul site-ului"
+
+msgid "Skip (I'll add this later)"
+msgstr "Omite (voi adăuga asta mai târziu)"
+
+msgid "Skip to main content"
+msgstr "Treci la conținutul principal"
+
+msgid ""
+"Soon you’ll be able to chat with our assistant in plain language — the same "
+"warmth as asking a neighbour, with clear next steps."
+msgstr ""
+"În curând, veți putea conversa cu asistentul nostru într-un limbaj simplu - "
+"aceeași căldură ca și când întrebați un vecin, cu pașii următori clari."
+
+msgid "Specialist Support"
+msgstr "Suport de specialitate"
+
+msgid "Specific services you offer"
+msgstr "Servicii specifice pe care le oferiți"
+
+msgid "Start"
+msgstr "Început"
+
+msgid ""
+"Start with what you need today. Every listing is here to help you take the "
+"next step."
+msgstr ""
+"Începeți cu ceea ce aveți nevoie astăzi. Fiecare listă este aici pentru a vă"
+" ajuta să faceți următorul pas."
+
+msgid "Status"
+msgstr "Stare"
+
+msgid "Status updated."
+msgstr "Stare actualizată."
+
+msgid "Submit referral"
+msgstr "Trimiteți recomandarea"
+
+msgid "Submitted"
+msgstr "Trimis"
+
+msgid "Subscribe"
+msgstr "Abonați-vă"
+
+msgid "Subscribe to"
+msgstr "Abonați-vă la"
+
+msgid "Subscribe to iCal feed"
+msgstr "Abonați-vă la fluxul iCal"
+
+msgid "Support Pathways"
+msgstr "Căi de sprijin"
+
+msgid "Support."
+msgstr "Sprijin."
+
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+msgid "Tell us about your organisation"
+msgstr "Spune-ne despre organizația ta"
+
+msgid ""
+"The organisation will acknowledge your referral. If you don't hear back "
+"within 48 hours, our team will follow up."
+msgstr ""
+"Organizația va confirma recomandarea dvs. Dacă nu primiți răspuns în 48 de "
+"ore, echipa noastră vă va urmări."
+
+msgid ""
+"These pathways are for people who need a bit more specific guidance. They're"
+" written in plain language and connect you directly to organisations in the "
+"West Midlands that can help. You don't need a referral to use this section —"
+" just find what's relevant to you and reach out."
+msgstr ""
+"Aceste căi sunt pentru persoanele care au nevoie de îndrumări ceva mai "
+"specifice. Sunt scrise într-un limbaj simplu și vă conectează direct la "
+"organizații din West Midlands care vă pot ajuta. Nu aveți nevoie de o "
+"recomandare pentru a utiliza această secțiune - doar găsiți ceea ce este "
+"relevant pentru dvs. și contactați-vă."
+
+msgid "This field is required."
+msgstr "Acest câmp este obligatoriu."
+
+msgid "This is a recurring event"
+msgstr "Acesta este un eveniment recurent"
+
+msgid "This organization accepts referrals."
+msgstr "Această organizație acceptă recomandări."
+
+msgid "Timestamps"
+msgstr "Marcaje temporale"
+
+msgid "Tip: drag to reorder using display_order."
+msgstr "Sfat: trageți pentru a reordona folosind display_order."
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "Today"
+msgstr "Astăzi"
+
+msgid "Toggle navigation menu"
+msgstr "Comutați meniul de navigare"
+
+msgid "Try a different month or clear your filters."
+msgstr "Încercați o lună diferită sau ștergeți filtrele."
+
+msgid ""
+"URL of a page listing your events. We'll scrape it weekly and add draft "
+"events for your review."
+msgstr ""
+"Adresa URL a unei pagini care listează evenimentele dvs. Îl vom analiza "
+"săptămânal și vom adăuga evenimente nefinalizate pentru examinare."
+
+msgid "URL of your news/blog page. We'll scrape it weekly."
+msgstr "URL-ul paginii dvs. de știri/blog. Îl vom răzui săptămânal."
+
+msgid "Untitled"
+msgstr "Fără titlu"
+
+msgid "Upcoming dates"
+msgstr "Date viitoare"
+
+msgid "Update"
+msgstr "Actualizare"
+
+msgid "Update your organisation details"
+msgstr "Actualizați detaliile organizației dvs"
+
+msgid "Urgent"
+msgstr "Urgent"
+
+msgid "Urgent step"
+msgstr "Pas urgent"
+
+msgid "Username"
+msgstr "Nume de utilizator"
+
+msgid "View"
+msgstr "Vedere"
+
+msgid "View Public Listing"
+msgstr "Vedeți înregistrarea publică"
+
+msgid "View all pathways"
+msgstr "Vedeți toate căile"
+
+msgid "View and manage incoming referrals"
+msgstr "Vizualizați și gestionați recomandările primite"
+
+msgid "View organisation"
+msgstr "Vedeți organizația"
+
+msgid "Volunteer"
+msgstr "Voluntar"
+
+msgid ""
+"Volunteer and Organization Manager accounts require approval before you can "
+"access the portal."
+msgstr ""
+"Conturile de voluntari și de manager de organizație necesită aprobare "
+"înainte de a putea accesa portalul."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation on the platform."
+msgstr ""
+"Voluntarii și lucrătorii de sprijin pot face o trimitere sigură către orice "
+"organizație locală de pe platformă."
+
+msgid ""
+"Volunteers and support workers can make a secure referral to any local "
+"organisation."
+msgstr ""
+"Voluntarii și lucrătorii de sprijin pot face o trimitere sigură către orice "
+"organizație locală."
+
+msgid ""
+"Warm meals, shelter, advocacy, and longer-term housing help — find what’s "
+"available near you."
+msgstr ""
+"Mese calde, adăpost, susținere și ajutor pentru locuințe pe termen lung - "
+"găsiți ceea ce este disponibil în apropierea dvs."
+
+msgid "Website"
+msgstr "Site-ul web"
+
+msgid "Website & scraping (optional)"
+msgstr "Site web și scraping (opțional)"
+
+msgid "Welcome to the West Midlands."
+msgstr "Bun venit în West Midlands."
+
+msgid "Support2Thrive"
+msgstr "Support2Thrive"
+
+msgid "Support2Thrive platform"
+msgstr "Platforma Support2Thrive"
+
+msgid "Support2Thrive brings local help closer to the people who need it."
+msgstr ""
+"Support2Thrive aduce ajutorul local mai aproape de oamenii care au nevoie de"
+" el."
+
+msgid "Support2Thrive — Home"
+msgstr "Support2Thrive — Acasă"
+
+msgid "West Midlands city scene — Queen Square, Wolverhampton"
+msgstr "Scena orașului West Midlands - Queen Square, Wolverhampton"
+
+msgid "What support do you need?"
+msgstr "De ce sprijin ai nevoie?"
+
+msgid ""
+"Whether you've just left prison or are struggling with homelessness, there "
+"is help available right now. Choose the section that fits your situation."
+msgstr ""
+"Indiferent dacă tocmai ați ieșit din închisoare sau dacă vă confruntați cu "
+"persoanele fără adăpost, există ajutor disponibil chiar acum. Alegeți "
+"secțiunea care se potrivește situației dvs."
+
+msgid "Which areas do you serve?"
+msgstr "Ce zone deserviți?"
+
+msgid "Which support streams do you cover?"
+msgstr "Ce fluxuri de asistență acoperiți?"
+
+msgid "Who is this for?"
+msgstr "Pentru cine este asta?"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "You must give consent to submit a referral."
+msgstr "Trebuie să dai consimțământul pentru a trimite o recomandare."
+
+msgid "Your Profile"
+msgstr "Profilul dvs"
+
+msgid ""
+"Your account has been created and is pending approval. You will be notified "
+"once an administrator approves your access."
+msgstr ""
+"Contul dvs. a fost creat și este în așteptarea aprobării. Veți fi notificat "
+"odată ce un administrator vă aprobă accesul."
+
+msgid "Your account has been created successfully."
+msgstr "Contul dvs. a fost creat cu succes."
+
+msgid ""
+"Your profile is %(score)s%% complete. A fuller profile helps people find "
+"you."
+msgstr ""
+"Profilul tău este %(score)s%% complet. Un profil mai complet îi ajută pe "
+"oameni să te găsească."
+
+msgid "Your profile is incomplete"
+msgstr "Profilul dvs. este incomplet"
+
+msgid "Your reference number is:"
+msgstr "Numărul dvs. de referință este:"
+
+msgid "attempts"
+msgstr "încercări"
+
+msgid "by"
+msgstr "de"
+
+msgid "complete"
+msgstr "complet"
+
+msgid "confidential — handle securely"
+msgstr "confidențial — gestionați în siguranță"
+
+msgid "events"
+msgstr "evenimente"
+
+msgid "referral(s) awaiting acknowledgment"
+msgstr "sesizare(e) care așteaptă confirmarea"
