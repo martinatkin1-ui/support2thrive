@@ -1,0 +1,15 @@
+{% if image_url %}
+<figure class="ambient-page-banner relative w-full h-40 md:h-48 mb-8 rounded-2xl overflow-hidden ring-1 ring-sage-200/60 shadow-md bg-sage-100">
+  <div class="absolute inset-0 overflow-hidden hero-kb-layer-0">
+    <img src="{{ image_url }}" alt="{{ alt_text }}"
+         class="hero-kenburns-img h-[118%] w-full min-h-full object-cover object-center opacity-95"
+         width="1600" height="500" loading="lazy" decoding="async">
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-sage-900/30 via-transparent to-sage-50/10 pointer-events-none" aria-hidden="true"></div>
+  {% if credit %}
+  <figcaption class="absolute bottom-0 right-0 left-0 px-3 py-1.5 text-[10px] sm:text-xs text-white/95 bg-gradient-to-t from-black/45 to-transparent text-right pointer-events-none">
+    {{ credit }}
+  </figcaption>
+  {% endif %}
+</figure>
+{% endif %}
