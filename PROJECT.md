@@ -1,7 +1,7 @@
-# West Midlands Community Share Platform (WMCSP)
+# Support2Thrive (S2T)
 
 ## What This Is
-A mobile-first Django web application that connects West Midlands community organisations so vulnerable people — prison leavers, people experiencing homelessness, those in addiction recovery — can find the right support quickly. Organisations share events, accept referrals, publish services, and the platform provides an AI-assisted navigation layer across all of it.
+**Support2Thrive** is a mobile-first Django web application that connects West Midlands community organisations so vulnerable people — prison leavers, people experiencing homelessness, those in addiction recovery — can find the right support quickly. Organisations share events, accept referrals, publish services, and the platform provides an AI-assisted navigation layer across all of it.
 
 ## Problem Being Solved
 West Midlands organisations (Recovery Near You, The Good Shepherd, Black Country Healthcare NHS, Wolverhampton Council, Rethink, and others) operate in silos. Frontline workers and service users cannot easily discover what's available, refer across organisations, or track whether a referral was acted on. Vulnerable people fall through the gaps.

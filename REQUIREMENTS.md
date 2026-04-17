@@ -1,4 +1,4 @@
-# WMCSP — Requirements
+# Support2Thrive (S2T) — Requirements
 
 ## Functional Requirements
 

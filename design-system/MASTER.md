@@ -1,6 +1,6 @@
-# WMCSP Design System — MASTER
+# Support2Thrive Design System — MASTER
 
-> Source of Truth for all UI decisions on the West Midlands Community Share Platform.
+> Source of Truth for all UI decisions on the Support2Thrive platform.
 > Style: **Accessible & Ethical** (UI/UX Pro Max) blended with warmth for community feel.
 > Generated: 2026-04-13 | Stack: Django templates + HTMX + Tailwind CSS (CDN)
 

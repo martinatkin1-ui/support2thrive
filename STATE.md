@@ -1,4 +1,4 @@
-# WMCSP — Current State
+# Support2Thrive (S2T) — Current State
 
 **Last updated:** 2026-04-13
 **Current phase:** 6 — AI Assistant

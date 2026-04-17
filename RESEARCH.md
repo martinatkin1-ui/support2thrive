@@ -8,9 +8,9 @@
 
 ## Summary
 
-This research compares six Python PDF processing libraries for the WMCSP Phase 6 RAG pipeline. The use case is admin-uploaded PDFs (service directories, guidance documents, org brochures) processed into text chunks + image descriptions for vector embedding into pgvector via Celery background tasks.
+This research compares six Python PDF processing libraries for the Support2Thrive Phase 6 RAG pipeline. The use case is admin-uploaded PDFs (service directories, guidance documents, org brochures) processed into text chunks + image descriptions for vector embedding into pgvector via Celery background tasks.
 
-The candidate libraries split into two tiers: **rule-based extractors** (PyMuPDF, pdfplumber, pypdf/PyPDF2) that parse PDF internals fast with no ML overhead, and **ML-based converters** (unstructured, marker-pdf, docling) that apply AI models for layout understanding and OCR. For the WMCSP use case — lightweight Celery workers, no GPU, existing PyTorch CPU install, Gemini 2.5 Flash already integrated — the right answer is a rule-based extractor paired with targeted Gemini vision calls for image pages. This avoids downloading gigabytes of competing ML models.
+The candidate libraries split into two tiers: **rule-based extractors** (PyMuPDF, pdfplumber, pypdf/PyPDF2) that parse PDF internals fast with no ML overhead, and **ML-based converters** (unstructured, marker-pdf, docling) that apply AI models for layout understanding and OCR. For the Support2Thrive use case — lightweight Celery workers, no GPU, existing PyTorch CPU install, Gemini 2.5 Flash already integrated — the right answer is a rule-based extractor paired with targeted Gemini vision calls for image pages. This avoids downloading gigabytes of competing ML models.
 
 **Primary recommendation:** Use `pymupdf4llm==1.27.2.2` as the text extraction core, with PyMuPDF's `page.get_pixmap()` to render image-heavy or scanned pages as PNGs sent to Gemini 2.5 Flash vision for description. Replace the existing `PyPDF2==3.0.1` (deprecated) in requirements.txt. Add `pytesseract` + Tesseract binary only as a fallback for offline/bulk-scanned-doc scenarios.
 
@@ -72,7 +72,7 @@ The candidate libraries split into two tiers: **rule-based extractors** (PyMuPDF
 3. Send `img_bytes` to Gemini 2.5 Flash vision via `google.generativeai` (already installed) for a description
 4. Store the description as a text chunk, tagged with page number and source PDF
 
-**License caveat:** PyMuPDF is AGPL-3.0. For an open-source or internal community platform this is fine. If WMCSP becomes commercially distributed software, a commercial license from Artifex is required. [VERIFIED: Artifex licensing page]
+**License caveat:** PyMuPDF is AGPL-3.0. For an open-source or internal community platform this is fine. If Support2Thrive becomes commercially distributed software, a commercial license from Artifex is required. [VERIFIED: Artifex licensing page]
 
 ---
 
@@ -115,12 +115,12 @@ Excellent for structured tables (uses exact character position data, not whitesp
 **Latest version:** 1.10.2
 **License:** GPL-3.0 code + modified AI Pubs Open Rail-M model weights (free for orgs under $2M revenue)
 
-marker-pdf produces stunning layout-accurate markdown including inline images. In 2025 benchmarks it scored 95.67 vs competitors. However for WMCSP it has two blockers:
+marker-pdf produces stunning layout-accurate markdown including inline images. In 2025 benchmarks it scored 95.67 vs competitors. However for Support2Thrive it has two blockers:
 
 1. **Size and model loading:** Requires downloading ~several GB of PyTorch ML models on first run. With CPU-only torch already in the venv, these models will be slow (11.3 seconds per page in CPU benchmarks vs 0.14s for pymupdf4llm). [CITED: Medium 2025 benchmark]
 2. **GPL-3.0 code license:** The project may not want to accept GPL copyleft obligations on the application code that imports marker-pdf.
 
-If WMCSP ever deploys a dedicated PDF processing service (separate container, GPU available), marker-pdf becomes attractive. For the current Celery worker setup, it is impractical.
+If Support2Thrive ever deploys a dedicated PDF processing service (separate container, GPU available), marker-pdf becomes attractive. For the current Celery worker setup, it is impractical.
 
 ---
 
@@ -158,7 +158,7 @@ The rapid release cadence (weekly version bumps from 2.66 to 2.88 in ~4 months) 
 |----------|-------------|------|------|-----------------|
 | **PyMuPDF + Gemini 2.5 Flash vision** | Render page as PNG via `page.get_pixmap(dpi=150)`, send bytes to Gemini vision API, store description as chunk | Uses already-integrated Gemini API; no new dependencies; very high description quality; handles scanned + embedded images equally | API cost per image (~$0.075/1K input tokens, ~258 tokens/image); requires internet for processing | **RECOMMENDED: All image-containing or scanned pages** |
 | **PyMuPDF + pytesseract OCR** | `page.get_textpage_ocr()` delegates to Tesseract binary; produces text layer from image pages | Fully offline; no API cost; good for text-dense scanned docs | Requires Tesseract binary installed on server; ~80% accuracy on real-world docs; poor on handwriting/complex layouts; no understanding of diagrams | Offline fallback, bulk processing of text-heavy scanned docs |
-| **marker-pdf built-in models** | 4 ML models process layout, OCR, image captioning end-to-end | Highest accuracy (95.67 benchmark score); inline images in markdown | GPL license; GBs of model downloads; 11.3s/page CPU; not practical in Celery workers without GPU | Dedicated GPU container, not WMCSP current setup |
+| **marker-pdf built-in models** | 4 ML models process layout, OCR, image captioning end-to-end | Highest accuracy (95.67 benchmark score); inline images in markdown | GPL license; GBs of model downloads; 11.3s/page CPU; not practical in Celery workers without GPU | Dedicated GPU container, not Support2Thrive current setup |
 | **pdfplumber image metadata only** | Reports image coordinates — no content extraction | Zero new deps | Cannot describe or extract image content | Not suitable for image-content RAG |
 
 **Decision:** Implement Gemini vision as primary strategy. Pytesseract as optional offline fallback (org admin can configure per-upload or per-org). [ASSUMED — this specific routing decision is Claude's recommendation, not locked by user]
@@ -333,7 +333,7 @@ pip install pymupdf4llm==1.27.2.2
 ### Pitfall 2: PyMuPDF AGPL Licence Obligation Not Tracked
 **What goes wrong:** Platform is later commercialised or white-labelled; Artifex sends a licence compliance notice.
 **Why it happens:** AGPL requires open-sourcing all code that uses the library if the software is distributed commercially.
-**How to avoid:** Note in CLAUDE.md or a LICENSE-NOTES file that PyMuPDF is AGPL-3.0. If WMCSP becomes a commercial SaaS, obtain Artifex commercial licence (~$500-3000/year depending on tier) or switch to pdfplumber+pypdfium2 for text-only paths.
+**How to avoid:** Note in CLAUDE.md or a LICENSE-NOTES file that PyMuPDF is AGPL-3.0. If Support2Thrive becomes a commercial SaaS, obtain Artifex commercial licence (~$500-3000/year depending on tier) or switch to pdfplumber+pypdfium2 for text-only paths.
 **Warning signs:** Any commercial licensing discussion about the platform.
 
 ### Pitfall 3: Celery Worker Running Gemini Vision on Every Page
@@ -413,7 +413,7 @@ pip install pymupdf4llm==1.27.2.2
 | A1 | Gemini 2.5 Flash vision API call format uses `{"mime_type": "image/png", "data": b64}` inline part | Code Examples | Code will fail at runtime if SDK format differs — verify against google-generativeai docs before implementation |
 | A2 | Image-heavy detection threshold of 60% page area is appropriate | Architecture Patterns | May miss some mixed-content pages; threshold should be tunable |
 | A3 | 150 DPI is sufficient resolution for Gemini vision to extract text from scanned pages | Architecture Patterns | Quality may be insufficient for small print; may need 200 DPI for some document types |
-| A4 | PyMuPDF AGPL is acceptable for WMCSP (non-commercial community platform) | Standard Stack | If project is ever commercially licensed, Artifex licence required |
+| A4 | PyMuPDF AGPL is acceptable for Support2Thrive (non-commercial community platform) | Standard Stack | If project is ever commercially licensed, Artifex licence required |
 | A5 | PyPDF2 usage in existing codebase is limited to placeholder/legacy code only | Project Constraints | If any existing feature depends on PyPDF2 behaviour, removing it could break functionality |
 
 ---

@@ -1,7 +1,7 @@
-# West Midlands Community Share Platform (WMCSP)
+# Support2Thrive (S2T)
 
 ## Project Overview
-Mobile-first Django web app connecting West Midlands community organizations for resource sharing, secure referrals, events, and AI-assisted navigation. Serves vulnerable populations (prison leavers, homeless, people in recovery). PII security, audit logging, and 10-language i18n are first-class requirements.
+Mobile-first Django web app (**Support2Thrive**) connecting West Midlands community organizations for resource sharing, secure referrals, events, and AI-assisted navigation. Serves vulnerable populations (prison leavers, homeless, people in recovery). PII security, audit logging, and 10-language i18n are first-class requirements.
 
 ## Tech Stack
 - **Backend**: Django 6.0.x + Django REST Framework (DRF)
@@ -189,7 +189,7 @@ All development runs through four layers. Work flows downward only — each laye
 | 8–9 | PII field, auth change, audit log, encrypted referral | Sonnet · @privacy_security mandatory |
 | 10 | New phase kickoff, breaking schema change | Sonnet · @architect + explicit user approval |
 
-### WMCSP-Specific Routing Rules
+### Support2Thrive-specific routing rules
 - Any change touching `apps/referrals/`, `apps/audit/`, or encrypted fields → **@privacy_security reviews first**
 - Any new template or user-facing string → **@frontend adds `{% trans %}` wrappers before commit**
 - Celery tasks, Redis pub/sub, Gemini API integration → **@integration owns the service layer**
