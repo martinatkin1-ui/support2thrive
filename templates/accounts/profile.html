@@ -21,7 +21,7 @@
         {% endif %}
     {% endif %}
 
-    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <span class="text-sm font-medium text-gray-500">{% trans "Name" %}</span>
@@ -48,6 +48,23 @@
             </div>
             {% endif %}
         </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">{% trans "Search location" %}</h2>
+        <p class="text-sm text-gray-600 mb-4">{% trans "Your postcode is used to list organisations and events within about 20 miles. This applies across all UK regions on the platform." %}</p>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.home_postcode.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.home_postcode.label }}</label>
+                {{ form.home_postcode }}
+                {% if form.home_postcode.help_text %}<p class="mt-1 text-xs text-gray-500">{{ form.home_postcode.help_text }}</p>{% endif %}
+                {% if form.home_postcode.errors %}<p class="mt-1 text-sm text-red-600">{% for e in form.home_postcode.errors %}{{ e }}{% endfor %}</p>{% endif %}
+            </div>
+            <button type="submit" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-amber-500 hover:bg-amber-600 px-4 py-2 text-sm font-semibold text-white">
+                {% trans "Save" %}
+            </button>
+        </form>
     </div>
 
     <p class="mt-8 text-center text-sm text-gray-600">

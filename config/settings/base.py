@@ -81,6 +81,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.i18n",
+                "apps.core.context_processors.location_context",
             ],
         },
     },
@@ -131,6 +132,9 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [BASE_DIR / "locale"]
+
+# UK postcode search radius (miles) for organisations and events
+LOCATION_SEARCH_RADIUS_MILES = 20
 
 # Languages that require RTL
 RTL_LANGUAGES = ["ur", "ar"]

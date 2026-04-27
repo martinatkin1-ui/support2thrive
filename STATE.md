@@ -1,6 +1,6 @@
 # Support2Thrive (S2T) — Current State
 
-**Last updated:** 2026-04-13
+**Last updated:** 2026-04-27 (root `ROADMAP.md`, `REQUIREMENTS.md`, `CLAUDE.md` aligned to this file)
 **Current phase:** 6 — AI Assistant
 **Previous phase:** 5 — Pathways + Design System Rectification (COMPLETE ✅)
 

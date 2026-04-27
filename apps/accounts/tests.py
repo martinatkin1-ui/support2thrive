@@ -1,7 +1,10 @@
+from unittest.mock import patch
+
 from django.core import mail
 from django.test import TestCase
 from django.urls import reverse
 
+from apps.core.location import GeocodeResult
 from apps.organizations.models import Organization, OrgOnboardingState
 
 from .models import User
@@ -55,6 +58,16 @@ class RegistrationViewTest(TestCase):
             short_description="Short",
             status="active",
         )
+        p = patch("apps.accounts.forms.geocode_uk_postcode")
+        self._geocode = p.start()
+        self.addCleanup(p.stop)
+        self._geocode.return_value = GeocodeResult(
+            ok=True,
+            postcode="B1 1AA",
+            latitude=52.48,
+            longitude=-1.90,
+            admin_district="Birmingham",
+        )
 
     def test_registration_page_loads(self):
         response = self.client.get(reverse("accounts:register"))
@@ -62,11 +75,12 @@ class RegistrationViewTest(TestCase):
 
     def _post_base(self, **extra):
         data = {
-            "username": extra.pop("username", "newuser"),
-            "email": extra.pop("email", "new@example.com"),
+            "username": "newuser",
+            "email": "new@example.com",
             "first_name": "Test",
             "last_name": "User",
             "phone": "",
+            "home_postcode": "B1 1AA",
             "preferred_language": "en",
             "password1": "SecurePass123!",
             "password2": "SecurePass123!",

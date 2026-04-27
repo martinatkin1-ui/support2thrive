@@ -16,6 +16,7 @@ Portal (org_manager / admin only):
 
 from datetime import date, datetime, timedelta, timezone
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
@@ -23,6 +24,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
+from apps.core.location import (
+    filter_occurrences_by_distance,
+    get_effective_location,
+)
 from apps.core.models import SupportStream
 from apps.organizations.models import Organization
 
@@ -103,6 +108,16 @@ def event_list(request):
     if org_slug:
         occurrences = occurrences.filter(event__organization__slug=org_slug)
 
+    loc = get_effective_location(request)
+    radius = float(
+        getattr(settings, "LOCATION_SEARCH_RADIUS_MILES", 20)
+    )
+    if loc:
+        occ_list = list(occurrences)
+        occurrences = filter_occurrences_by_distance(occ_list, loc["lat"], loc["lng"], radius)
+    else:
+        occurrences = list(occurrences)
+
     # Prev / next month navigation
     if month == 1:
         prev_year, prev_month = year - 1, 12
@@ -129,6 +144,8 @@ def event_list(request):
         "selected_area": area_slug,
         "selected_org": org_slug,
         "today": today,
+        "search_location": loc,
+        "location_radius_miles": int(radius),
     }
 
     if request.htmx:

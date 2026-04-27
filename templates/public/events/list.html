@@ -17,7 +17,13 @@
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
     <div>
       <h1 class="text-2xl font-bold text-gray-900">{% trans "Community Events" %}</h1>
-      <p class="text-gray-500 text-sm mt-1">{% trans "Find events, groups, and activities near you" %}</p>
+      <p class="text-gray-500 text-sm mt-1">
+        {% if search_location %}
+          {% blocktrans with r=location_radius_miles pc=search_location.postcode %}Within {{ r }} miles of {{ pc }}. Online events are shown if the host organisation is in range.{% endblocktrans %}
+        {% else %}
+          {% trans "Set your UK postcode in the site header to see events in your area (about 20 miles)." %}
+        {% endif %}
+      </p>
     </div>
     <div class="flex items-center gap-2">
       <button onclick="setView('agenda')" id="btn-agenda"

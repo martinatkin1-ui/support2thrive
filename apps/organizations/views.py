@@ -1,12 +1,21 @@
+from django.conf import settings
 from django.shortcuts import get_object_or_404, render
 
+from apps.core.location import (
+    filter_organizations_by_distance,
+    get_effective_location,
+)
 from apps.core.models import SupportStream
 
 from .models import Organization
 
 
 def organization_list(request):
-    organizations = Organization.objects.filter(status="active")
+    organizations = (
+        Organization.objects.filter(status="active")
+        .select_related("region")
+        .prefetch_related("support_streams", "tags")
+    )
     support_streams = SupportStream.objects.all()
 
     stream_slug = request.GET.get("stream")
@@ -18,6 +27,16 @@ def organization_list(request):
         organizations = organizations.filter(areas_served__slug=area_slug)
 
     organizations = organizations.distinct()
+    loc = get_effective_location(request)
+    radius = float(
+        getattr(settings, "LOCATION_SEARCH_RADIUS_MILES", 20)
+    )
+    if loc:
+        organizations = filter_organizations_by_distance(
+            organizations, loc["lat"], loc["lng"], radius
+        )
+    else:
+        organizations = list(organizations)
 
     return render(
         request,
@@ -26,6 +45,8 @@ def organization_list(request):
             "organizations": organizations,
             "support_streams": support_streams,
             "selected_stream": stream_slug,
+            "search_location": loc,
+            "location_radius_miles": int(radius),
         },
     )
 

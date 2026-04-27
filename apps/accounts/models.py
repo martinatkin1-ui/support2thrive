@@ -67,6 +67,36 @@ class User(AbstractUser):
     )
     last_active = models.DateTimeField(_("last active"), null=True, blank=True)
 
+    # Home / search location (UK postcode geocoded via postcodes.io — see apps.core.location)
+    home_postcode = models.CharField(
+        _("home postcode"),
+        max_length=20,
+        blank=True,
+        default="",
+        help_text=_("Used to show organisations and events near you (about 20 miles)."),
+    )
+    home_latitude = models.DecimalField(
+        _("home latitude"),
+        max_digits=9,
+        decimal_places=6,
+        null=True,
+        blank=True,
+    )
+    home_longitude = models.DecimalField(
+        _("home longitude"),
+        max_digits=9,
+        decimal_places=6,
+        null=True,
+        blank=True,
+    )
+    home_location_label = models.CharField(
+        _("area"),
+        max_length=200,
+        blank=True,
+        default="",
+        help_text=_("Town or district from postcode lookup (read-only cache)."),
+    )
+
     class Meta:
         verbose_name = _("User")
         verbose_name_plural = _("Users")

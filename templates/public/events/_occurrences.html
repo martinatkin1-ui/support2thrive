@@ -43,10 +43,13 @@
               {% trans "Online" %}
             </p>
           {% endif %}
-          {% if occ.event.support_stream %}
+            {% if occ.event.support_stream %}
             <span class="inline-block mt-2 text-xs bg-primary-50 text-primary-700 px-2 py-0.5 rounded-full">
               {{ occ.event.support_stream.name }}
             </span>
+          {% endif %}
+          {% if occ.distance_miles is not None %}
+            <span class="inline-block mt-2 text-xs text-gray-500 ml-1">· {{ occ.distance_miles }} {% trans "mi" %}</span>
           {% endif %}
         </div>
       </div>

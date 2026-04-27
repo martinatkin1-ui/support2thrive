@@ -129,6 +129,35 @@ class OrganizationListViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Active Org")
 
+    def test_list_filters_by_session_postcode(self):
+        """With location in session, only orgs with coordinates within radius are listed."""
+        self.active_org.city = "Wolverhampton"
+        self.active_org.postcode = "WV1 1AA"
+        self.active_org.latitude = 52.586
+        self.active_org.longitude = -2.129
+        self.active_org.save()
+        # Far from Wolverhampton (same coords as London approximate)
+        other = Organization.objects.create(
+            name="Far Away Org",
+            short_description="Far",
+            description="D",
+            status="active",
+            latitude=51.50,
+            longitude=-0.12,
+        )
+        s = self.client.session
+        s["location_postcode"] = "WV1 1AA"
+        s["location_lat"] = 52.586
+        s["location_lng"] = -2.129
+        s["location_label"] = "Wolverhampton"
+        s.save()
+        response = self.client.get(reverse("organizations:list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Active Org")
+        self.assertNotContains(response, "Far Away Org")
+        # sanity: other org is far from target
+        self.assertNotIn(other, response.context["organizations"])
+
 
 class OrganizationDetailViewTest(TestCase):
     def setUp(self):

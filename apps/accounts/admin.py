@@ -35,6 +35,17 @@ class UserAdmin(BaseUserAdmin):
                 ),
             },
         ),
+        (
+            _("Search location"),
+            {
+                "fields": (
+                    "home_postcode",
+                    "home_location_label",
+                    "home_latitude",
+                    "home_longitude",
+                ),
+            },
+        ),
     )
 
     add_fieldsets = BaseUserAdmin.add_fieldsets + (

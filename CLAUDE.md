@@ -5,7 +5,7 @@ Mobile-first Django web app (**Support2Thrive**) connecting West Midlands commun
 
 ## Tech Stack
 - **Backend**: Django 6.0.x + Django REST Framework (DRF)
-- **Database**: SQLite (dev) / PostgreSQL + pgvector (prod)
+- **Database**: SQLite (dev) for most apps; **PostgreSQL + pgvector** required for Phase 6 assistant/RAG (use Docker in dev — see `PHASE-6-CONTEXT.md`); production uses PostgreSQL + pgvector
 - **Frontend**: Django templates + HTMX + Tailwind CSS (CDN in dev)
 - **Task Queue**: Celery + Redis
 - **AI/RAG**: pgvector + sentence-transformers + Gemini 2.5 Flash
@@ -233,8 +233,10 @@ Before advancing between build phases:
 | Phase | Status | Scope | Lead Agents |
 |---|---|---|---|
 | 1 | Done | Foundation — auth, orgs, i18n | @django_backend |
-| 2 | Next | Events, calendar, recurrence | @django_backend, @frontend |
-| 3 | — | Service category taxonomy | @django_backend, @frontend |
-| 4 | — | Referrals (encrypted PII), audit log, notifications, newsfeed | @privacy_security, @django_backend, @integration |
-| 5 | — | Prison leavers & homeless pathways | @django_backend, @researcher |
-| 6 | — | RAG AI assistant (pgvector + Gemini 2.5 Flash) | @integration, @architect |
+| 2 | Done | Events, calendar, recurrence | @django_backend, @frontend |
+| 3 | Done | Org onboarding & service category taxonomy | @django_backend, @frontend |
+| 4 | Done | Referrals (encrypted PII), audit log, delivery; notifications/newsfeed apps stubbed | @privacy_security, @django_backend, @integration |
+| 5 | Done | Prison leavers & homeless pathways | @django_backend, @researcher |
+| 6 | In progress | RAG AI assistant (pgvector + Gemini 2.5 Flash) | @integration, @architect |
+
+**Source of truth for what is built:** `STATE.md`. **Current focus:** Phase 6 — see `PHASE-6-CONTEXT.md` and `ROADMAP.md` § Phase 6.

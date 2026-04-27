@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import gettext_lazy as _
 
+from apps.core.location import geocode_uk_postcode
 from apps.organizations.models import Organization
 from apps.organizations.services import create_pending_organization_for_registration
 
@@ -74,6 +75,21 @@ class RegistrationForm(UserCreationForm):
         ),
     )
 
+    home_postcode = forms.CharField(
+        label=_("Your UK postcode"),
+        max_length=20,
+        help_text=_(
+            "We use this to show organisations and events near you (within about 20 miles) "
+            "anywhere in the UK."
+        ),
+        widget=forms.TextInput(
+            attrs={
+                "class": "w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border",
+                "autocomplete": "postal-code",
+            }
+        ),
+    )
+
     class Meta:
         model = User
         fields = (
@@ -83,6 +99,7 @@ class RegistrationForm(UserCreationForm):
             "last_name",
             "phone",
             "preferred_language",
+            "home_postcode",
             "password1",
             "password2",
             "role",
@@ -94,7 +111,7 @@ class RegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for name in ("username", "email", "first_name", "last_name", "phone"):
+        for name in ("username", "email", "first_name", "last_name", "phone", "home_postcode"):
             if name in self.fields:
                 self.fields[name].widget.attrs.setdefault(
                     "class",
@@ -116,6 +133,20 @@ class RegistrationForm(UserCreationForm):
                 "class",
                 "w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border registration-role-select",
             )
+
+    def clean_home_postcode(self):
+        raw = (self.cleaned_data.get("home_postcode") or "").strip()
+        if not raw:
+            raise forms.ValidationError(
+                _("Enter a valid UK postcode so we can show nearby services and events.")
+            )
+        g = geocode_uk_postcode(raw)
+        if not g.ok:
+            raise forms.ValidationError(
+                _("We could not find that UK postcode. Check the format and try again.")
+            )
+        self._registration_geocode = g
+        return g.postcode
 
     def clean(self):
         cleaned = super().clean()
@@ -165,6 +196,13 @@ class RegistrationForm(UserCreationForm):
         user: User = super().save(commit=False)
         role = self.cleaned_data["role"]
 
+        g = getattr(self, "_registration_geocode", None)
+        if g and g.ok:
+            user.home_postcode = g.postcode
+            user.home_latitude = g.latitude
+            user.home_longitude = g.longitude
+            user.home_location_label = g.admin_district or ""
+
         if role == User.ROLE_VOLUNTEER:
             user.organization = self.cleaned_data["volunteer_organization"]
 
@@ -179,6 +217,56 @@ class RegistrationForm(UserCreationForm):
         else:
             user.organization = None
 
+        if commit:
+            user.save()
+        return user
+
+
+class ProfileLocationForm(forms.ModelForm):
+    home_postcode = forms.CharField(
+        label=_("Your UK postcode"),
+        max_length=20,
+        required=False,
+        help_text=_(
+            "Show organisations and events within about 20 miles of this postcode. "
+            "Case workers can also use the search box in the site header to search on behalf of someone else."
+        ),
+        widget=forms.TextInput(
+            attrs={
+                "class": "w-full rounded-md border-gray-300 shadow-sm px-3 py-2 border",
+                "autocomplete": "postal-code",
+            }
+        ),
+    )
+
+    class Meta:
+        model = User
+        fields = ("home_postcode",)
+
+    def clean_home_postcode(self):
+        raw = (self.cleaned_data.get("home_postcode") or "").strip()
+        if not raw and self.instance.home_postcode and self.instance.home_latitude:
+            return self.instance.home_postcode
+        if not raw:
+            raise forms.ValidationError(
+                _("Enter a valid UK postcode so we can show nearby services and events.")
+            )
+        g = geocode_uk_postcode(raw)
+        if not g.ok:
+            raise forms.ValidationError(
+                _("We could not find that UK postcode. Check the format and try again.")
+            )
+        self._profile_geocode = g
+        return g.postcode
+
+    def save(self, commit=True):
+        user: User = super().save(commit=False)
+        g = getattr(self, "_profile_geocode", None)
+        if g and g.ok:
+            user.home_postcode = g.postcode
+            user.home_latitude = g.latitude
+            user.home_longitude = g.longitude
+            user.home_location_label = g.admin_district or ""
         if commit:
             user.save()
         return user

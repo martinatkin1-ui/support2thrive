@@ -1,0 +1,44 @@
+{% load i18n %}
+<div class="bg-sage-100/80 border-b border-sage-200/90 text-sage-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+      {% if user_location %}
+        <span class="font-medium text-sage-800">
+          {% trans "Showing results within" %} {{ location_radius_miles|default:20 }} {% trans "miles of" %}
+          <span class="font-semibold">{{ user_location.postcode }}</span>
+          {% if user_location.label %}
+            <span class="text-sage-600">({{ user_location.label }})</span>
+          {% endif %}
+        </span>
+        {% if user_location.source == "session" %}
+          <span class="text-xs text-sage-600">{% trans "Header search" %}</span>
+        {% endif %}
+      {% else %}
+        <span class="text-sage-700">{% trans "Set your UK postcode in the search box to see nearby organisations and events." %}</span>
+      {% endif %}
+    </div>
+    <form method="post" action="{% url 'core:set_location' %}" class="flex flex-wrap items-center gap-2">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <label for="id_header_postcode" class="sr-only">{% trans "UK postcode" %}</label>
+      <input id="id_header_postcode" name="postcode" type="text" maxlength="20" placeholder="{% trans 'e.g. WV1 1SH' %}"
+             class="min-h-[40px] rounded-lg border border-sage-300 bg-white px-3 py-1.5 text-sage-900 text-sm w-40" />
+      {% if user.is_authenticated %}
+        <label class="inline-flex items-center gap-1.5 text-xs text-sage-700 whitespace-nowrap">
+          <input type="checkbox" name="save_to_profile" value="1" class="rounded border-sage-400" />
+          {% trans "Save to my profile" %}
+        </label>
+      {% endif %}
+      <button type="submit" class="min-h-[40px] rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-3 py-1.5">
+        {% trans "Update" %}
+      </button>
+    </form>
+    {% if user_location and user_location.source == "session" %}
+    <form method="post" action="{% url 'core:clear_location' %}" class="shrink-0">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <button type="submit" class="text-xs text-sage-700 underline hover:text-amber-800">{% trans "Clear search override" %}</button>
+    </form>
+    {% endif %}
+  </div>
+</div>

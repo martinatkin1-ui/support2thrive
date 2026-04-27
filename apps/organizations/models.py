@@ -154,6 +154,16 @@ class Organization(TimeStampedModel):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+        # Geocode UK postcode when coordinates missing (multi-region distance search)
+        if self.postcode and (self.latitude is None or self.longitude is None):
+            from apps.core.location import geocode_uk_postcode
+
+            r = geocode_uk_postcode(self.postcode)
+            if r.ok:
+                Organization.objects.filter(pk=self.pk).update(
+                    latitude=r.latitude,
+                    longitude=r.longitude,
+                )
 
     def get_description_for_language(self, lang_code):
         if lang_code == "en":

@@ -9,7 +9,11 @@
     <header class="mb-10">
         <h1 class="font-display text-3xl md:text-4xl font-medium text-sage-900 mb-2">{% trans "Organizations" %}</h1>
         <p class="text-sage-600 text-sm md:text-base max-w-2xl leading-relaxed">
-            {% trans "Browse trusted local organisations across the West Midlands. Filter by the type of support you need." %}
+            {% if search_location %}
+                {% blocktrans with r=location_radius_miles pc=search_location.postcode %}Showing organisations within {{ r }} miles of {{ pc }}. Filter by the type of support you need.{% endblocktrans %}
+            {% else %}
+                {% trans "Browse trusted local organisations. Set your postcode in the site header to see services within about 20 miles of you — anywhere in the UK." %}
+            {% endif %}
         </p>
     </header>
 
@@ -42,7 +46,12 @@
             {% endif %}
             <div class="p-5 flex flex-col flex-1">
                 <h2 class="font-heading text-lg font-semibold text-sage-900 mb-1 group-hover:text-amber-900 transition-colors duration-200">{{ org.name }}</h2>
-                <p class="text-sm text-sage-600 mb-2">{{ org.city }}</p>
+                <p class="text-sm text-sage-600 mb-2">
+                    {{ org.city }}
+                    {% if org.distance_miles is not None %}
+                        <span class="text-sage-500">· {{ org.distance_miles }} {% trans "mi" %}</span>
+                    {% endif %}
+                </p>
                 <p class="text-sm text-sage-700 line-clamp-3 leading-relaxed flex-1">{{ org.short_description }}</p>
                 <div class="mt-4 flex flex-wrap gap-1.5">
                     {% for stream in org.support_streams.all|slice:":3" %}

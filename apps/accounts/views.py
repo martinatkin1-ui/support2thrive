@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -9,7 +10,9 @@ from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.decorators.csrf import csrf_protect
 
-from .forms import RegistrationForm
+from apps.core.location import set_session_location
+
+from .forms import ProfileLocationForm, RegistrationForm
 from .models import User
 from .registration_notifications import (
     notify_org_managers_volunteer_registration,
@@ -84,6 +87,14 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            if user.home_latitude is not None and user.home_longitude is not None:
+                set_session_location(
+                    request,
+                    postcode=user.home_postcode,
+                    lat=float(user.home_latitude),
+                    lng=float(user.home_longitude),
+                    label=user.home_location_label or "",
+                )
             if user.role == user.ROLE_VOLUNTEER:
                 notify_org_managers_volunteer_registration(user)
                 messages.info(
@@ -113,5 +124,31 @@ def register(request):
     return render(request, "accounts/register.html", {"form": form})
 
 
+@login_required
 def profile(request):
-    return render(request, "accounts/profile.html")
+    if request.method == "POST":
+        form = ProfileLocationForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            u = request.user
+            u.refresh_from_db()
+            if u.home_latitude is not None and u.home_longitude is not None:
+                set_session_location(
+                    request,
+                    postcode=u.home_postcode,
+                    lat=float(u.home_latitude),
+                    lng=float(u.home_longitude),
+                    label=u.home_location_label or "",
+                )
+            messages.success(
+                request,
+                _("Your profile and search location have been updated."),
+            )
+            return redirect("accounts:profile")
+    else:
+        form = ProfileLocationForm(instance=request.user)
+    return render(
+        request,
+        "accounts/profile.html",
+        {"form": form},
+    )
